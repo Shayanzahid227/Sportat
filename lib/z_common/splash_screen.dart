@@ -1,63 +1,55 @@
-import 'package:code_structure/core/constants/strings.dart';
-import 'package:code_structure/ui/auth/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen_0 extends StatefulWidget {
-  const SplashScreen_0({super.key});
+import '../core/constants/app_assest.dart';
+import '../ui/screens/onboarding/onboarding_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashScreen_0> createState() => _SplashScreen_0State();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreen_0State extends State<SplashScreen_0> {
-  init() async {
-    await Future.delayed(const Duration(seconds: 2), () {
-      // navigator and rout mean from one page to another
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => LoginScreen(),
-      ));
-    });
-  }
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    init();
     super.initState();
+    _navigateToOnboarding();
+  }
+
+  _navigateToOnboarding() async {
+    await Future.delayed(const Duration(seconds: 5));
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OnboardingScreen(),
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Center(
+      backgroundColor: Colors.black,
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-                padding: const EdgeInsets.only(top: 300),
-                child: SizedBox(
-                  height: 170,
-                  width: 140,
-                  child: Image.asset(
-                    "$staticAssets/image_name_here",
-                    fit: BoxFit.cover,
-                  ),
-                )),
-            const SizedBox(height: 20),
-            const Text("Lucious",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black)),
-            const Text("B e a u t y  s a l o o n",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black))
+            // Logo
+            Container(
+              height: MediaQuery.of(context).size.height * 1,
+              width: MediaQuery.of(context).size.width * 1,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(AppAssets().splashScreen)),
+              ),
+            ),
+            // Loading indicator
           ],
         ),
       ),
-    ));
+    );
   }
 }
