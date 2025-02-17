@@ -118,18 +118,19 @@ class AppAssets {
 
   ///
   // ///**************  notification screen  **************************//
-  String bookingConfirmation = "$iconsAssets/bookingconfirmationicon.png";
-  String pointsEarned = "$iconsAssets/pointsearnicon.png";
-  String productPurchaseConfirmation = "$iconsAssets/productpurchaseicon.png";
-  String returnConfirmation = "$iconsAssets/returnconfirmationicon.png";
-  String eventReminder = "$iconsAssets/eventremindericon.png";
-  String discountForYou = "$iconsAssets/storecategoriesicon.png";
+  String bookingConfirmationIcon = "$iconsAssets/bookingconfirmationicon.png";
+  String pointsEarnedIcon = "$iconsAssets/pointsearnicon.png";
+  String productPurchaseConfirmationIcon =
+      "$iconsAssets/productpurchaseicon.png";
+  String returnConfirmationIcon = "$iconsAssets/returnconfirmationicon.png";
+  String eventReminderIcon = "$iconsAssets/eventremindericon.png";
+  String discountForYouIcon = "$iconsAssets/storecategoriesicon.png";
 
   /// discount icon is not downloading
   ///
   // ///************** store categories screen  **************************//
   ///
-  String addToCartScreen = "$iconsAssets/AddtocartIcon.png";
+  String addToCartScreenIcon = "$iconsAssets/AddtocartIcon.png";
   String screenStoreCategories1 = "$dynamicAssets/categoriesScreen1.png";
   String screenStoreCategories2 = "$dynamicAssets/categoriesScreen2.png";
   String screenStoreCategories3 = "$dynamicAssets/categoriesScreen3.png";
@@ -144,5 +145,58 @@ class AppAssets {
   //                                      //
   //      04 : Booking                    //
   //                                      //
-  //************************************ */
+  //************************************ *//
+  //
+  //************** Booking screen **************************//
+
+  String football1 = "$dynamicAssets/football1.png";
+  String basketball2 = "$dynamicAssets/basketball2.png";
+  String tennis3 = "$dynamicAssets/tennis3.png";
+  String volleyBall4 = "$dynamicAssets/volleyBall4.png";
+  String squash5 = "$dynamicAssets/squash5.png";
+  String golf6 = "$dynamicAssets/golf6.png";
+
+  //************** field details screen **************************//
+  //
+  String fieldDetails = "$dynamicAssets/fieldDetails.png";
+  String locationIcon = "$iconsAssets/locationIcon.png";
+  String mapIcon = "$iconsAssets/mapIcon.png";
+  String StareIcon = "$iconsAssets/StareIcon.png";
+  String termsAndConditionIcon = "$iconsAssets/termsAndConditionIcon.png";
+  String genderIcon = "$iconsAssets/genderIcon.png";
+  String selectedFieldIcon = "$iconsAssets/selectedFieldIcon.png";
+  String dateAndAvailableSLotIcon = "$iconsAssets/dateAndAvailableSLotIcon.png";
+  String addons = "$iconsAssets/spotscoategoriesicon.png";
+
+  //************** available services screen **************************//
+  //
+  String acIcon = "$iconsAssets/acIcon.png";
+  String blueFootBallIcon = "$iconsAssets/blueFootBallIcon.png";
+  String botleIcon = "$iconsAssets/botleIcon.png";
+  String kitIcon = "$iconsAssets/kitIcon.png";
+  String carIcon = "$iconsAssets/carIcon.png";
+  String showerIcon = "$iconsAssets/showerIcon.png";
+  //************** check out screen **************************//
+  //
+  String walletIcon = "$iconsAssets/walletIcon.png";
+  String viseCardIcon = "$iconsAssets/viseCardIcon.png";
+  String madaCardIcon = "$iconsAssets/madaCardIcon.png";
+  String addNewCardIcon = "$iconsAssets/addNewCardIcon.png";
+  //************** confirmed screen **************************//
+  //
+  String bookingConfirmedIcon = "$iconsAssets/bookingConfirmedIcon.png";
+  String shareIcon = "$iconsAssets/shareIcon.png";
+  String qrCode = "$dynamicAssets/qrCode.png";
+//************** club profile screen 1 **************************//
+  //
+  String clubProfile = "$dynamicAssets/clubProfile.png";
+  String blueTickIcon = "$iconsAssets/blueTickIcon.png";
+  String followIcon = "$iconsAssets/followIcon.png";
+  String heartIcon = "$iconsAssets/heartIcon.png";
+  String repostIcon = "$iconsAssets/repostIcon.png";
+  // share icon is already used
+  //************** club profile screen 2 **************************//
+  //
+  String videoPlayBackIcon = "$iconsAssets/vedioPlayBackIcon.png";
+  String videoIcon = "$iconsAssets/vedioIcon.png";
 }
