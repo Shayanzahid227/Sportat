@@ -40,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen> {
             // Logo
             Container(
               // height: double.infinity, width: double.infinity,
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 1,
+              width: MediaQuery.of(context).size.width * 1,
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(AppAssets().splashScreen)),

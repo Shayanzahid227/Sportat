@@ -31,6 +31,8 @@ class AppAssets {
   ///
   ///  login screen
   ///
+  String loginScreenLogo = "$staticAssets/loginScreenLogo.png";
+  String arabFlag = "$iconsAssets/arabFlag.png";
   String appleIcon = "$iconsAssets/apple.png";
   String googleIcon = "$iconsAssets/facebook.png";
   String facebookIcon = "$iconsAssets/google.png";

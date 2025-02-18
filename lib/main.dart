@@ -1,8 +1,11 @@
+import 'package:code_structure/ui/auth/login/login_screen.dart';
+import 'package:code_structure/ui/auth/otp/otp_screen.dart';
 import 'package:code_structure/ui/screens/onboarding/onboarding_screen.dart';
 import 'package:code_structure/z_common/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,14 +21,14 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Sportat',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
             useMaterial3: true,
           ),
-          home: const SplashScreen(),
+          home: otpSCreen(),
         );
       },
     );

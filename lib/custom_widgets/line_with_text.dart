@@ -1,3 +1,5 @@
+import 'package:code_structure/core/constants/colors.dart';
+import 'package:code_structure/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +23,7 @@ class CustomLineWithText extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center, // Center the content
         children: [
           Container(
-            width: lineWidth, // Set the width of the line
+            width: 110.w, // Set the width of the line
             height: 1.0,
             color: Colors.grey, // Line color
           ),
@@ -30,14 +32,14 @@ class CustomLineWithText extends StatelessWidget {
                 horizontal: 8.0), // Space around the text
             child: Text(
               text,
-              style: GoogleFonts.poppins(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
+              style: style14.copyWith(
+                fontSize: 12,
+                color: blackColor,
               ),
             ),
           ),
           Container(
-            width: lineWidth, // Set the width of the line
+            width: 110.w, // Set the width of the line
             height: 1.0,
             color: Colors.grey, // Line color
           ),
