@@ -91,7 +91,7 @@ class _otpSCreenState extends State<otpSCreen> {
                               ),
                               20.verticalSpace,
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 30),
+                                padding: EdgeInsets.symmetric(horizontal: 70),
                                 child: PinCodeTextField(
                                   appContext: context,
                                   length: 6,
