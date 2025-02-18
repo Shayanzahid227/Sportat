@@ -97,10 +97,11 @@ class AppAssets {
   String sportCategories5 = "$dynamicAssets/squash5.png";
   String sportCategories6 = "$dynamicAssets/golf6.png";
   //
-  //  sub part of home screen--> top 10 subscription
+  //  sub part of home screen--> top  subscription
   String topSubscriptionIcon = "$iconsAssets/topsubscriptionicon.png";
-  String topSubscriptionStadiumImage = "$dynamicAssets/subscriptionfield.png";
-  String topSubscriptionStadiumLogo = "$dynamicAssets/stadiumlogo.png";
+  String topSubscriptionStadiumImage =
+      "$dynamicAssets/subscriptionfield.png"; //image
+  String topSubscriptionStadiumLogo = "$dynamicAssets/stadiumlogo.png"; //logo
   //
   //    sub part of home screen-->top 10 fields
   String top10FieldsIcon = "$iconsAssets/top10fieldsicon.png";
@@ -141,6 +142,10 @@ class AppAssets {
   ///
   // ///************** search screens  **************************//
   ///
+  String searchResult1 = "$dynamicAssets/searchResult1.png";
+  String searchResult2 = "$dynamicAssets/searchResult2.png";
+  String searchResult3 = "$dynamicAssets/searchResult3.png";
+  String searchResult4 = "$dynamicAssets/searchResult4.png";
   //************************************ *//
   //                                      //
   //      04 : Booking                    //
@@ -190,6 +195,8 @@ class AppAssets {
 //************** club profile screen 1 **************************//
   //
   String clubProfile = "$dynamicAssets/clubProfile.png";
+  String clubPostImage = "$dynamicAssets/  clubImagev.png";
+
   String blueTickIcon = "$iconsAssets/blueTickIcon.png";
   String followIcon = "$iconsAssets/followIcon.png";
   String heartIcon = "$iconsAssets/heartIcon.png";
@@ -197,6 +204,58 @@ class AppAssets {
   // share icon is already used
   //************** club profile screen 2 **************************//
   //
+  String vedioImage = "$dynamicAssets/vedio.png";
   String videoPlayBackIcon = "$iconsAssets/vedioPlayBackIcon.png";
   String videoIcon = "$iconsAssets/vedioIcon.png";
+  //************** sportat profile screen **************************//
+  //
+  String finalLogo2 = "$staticAssets/finalLogo2.png";
+
+  ///
+  //************************************ *//
+  //                                      //
+  //      05 : subscribe                  //
+  //                                      //
+  //************************************ *//
+  //
+  //************** Booking 2 screen **************************//
+
+  String gym = "$dynamicAssets/gym.png";
+  String MartialArts = "$dynamicAssets/MartialArts.png";
+  String OutdoorActivities = "$dynamicAssets/OutdoorActivities.png";
+  String massage = "$dynamicAssets/massage.png";
+  String sportsClub = "$dynamicAssets/sportsClub.png";
+
+  //************** Booking  screen **************************//
+
+  String toplistingIcon = "$iconsAssets/toplistingIcon.png";
+
+  //************** field detail screen **************************//
+  //String selectedMembershipIcon = "$iconsAssets/selectedMembershipIcon.png";
+  String dollarIcon = "$iconsAssets/dollarIcon.png";
+
+  //************** available services  screen **************************//
+  // already done in Booking  > available services screen
+
+  //************** terms and condition screen **************************//
+  // no data
+
+  //************** check out screen **************************//
+  // already done in Booking > check out screen
+
+  //************** confirmed  screen **************************//
+  String confirmedIcon = "$iconsAssets/confirmedIcon.png";
+
+  //************** search  screen **************************//
+  //  already done in search screen
+
+  //************** search filter screen **************************//
+  ///
+  //************************************ *//
+  //                                      //
+  //       06 : TimeLine                  //
+  //                                      //
+  //************************************ *//
+  //
+  //************** Booking 2 screen **************************//
 }
