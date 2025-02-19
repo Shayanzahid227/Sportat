@@ -46,7 +46,7 @@ class AppAssets {
   ///  create an account screen
   ///
   String gendermaleIcon = "$iconsAssets/gendermale.png";
-  String genderfemaleIcon = "$iconsAssets/gendermale.png";
+  String genderfemaleIcon = "$iconsAssets/genderfemale.png";
 
   ///
   ///  select country screen
@@ -64,6 +64,7 @@ class AppAssets {
   ///  success screen
   ///
   String successIcon = "$iconsAssets/success.png";
+  //String succesIcon = "$iconsAssets/succesIcon.png"
 
   ///
   ///  interests screen
@@ -86,7 +87,7 @@ class AppAssets {
   String profileImage = "$dynamicAssets/profileimage.png";
   String locate1 = "$dynamicAssets/locate1.png";
   String pointsEarnIcon = "$iconsAssets/pointsearnicon.png";
-  String search2icon = "$iconsAssets/search2icon.png";
+  String searchicon2 = "$iconsAssets/search2icon.png";
   String searchfieldIcon = "$iconsAssets/searchfieldicon.png";
   String notificationIcon = "$iconsAssets/notificationicon.png";
   //

@@ -1,11 +1,13 @@
-import 'package:code_structure/ui/auth/login/login_screen.dart';
-import 'package:code_structure/ui/auth/otp/otp_screen.dart';
-import 'package:code_structure/ui/screens/onboarding/onboarding_screen.dart';
-import 'package:code_structure/z_common/splash_screen.dart';
+import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
+import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
+import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,21 +18,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Sportat',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-            useMaterial3: true,
-          ),
-          home: otpSCreen(),
-        );
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => SignUpViewModel()),
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Sportat',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+              useMaterial3: true,
+            ),
+            home: TermsScreen(),
+          );
+        },
+      ),
     );
   }
 }

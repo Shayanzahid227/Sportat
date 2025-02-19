@@ -1,5 +1,5 @@
 import 'package:code_structure/core/constants/strings.dart';
-import 'package:code_structure/custom_widgets/bottom_navigator_bar.dart';
+import 'package:code_structure/custom_widgets/dialog_box/bottom_navigator_bar.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

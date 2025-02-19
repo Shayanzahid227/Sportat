@@ -28,10 +28,11 @@ class _otpSCreenState extends State<otpSCreen> {
             child: Column(
               children: [
                 Container(
+                  color: backGroundCOlor,
                   width: double.infinity,
                   child: Column(
                     children: [
-                      20.verticalSpace,
+                      60.verticalSpace,
                       Row(
                         children: [
                           20.horizontalSpace,
@@ -54,7 +55,7 @@ class _otpSCreenState extends State<otpSCreen> {
                           SizedBox(width: 60),
                         ],
                       ),
-                      20.verticalSpace, // Added space before image
+                      30.verticalSpace, // Added space before image
                       Image.asset(
                         AppAssets().otp,
                         height: 150, // Reduced from 200 to 150
@@ -91,7 +92,7 @@ class _otpSCreenState extends State<otpSCreen> {
                               ),
                               20.verticalSpace,
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 70),
+                                padding: EdgeInsets.symmetric(horizontal: 40),
                                 child: PinCodeTextField(
                                   appContext: context,
                                   length: 6,
@@ -114,9 +115,9 @@ class _otpSCreenState extends State<otpSCreen> {
                               20.verticalSpace,
                               Text(
                                 "Didn't Receive The Code?",
-                                style: style16.copyWith(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
+                                style: style14.copyWith(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
                                   color: Colors.grey[600],
                                 ),
                               ),
