@@ -1,4 +1,3 @@
-import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 
 class SignUpViewModel extends BaseViewModel {

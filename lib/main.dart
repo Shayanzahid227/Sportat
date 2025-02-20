@@ -1,11 +1,10 @@
-import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
+import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
-import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
-import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
-import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
+import 'package:code_structure/z_common/splash_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +20,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SignUpViewModel()),
+        ChangeNotifierProvider(create: (_) => InterestScreenViewModel()),
+        ChangeNotifierProvider(create: (_) => SignUpViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
               useMaterial3: true,
             ),
-            home: TermsScreen(),
+            home: SplashScreen(),
           );
         },
       ),

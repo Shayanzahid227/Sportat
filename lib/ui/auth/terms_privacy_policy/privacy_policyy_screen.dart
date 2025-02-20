@@ -30,6 +30,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               children: [
                 const SizedBox(height: 60),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
                       onTap: () {
@@ -50,7 +51,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         ),
                       ),
                     ),
-                    30.horizontalSpace,
                     const Text(
                       "Privacy Policy",
                       style: TextStyle(
@@ -59,6 +59,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                         color: blackColor,
                       ),
                     ),
+                    Text('')
                   ],
                 ),
                 30.verticalSpace,

@@ -1,6 +1,6 @@
 import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_assest.dart';
+import '../../core/constants/app_assest.dart';
 import 'onboarding_model.dart';
 
 class OnboardingViewModel extends ChangeNotifier {

@@ -5,6 +5,8 @@ import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/custom_widgets/buttons/socail_button.dart';
 import 'package:code_structure/custom_widgets/dialog_box/line_with_text.dart';
 import 'package:code_structure/ui/auth/login/login_view_model.dart';
+import 'package:code_structure/ui/auth/otp/otp_screen.dart';
+import 'package:code_structure/ui/home/home_Screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -140,14 +142,24 @@ class _LoginScreenState extends State<LoginScreen> {
   _continueButton() {
     return CustomloginButton(
       text: 'Continue',
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => otpSCreen()),
+        );
+      },
     );
   }
 
   _LoginAsGuest() {
     return CustomloginButton(
       text: 'Login As Guest',
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      },
     );
   }
 

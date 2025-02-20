@@ -1,14 +1,17 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
-import 'package:code_structure/core/constants/strings.dart';
+
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/custom_widgets/sportat/text_field.dart';
-import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
+import 'package:code_structure/ui/auth/Interest/interest_Screen.dart';
+
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
+import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+
 import 'package:provider/provider.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -65,10 +68,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
             border: Border.all(color: borderColor),
             borderRadius: BorderRadius.circular(6),
           ),
-          child: Icon(
-            Icons.arrow_back_ios_new_sharp,
-            size: 25,
-            color: borderColor,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios_new_sharp,
+              size: 25,
+              color: borderColor,
+            ),
           ),
         ),
         40.horizontalSpace,
@@ -240,7 +248,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   _custombutton() {
     return CustomloginButton(
       text: 'sign Up',
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => InterestScreen()),
+        );
+      },
     );
   }
 
