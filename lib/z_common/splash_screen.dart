@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigateToOnboarding() async {
-    await Future.delayed(const Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
       Navigator.pushReplacement(
         context,
@@ -44,7 +44,8 @@ class _SplashScreenState extends State<SplashScreen> {
               width: MediaQuery.of(context).size.width * 1,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(AppAssets().splashScreen)),
+                    image: AssetImage(AppAssets().splashScreen),
+                    fit: BoxFit.cover),
               ),
             ),
             // Loading indicator

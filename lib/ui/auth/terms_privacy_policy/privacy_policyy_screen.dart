@@ -21,7 +21,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       create: (context) => BaseViewModel(),
       child: Consumer<BaseViewModel>(
         builder: (context, model, child) => Scaffold(
-          backgroundColor: backGroundCOlor,
+          backgroundColor: backGroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -44,10 +44,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                               color: Color(0xfff5B7083),
                             ),
                             borderRadius: BorderRadius.circular(8)),
-                        child: Icon(
-                          Icons.arrow_back_ios_outlined,
-                          size: 20,
-                          color: Color(0xfff5B7083),
+                        child: GestureDetector(
+                          onTap: () {
+                            navigator?.pop(context);
+                          },
                         ),
                       ),
                     ),

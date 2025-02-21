@@ -20,7 +20,11 @@ const style14 = TextStyle(
     fontFamily: 'Tajawal');
 
 ///***********************************    Normal             ********************************************************************** */
-
+const style20N = TextStyle(
+    fontSize: 20,
+    color: blackColor,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Tajawal');
 const style25N = TextStyle(
     fontSize: 25,
     color: blackColor,

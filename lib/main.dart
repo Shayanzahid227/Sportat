@@ -1,5 +1,6 @@
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
+import 'package:code_structure/ui/home/home_Screen/home_screen.dart';
 import 'package:code_structure/z_common/splash_screen.dart';
 
 import 'package:flutter/material.dart';

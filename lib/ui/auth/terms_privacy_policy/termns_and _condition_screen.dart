@@ -3,6 +3,7 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,7 @@ class _TermsScreenState extends State<TermsScreen> {
       create: (context) => BaseViewModel(),
       child: Consumer<BaseViewModel>(
           builder: (context, model, child) => Scaffold(
-                backgroundColor: backGroundCOlor,
+                backgroundColor: backGroundColor,
                 body: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
@@ -35,19 +36,18 @@ class _TermsScreenState extends State<TermsScreen> {
                               navigator?.pop(context);
                             },
                             child: Container(
-                              height: 30,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Color(0xfff5B7083),
-                                  ),
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: Icon(
-                                Icons.arrow_back_ios_outlined,
-                                size: 20,
-                                color: Color(0xfff5B7083),
-                              ),
-                            ),
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Color(0xfff5B7083),
+                                    ),
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    navigator?.pop(context);
+                                  },
+                                )),
                           ),
                           30.horizontalSpace,
                           const Text(

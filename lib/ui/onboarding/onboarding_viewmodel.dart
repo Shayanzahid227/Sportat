@@ -42,13 +42,18 @@ class OnboardingViewModel extends ChangeNotifier {
   }
 
   void moveToNextPage(BuildContext context) {
-    if (isLastPage) {
-      _navigateToSignUp(context);
-    } else {
-      pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+    try {
+      if (isLastPage) {
+        print('navigate to signUp page successfully ');
+        _navigateToSignUp(context);
+      } else {
+        pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    } catch (e) {
+      print('$e');
     }
   }
 

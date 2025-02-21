@@ -7,8 +7,8 @@ const Color PrimaryColor = thinGrennColor;
 const Color purpleColor = Color(0xfff9370DB);
 const Color SecondryColor = purpleColor;
 // background color
-const Color lightpurplecolor = Color(0xfffF3F5FA);
-const Color backGroundCOlor = lightpurplecolor;
+const Color backgroundColor = Color(0xfffF3F5FA);
+const Color backGroundColor = backgroundColor;
 // border color
 const Color lightGreyColor = Color(0xfff5B7083);
 const Color BordrColor = lightGreyColor;

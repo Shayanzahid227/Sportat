@@ -28,7 +28,7 @@ class _otpSCreenState extends State<otpSCreen> {
             child: Column(
               children: [
                 Container(
-                  color: backGroundCOlor,
+                  color: backGroundColor,
                   width: double.infinity,
                   child: Column(
                     children: [

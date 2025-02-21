@@ -8,6 +8,8 @@ import 'package:code_structure/ui/auth/Interest/interest_Screen.dart';
 
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -30,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         builder: (context, model, child) => Scaffold(
           body: SafeArea(
             child: Container(
-              decoration: BoxDecoration(color: backGroundCOlor),
+              decoration: BoxDecoration(color: backGroundColor),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: SingleChildScrollView(
@@ -69,15 +71,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
             borderRadius: BorderRadius.circular(6),
           ),
           child: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(
-              Icons.arrow_back_ios_new_sharp,
-              size: 25,
-              color: borderColor,
-            ),
-          ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: GestureDetector(
+                onTap: () {
+                  navigator?.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_ios_new_sharp,
+                  size: 25,
+                  color: borderColor,
+                ),
+              )),
         ),
         40.horizontalSpace,
         Align(
@@ -274,7 +280,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(
+                  TermsScreen(),
+                );
+              },
               child: Text(
                 "The terms ",
                 style: style14.copyWith(
@@ -293,7 +303,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(
+                  PrivacyPolicyScreen(),
+                );
+              },
               child: Text(
                 "Privacy Policy",
                 style: style14.copyWith(

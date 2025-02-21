@@ -86,6 +86,7 @@ class AppAssets {
 
   String profileImage = "$dynamicAssets/profileimage.png";
   String locate1 = "$dynamicAssets/locate1.png";
+  String ellipse = "$dynamicAssets/ellipse.png";
   String pointsEarnIcon = "$iconsAssets/pointsearnicon.png";
   String searchicon2 = "$iconsAssets/search2icon.png";
   String searchfieldIcon = "$iconsAssets/searchfieldicon.png";
@@ -95,8 +96,8 @@ class AppAssets {
   String spotsCategoriesIcon = "$iconsAssets/spotscoategoriesicon.png";
   String sportCategories1 = "$dynamicAssets/football1.png";
   String sportCategories2 = "$dynamicAssets/basketball2.png";
-  String sportCategories3 = "$dynamicAssets/tenis3.png";
-  String sportCategories4 = "$dynamicAssets/vollyball4.png";
+  String sportCategories3 = "$dynamicAssets/tennis3.png";
+  String sportCategories4 = "$dynamicAssets/volleyBall4.png";
   String sportCategories5 = "$dynamicAssets/squash5.png";
   String sportCategories6 = "$dynamicAssets/golf6.png";
   //
@@ -113,12 +114,13 @@ class AppAssets {
   //
   //  sub part of home screen--> store categories in list view
   String storeCategoriesIcon = "$iconsAssets/storecategoriesicon.png";
-  String storeCategories1 = "$dynamicAssets/categgories1.png";
-  String storeCategories2 = "$dynamicAssets/categgories2.png";
-  String storeCategories3 = "$dynamicAssets/categgories3.png";
-  String storeCategories4 = "$dynamicAssets/categgories4.png";
-  String storeCategories5 = "$dynamicAssets/categgories5.png";
-  String storeCategories6 = "$dynamicAssets/categgories6.png";
+  String storeCategories1 = "$dynamicAssets/categories1.png";
+  String storeCategories2 = "$dynamicAssets/categories2.png";
+  String storeCategories3 = "$dynamicAssets/categories3.png";
+  String storeCategories4 = "$dynamicAssets/categories4.png";
+  String storeCategories5 = "$dynamicAssets/categories5.png";
+  String storeCategories6 = "$dynamicAssets/categories6.png";
+  String categories7 = "$dynamicAssets/categories7.png";
 
   ///
   // ///**************  notification screen  **************************//

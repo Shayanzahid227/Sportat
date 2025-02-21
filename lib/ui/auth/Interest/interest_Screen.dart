@@ -4,6 +4,7 @@ import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart'
 import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import 'package:provider/provider.dart';
 
@@ -44,46 +45,55 @@ class _InterestScreenState extends State<InterestScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          height: 30,
-          width: 30,
-          decoration: BoxDecoration(
-              border: Border.all(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xfff5B7083),
+                ),
+                borderRadius: BorderRadius.circular(8)),
+            child: GestureDetector(
+              onTap: () {
+                navigator?.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_ios_outlined,
+                size: 20,
                 color: Color(0xfff5B7083),
               ),
-              borderRadius: BorderRadius.circular(8)),
-          child: Icon(
-            Icons.arrow_back_ios_outlined,
-            size: 20,
-            color: Color(0xfff5B7083),
-          ),
-        ),
+            )),
         Text(
           "Interest",
           style: TextStyle(
               fontSize: 28, fontWeight: FontWeight.w500, color: blackColor),
         ),
         TextButton(
-            onPressed: () => model.onSkip(context),
-            style: TextButton.styleFrom(
-              backgroundColor: Color(0xfff9EB94533 % 20),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+          onPressed: () => model.onSkip(context),
+          style: TextButton.styleFrom(
+            backgroundColor: Color(0xfff9EB94533 % 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SuccessScreen(),
+                ),
+              );
+            },
+            child: Text(
+              'Skip',
+              style: TextStyle(
+                color: model.isSelected ? Colors.white : blackColor,
+                fontSize: 16.sp,
               ),
             ),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SuccessScreen()));
-              },
-              child: Text(
-                'Skip',
-                style: TextStyle(
-                  color: model.isSelected ? Colors.white : blackColor,
-                  fontSize: 16.sp,
-                ),
-              ),
-            )),
+          ),
+        ),
       ],
     );
   }

@@ -20,7 +20,7 @@ class CustomInterestScreen extends StatelessWidget {
       // height: 35.h,
 
       decoration: BoxDecoration(
-        color: isColorChange == index ? SecondryColor : backGroundCOlor,
+        color: isColorChange == index ? SecondryColor : backGroundColor,
         // color: model.isColorChange ? SecondryColor : backGroundCOlor,
         borderRadius: BorderRadius.circular(82),
       ),

@@ -141,7 +141,9 @@ class _SuccessScreenState extends State<SuccessScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(),
+            ),
           );
         },
       ),
