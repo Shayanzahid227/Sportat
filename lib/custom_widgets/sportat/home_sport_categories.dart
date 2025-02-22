@@ -1,7 +1,5 @@
 import 'package:code_structure/core/model/home_sport_categories_model.dart';
-import 'package:code_structure/core/model/store_categories_tabbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomHomeSportCategoryCard extends StatelessWidget {
   final HomeSportCategoriesModel Object_homeSportcategories;

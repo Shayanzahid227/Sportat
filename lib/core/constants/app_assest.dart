@@ -13,7 +13,7 @@ class AppAssets {
   ///
   ///  splash screen
   String splashScreenhColor = "$staticAssets/splashcolor.png";
-  String splashScreen = "$staticAssets/splash.png";
+  String splashScreen = "$staticAssets/splashh.png";
 
   ///
   /// onboarding screen

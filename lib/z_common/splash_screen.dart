@@ -33,25 +33,33 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo
-            Container(
-              // height: double.infinity, width: double.infinity,
-              height: MediaQuery.of(context).size.height * 1,
-              width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(AppAssets().splashScreen),
-                    fit: BoxFit.cover),
-              ),
-            ),
-            // Loading indicator
-          ],
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(AppAssets().splashScreen), fit: BoxFit.cover),
         ),
       ),
+      // body: Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       // Logo
+      //       Container(
+      //         // height: double.infinity, width: double.infinity,
+      //         height: MediaQuery.of(context).size.height * 1,
+      //         width: MediaQuery.of(context).size.width * 1,
+      //         decoration: BoxDecoration(
+      //           image: DecorationImage(
+      //               image: AssetImage(AppAssets().splashScreen),
+      //               fit: BoxFit.cover),
+      //         ),
+      //       ),
+      //       // Loading indicator
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

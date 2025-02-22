@@ -1,29 +1,20 @@
-import 'package:code_structure/core/constants/app_assest.dart';
-import 'package:code_structure/core/constants/colors.dart';
+// ignore_for_file: use_key_in_widget_constructors
 
-import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
+import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
+import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/custom_widgets/sportat/text_field.dart';
 import 'package:code_structure/ui/auth/Interest/interest_Screen.dart';
-
-import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
-import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
-import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
-import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
-import 'package:provider/provider.dart';
-
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
-
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
+class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -31,29 +22,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Consumer<SignUpViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: backgroundColor,
-          body: SafeArea(
-            child: Container(
-              decoration: BoxDecoration(color: backGroundColor),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      64.verticalSpace,
-                      _header(),
-                      30.verticalSpace,
-                      _authFields(),
-                      15.verticalSpace,
-                      _gender(),
-                      45.verticalSpace,
-                      _custombutton(),
-                      60.verticalSpace,
-                      _warning(),
-                    ],
-                  ),
-                ),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  40.verticalSpace,
+                  _header(context),
+                  30.verticalSpace,
+                  _authFields(context),
+                  15.verticalSpace,
+                  _gender(context),
+                  45.verticalSpace,
+                  _custombutton(context),
+                  60.verticalSpace,
+                  _warning(),
+                ],
               ),
             ),
           ),
@@ -63,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 // header
-  _header() {
+  _header(BuildContext? context) {
     return Row(
       children: [
         Container(
@@ -73,7 +59,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           child: GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Get.back();
               },
               child: GestureDetector(
                 onTap: () {
@@ -100,7 +86,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 // textfield
-  _authFields() {
+  _authFields(BuildContext context) {
     final model = Provider.of<SignUpViewModel>(context);
     return Column(
       children: [
@@ -123,7 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           text: model.selectedCountry ?? 'Select Country',
           obscureText: false,
           suffixIcon: GestureDetector(
-            onTap: () => _selectedCountry(),
+            onTap: () => _selectedCountry(context),
             child: Icon(
               Icons.keyboard_arrow_down,
               color: blackColor,
@@ -135,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           text: model.selectedCity ?? 'Select City',
           obscureText: false,
           suffixIcon: GestureDetector(
-            onTap: () => _selectedCity(),
+            onTap: () => _selectedCity(context),
             child: Icon(
               Icons.keyboard_arrow_down,
               color: blackColor,
@@ -148,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 //select gender
-  _gender() {
+  _gender(BuildContext context) {
     final model = Provider.of<SignUpViewModel>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +238,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 //button
-  _custombutton() {
+  _custombutton(BuildContext context) {
     return CustomloginButton(
       text: 'sign Up',
       onPressed: () {
@@ -325,7 +311,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 // select country bottom sheet
-  _selectedCountry() {
+  _selectedCountry(BuildContext context) {
     final model = Provider.of<SignUpViewModel>(context, listen: false);
     return showModalBottomSheet(
       backgroundColor: whitecolor,
@@ -433,7 +419,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
 // selected city
-  _selectedCity() {
+  _selectedCity(BuildContext context) {
     final model = Provider.of<SignUpViewModel>(context, listen: false);
     return showModalBottomSheet(
       backgroundColor: whitecolor,

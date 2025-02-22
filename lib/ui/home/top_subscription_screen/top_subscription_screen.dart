@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';

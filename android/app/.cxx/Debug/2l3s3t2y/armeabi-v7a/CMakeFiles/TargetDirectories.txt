@@ -1,0 +1,2 @@
+/Users/eapple/Sportat/android/app/.cxx/Debug/2l3s3t2y/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/eapple/Sportat/android/app/.cxx/Debug/2l3s3t2y/armeabi-v7a/CMakeFiles/rebuild_cache.dir
