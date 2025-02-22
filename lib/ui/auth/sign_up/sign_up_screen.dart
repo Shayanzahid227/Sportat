@@ -30,6 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       create: (context) => SignUpViewModel(),
       child: Consumer<SignUpViewModel>(
         builder: (context, model, child) => Scaffold(
+          backgroundColor: backgroundColor,
           body: SafeArea(
             child: Container(
               decoration: BoxDecoration(color: backGroundColor),
@@ -410,7 +411,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         : null,
                     onTap: () {
                       model.setSelectedCountry(country);
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                     },
                   );
                 },
@@ -518,7 +519,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         : null,
                     onTap: () {
                       model.setSelectedCity(city);
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                     },
                   );
                 },

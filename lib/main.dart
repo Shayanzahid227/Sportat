@@ -1,6 +1,9 @@
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/ui/home/home_Screen/home_screen.dart';
+import 'package:code_structure/ui/home/store_categories_screen/1_store_categories_screen.dart';
+import 'package:code_structure/ui/home/top_subscription_screen/top_subscription_screen.dart';
+import 'package:code_structure/z_common/rough/rough1.dart';
 import 'package:code_structure/z_common/splash_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
               useMaterial3: true,
             ),
-            home: SplashScreen(),
+            home: StoreCategoriesScreen(),
           );
         },
       ),
