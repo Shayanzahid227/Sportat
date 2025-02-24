@@ -50,7 +50,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                 height: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(AppAssets().splashScreen),
+                    image: AssetImage(AppAssets().bgImage),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -82,6 +82,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
             Align(
               alignment: Alignment.topCenter,
               child: ConfettiWidget(
+                blastDirectionality: BlastDirectionality.explosive,
                 confettiController: confettiController,
                 blastDirection: pi / 2, // Straight down
                 maxBlastForce: 5,
@@ -134,7 +135,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
   _getStartButton() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 85),
-      child: CustomloginButton(
+      child: CustomButton(
         text: 'Get start',
         onPressed: () {
           Navigator.push(

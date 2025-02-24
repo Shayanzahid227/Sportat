@@ -1,4 +1,4 @@
-import 'package:code_structure/core/constants/app_assest.dart';
+// ignore_for_file: non_constant_identifier_names
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/top_subscriptions_screen.dart';
@@ -16,7 +16,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
       margin: EdgeInsets.all(16.0), // Add some margin
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(21.0), // Rounded corners
-        border: Border.all(color: PrimaryColor, width: 0.3), // Purple border
+        border: Border.all(color: primaryColor, width: 0.3), // Purple border
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +89,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(0.0),
                         child: Image.asset(
                           ' ${Object_topSubscriptionsScreenModel.title}',
-                          color: SecondryColor,
+                          color: secondryColor,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -100,7 +100,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                       style: style14.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
-                          color: SecondryColor),
+                          color: secondryColor),
                     ),
                   ],
                 ),

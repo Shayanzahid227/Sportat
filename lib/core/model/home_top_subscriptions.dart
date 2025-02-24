@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class HomeTopSubscriptionsModel {
   final String? title;
   final String? imageUrl;

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class TopSubscriptionsScreenModel {
   final String? imageUrl;
   final String? title;

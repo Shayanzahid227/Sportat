@@ -3,6 +3,11 @@
 import 'package:code_structure/core/constants/strings.dart';
 
 class AppAssets {
+  ///
+  /// App logo
+  ///
+  String appLogo = "$staticAssets/app_logo.png";
+
   //************************************ *//
   //                                      //
   // 01 : splash and onboarding screen    //
@@ -14,6 +19,7 @@ class AppAssets {
   ///  splash screen
   String splashScreenhColor = "$staticAssets/splashcolor.png";
   String splashScreen = "$staticAssets/splashh.png";
+  String bgImage = "$staticAssets/bg_image.png";
 
   ///
   /// onboarding screen
@@ -29,13 +35,14 @@ class AppAssets {
   //*********************************** *//
 
   ///
-  ///  login screen
+  ///  login and signup screen
   ///
-  String loginScreenLogo = "$staticAssets/loginScreenLogo.png";
+
   String arabFlag = "$iconsAssets/arabFlag.png";
   String appleIcon = "$iconsAssets/apple.png";
   String googleIcon = "$iconsAssets/facebook.png";
   String facebookIcon = "$iconsAssets/google.png";
+  String close = "$iconsAssets/close.png";
 
   ///
   ///  otp screen

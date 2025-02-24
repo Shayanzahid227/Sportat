@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class HomeTop10FieldsModel {
   final String? title;
   final String? imageUrl;

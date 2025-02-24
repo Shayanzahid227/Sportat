@@ -1,10 +1,9 @@
+// ignore_for_file: use_key_in_widget_constructors, unused_field
 import 'package:code_structure/core/constants/auth_text_feild.dart';
-import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class customtextformfeild extends StatelessWidget {
+class CustomTextFormFeild extends StatelessWidget {
   final String text;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -14,7 +13,7 @@ class customtextformfeild extends StatelessWidget {
   final void Function(String)? onChanged;
 
   final String? Function(String?)? validator;
-  customtextformfeild(
+  CustomTextFormFeild(
       {required this.text,
       this.prefixIcon,
       this.suffixIcon,
@@ -42,26 +41,6 @@ class customtextformfeild extends StatelessWidget {
         hintStyle: style14.copyWith(
           fontWeight: FontWeight.w400,
           color: Color(0xfff5B7083),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor),
-          borderRadius: BorderRadius.circular(15),
         ),
       ),
       validator: validator,

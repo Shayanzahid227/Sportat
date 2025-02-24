@@ -5,56 +5,58 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomInterestScreen extends StatelessWidget {
-  InterestScreenModel ObjectInterestScreenModel;
-  int isColorChange;
-  int index;
-  CustomInterestScreen(
-      {super.key,
-      required this.ObjectInterestScreenModel,
-      required this.index,
-      required this.isColorChange});
+  final InterestModel interestModel;
+  final bool isSelected;
+  final int index;
+
+  const CustomInterestScreen({
+    super.key,
+    required this.interestModel,
+    required this.index,
+    required this.isSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 35.h,
-
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: isColorChange == index ? SecondryColor : backGroundColor,
-        // color: model.isColorChange ? SecondryColor : backGroundCOlor,
+        color: isSelected ? secondryColor : backGroundColor,
         borderRadius: BorderRadius.circular(82),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          5.horizontalSpace,
-          Image.asset(
-            height: 20.h,
-            width: 20.w,
-            '${ObjectInterestScreenModel.icon}',
-            fit: BoxFit.cover,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                height: 15.h,
+                width: 15.w,
+                "${interestModel.icon}",
+                fit: BoxFit.cover,
+              ),
+              10.horizontalSpace,
+              Text(
+                "${interestModel.title}",
+                style: style14.copyWith(
+                  color: isSelected ? whitecolor : blackColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
           ),
-          5.horizontalSpace,
-          Text(
-            "${ObjectInterestScreenModel.title}",
-            style: style14.copyWith(
-                color: isColorChange == index ? whitecolor : blackColor,
-                // color: model.isColorChange ? whitecolor : blackColor,
-                fontWeight: FontWeight.w400),
-          ),
-          2.horizontalSpace,
-          isColorChange == index
-              ? Container(
-                  height: 20,
-                  width: 12,
-                  decoration: BoxDecoration(),
-                  child: Icon(
-                    Icons.check,
-                    color: isColorChange == index ? whitecolor : null,
-                  ),
-                )
-              : Container(),
-          2.horizontalSpace,
+          if (isSelected)
+            Expanded(
+              child: Icon(
+                Icons.check,
+                color: whitecolor,
+                size: 20.sp,
+              ),
+            ),
         ],
       ),
     );

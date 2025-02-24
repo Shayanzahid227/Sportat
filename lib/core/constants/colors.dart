@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
 
-// primary color
-const Color thinGrennColor = Color(0xfff16B26B);
-const Color PrimaryColor = thinGrennColor;
-// secondary color
-const Color purpleColor = Color(0xfff9370DB);
-const Color SecondryColor = purpleColor;
-// background color
-const Color backgroundColor = Color(0xfffF3F5FA);
+const Color thinGrennColor = Color(0xff16B26B);
+const Color primaryColor = thinGrennColor;
+const Color purpleColor = Color(0xff9370DB);
+const Color secondryColor = purpleColor;
+const Color backgroundColor = Color(0xffF3F5FA);
 const Color backGroundColor = backgroundColor;
-// border color
-const Color lightGreyColor = Color(0xfff5B7083);
-const Color BordrColor = lightGreyColor;
-// white color
+const Color lightGreyColor = Color(0xff5B7083);
+const Color bordrColor = lightGreyColor;
 const Color whitecolor = Colors.white;
-//artical color
-const Color articalColor = Color(0xfff515C6F);
-//*********************************** */
+const Color articalColor = Color(0xff515C6F);
 const Color pinkColor = Colors.pink;
-const Color SecondarybuttonColor = pinkColor;
+const Color secondarybuttonColor = pinkColor;
 const Color transparentColor = Colors.transparent;
-// textform feild color
-const Color borderColor = Color(0xfffADB5BD);
-
+const Color borderColor = Color(0xffADB5BD);
 const Color blackColor = Colors.black;
 const Color filledColor = Colors.grey;
 const Color textfiledBorderColor = Colors.greenAccent;
+const Color titleColor = Color(0xff4A4A4A);

@@ -1,20 +1,14 @@
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
+import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:provider/provider.dart';
 
-class TermsScreen extends StatefulWidget {
+class TermsScreen extends StatelessWidget {
   const TermsScreen({super.key});
 
-  @override
-  State<TermsScreen> createState() => _TermsScreenState();
-}
-
-class _TermsScreenState extends State<TermsScreen> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -31,24 +25,7 @@ class _TermsScreenState extends State<TermsScreen> {
                       const SizedBox(height: 60),
                       Row(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              navigator?.pop(context);
-                            },
-                            child: Container(
-                                height: 30,
-                                width: 30,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Color(0xfff5B7083),
-                                    ),
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    navigator?.pop(context);
-                                  },
-                                )),
-                          ),
+                          CustomBackButton(),
                           30.horizontalSpace,
                           const Text(
                             "Terms & conditions",

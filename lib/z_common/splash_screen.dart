@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../core/constants/app_assest.dart';
 import '../ui/onboarding/onboarding_screen.dart';
 
@@ -20,12 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigateToOnboarding() async {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnboardingScreen(),
-        ),
-      );
+      Get.offAll(OnboardingScreen());
     }
   }
 
@@ -41,25 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
               image: AssetImage(AppAssets().splashScreen), fit: BoxFit.cover),
         ),
       ),
-      // body: Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       // Logo
-      //       Container(
-      //         // height: double.infinity, width: double.infinity,
-      //         height: MediaQuery.of(context).size.height * 1,
-      //         width: MediaQuery.of(context).size.width * 1,
-      //         decoration: BoxDecoration(
-      //           image: DecorationImage(
-      //               image: AssetImage(AppAssets().splashScreen),
-      //               fit: BoxFit.cover),
-      //         ),
-      //       ),
-      //       // Loading indicator
-      //     ],
-      //   ),
-      // ),
     );
   }
 }

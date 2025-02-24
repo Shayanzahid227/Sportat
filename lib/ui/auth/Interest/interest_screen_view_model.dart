@@ -5,23 +5,35 @@ import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class InterestScreenViewModel extends BaseViewModel {
-  bool isSelected = false;
   Set<int> selectedInterests = {};
 
+  void toggleSelection(int index) {
+    if (selectedInterests.contains(index)) {
+      selectedInterests.remove(index);
+    } else {
+      selectedInterests.add(index);
+    }
+    notifyListeners();
+  }
+
+  bool isSelected(int index) {
+    return selectedInterests.contains(index);
+  }
+
   // Initialize interest list
-  List<InterestScreenModel> interestList = [
-    InterestScreenModel(icon: AppAssets().cameraIcon, title: 'video'),
-    InterestScreenModel(icon: AppAssets().bookIcon, title: 'Books'),
-    InterestScreenModel(icon: AppAssets().footballIcon, title: 'Football'),
-    InterestScreenModel(icon: AppAssets().bookIcon, title: 'Books'),
-    InterestScreenModel(icon: AppAssets().footballIcon, title: 'Football'),
-    InterestScreenModel(icon: AppAssets().cameraIcon, title: 'video'),
-    InterestScreenModel(icon: AppAssets().cameraIcon, title: 'video'),
-    InterestScreenModel(icon: AppAssets().bookIcon, title: 'Books'),
-    InterestScreenModel(icon: AppAssets().footballIcon, title: 'Football'),
-    InterestScreenModel(icon: AppAssets().bookIcon, title: 'Books'),
-    InterestScreenModel(icon: AppAssets().footballIcon, title: 'Football'),
-    InterestScreenModel(icon: AppAssets().cameraIcon, title: 'video'),
+  List<InterestModel> interestList = [
+    InterestModel(icon: AppAssets().cameraIcon, title: 'video'),
+    InterestModel(icon: AppAssets().bookIcon, title: 'Books'),
+    InterestModel(icon: AppAssets().footballIcon, title: 'Football'),
+    InterestModel(icon: AppAssets().bookIcon, title: 'Books'),
+    InterestModel(icon: AppAssets().footballIcon, title: 'Football'),
+    InterestModel(icon: AppAssets().cameraIcon, title: 'video'),
+    InterestModel(icon: AppAssets().cameraIcon, title: 'video'),
+    InterestModel(icon: AppAssets().bookIcon, title: 'Books'),
+    InterestModel(icon: AppAssets().footballIcon, title: 'Football'),
+    InterestModel(icon: AppAssets().bookIcon, title: 'Books'),
+    InterestModel(icon: AppAssets().footballIcon, title: 'Football'),
+    InterestModel(icon: AppAssets().cameraIcon, title: 'video'),
   ];
 
   ///

@@ -1,20 +1,14 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
+import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/route_manager.dart';
-
 import 'package:provider/provider.dart';
 
-class PrivacyPolicyScreen extends StatefulWidget {
-  const PrivacyPolicyScreen({super.key});
-
-  @override
-  State<PrivacyPolicyScreen> createState() => _PrivacyPolicyScreenState();
-}
-
-class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
+class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -22,6 +16,10 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       child: Consumer<BaseViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: backGroundColor,
+
+          ///
+          /// Start Body
+          ///
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -32,25 +30,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        navigator?.pop(context);
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xfff5B7083),
-                            ),
-                            borderRadius: BorderRadius.circular(8)),
-                        child: GestureDetector(
-                          onTap: () {
-                            navigator?.pop(context);
-                          },
-                        ),
-                      ),
-                    ),
+                    CustomBackButton(),
                     const Text(
                       "Privacy Policy",
                       style: TextStyle(
@@ -162,6 +142,4 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       ],
     );
   }
-
-  // artica 02
 }

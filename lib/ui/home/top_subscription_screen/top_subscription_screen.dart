@@ -79,7 +79,9 @@ class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
             child: Text(
               "Top Subscriptions",
               style: style25B.copyWith(
-                  fontWeight: FontWeight.w500, color: Color(0xfff4A4A4A)),
+                fontWeight: FontWeight.w500,
+                color: lightGreyColor,
+              ),
             ),
           )
         ],
@@ -156,7 +158,7 @@ class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
                   padding: const EdgeInsets.all(0.0),
                   child: Image.asset(
                     AppAssets().pointsEarnIcon,
-                    color: SecondryColor,
+                    color: secondryColor,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -167,7 +169,7 @@ class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
                 style: style14.copyWith(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w500,
-                    color: SecondryColor),
+                    color: secondryColor),
               ),
             ],
           ),

@@ -49,6 +49,11 @@ dependencies:
   firebase_storage: ^12.3.7
   get: ^4.3.8
   confetti: ^0.8.0
+  pinput: ^5.0.1
+  country_picker: ^2.0.27
+  geocoding:
+  http:
+  csc_picker_plus: ^0.0.3
 
 dev_dependencies:
   flutter_test:

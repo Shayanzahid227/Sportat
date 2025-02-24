@@ -1,110 +1,41 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, must_be_immutable, use_key_in_widget_constructors
 
 import 'package:code_structure/core/constants/colors.dart';
+import 'package:code_structure/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomloginButton extends StatefulWidget {
-  final String text;
-  final VoidCallback onPressed;
-  final value;
-  final bool loading;
+class CustomButton extends StatelessWidget {
+  String? text;
+  VoidCallback? onPressed;
+  Color? boxColor;
+  Color? textColor;
+  Color? border;
 
-  const CustomloginButton(
-      {required this.text,
-      required this.onPressed,
-      this.value,
-      this.loading = false});
-
-  @override
-  State<CustomloginButton> createState() => _CustomloginButtonState();
-}
-
-class _CustomloginButtonState extends State<CustomloginButton> {
-  bool isSelected = true;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-// for button color
-  void onClick() {
-    setState(() {
-      isSelected = !isSelected;
-    });
-  }
-
-  // for navigation
-  void toggleSelection() {
-    setState(() {
-      isSelected = !isSelected;
-    });
-  }
+  CustomButton({
+    required this.text,
+    required this.onPressed,
+    this.boxColor,
+    this.textColor,
+    this.border,
+  });
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return GestureDetector(
-      onTap: () {
-        toggleSelection(); // Change button state
-        widget.onPressed(); // Trigger the onPressed callback
-      },
+      onTap: onPressed,
       child: Container(
+        padding: EdgeInsets.all(16),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
+          color: boxColor ?? primaryColor,
           borderRadius: BorderRadius.all(
             Radius.circular(21),
           ),
-          //  border: Border.all(color: PrimaryLoginButtonColor),
+          border: Border.all(color: border ?? primaryColor, width: 1.5),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment:
-              MainAxisAlignment.center, // Center content vertically
-          children: [
-            Container(
-              height: 55.h,
-              width: screenWidth * 1,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 1,
-                  color: PrimaryColor,
-                ),
-
-                ///
-                ///
-                ///   when button color is changing then navigation does't perform
-                ///
-                ///
-                ///
-                // color: PrimarybuttonColor,
-                color: isSelected ? PrimaryColor : Colors.white,
-
-                ///
-                ///
-                ///
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Center(
-                child: widget.loading
-                    ? CircularProgressIndicator(
-                        strokeWidth: 3,
-                        color: Colors.teal,
-                      )
-                    : Text(
-                        widget.text,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
-                          color: isSelected ? Colors.white : Colors.black,
-                          // color: Color(0xffffffff)
-                        ),
-                      ),
-              ),
-            ),
-          ],
+        child: Text(
+          "$text",
+          style: style18.copyWith(color: textColor ?? whitecolor),
         ),
       ),
     );

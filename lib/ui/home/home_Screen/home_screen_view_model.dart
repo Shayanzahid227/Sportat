@@ -45,27 +45,27 @@ class HomeViewModel extends BaseViewModel {
     HomeSportCategoriesModel(
         imageUrl: AppAssets().football1,
         title: 'Football',
-        backgroundColor: PrimaryColor),
+        backgroundColor: primaryColor),
     HomeSportCategoriesModel(
         imageUrl: AppAssets().basketball2,
         title: 'Basketball',
-        backgroundColor: SecondryColor),
+        backgroundColor: secondryColor),
     HomeSportCategoriesModel(
         imageUrl: AppAssets().tennis3,
         title: 'Tennis',
-        backgroundColor: PrimaryColor),
+        backgroundColor: primaryColor),
     HomeSportCategoriesModel(
         imageUrl: AppAssets().volleyBall4,
         title: 'Volleyball',
-        backgroundColor: SecondryColor),
+        backgroundColor: secondryColor),
     HomeSportCategoriesModel(
         imageUrl: AppAssets().squash5,
         title: 'Squash',
-        backgroundColor: PrimaryColor),
+        backgroundColor: primaryColor),
     HomeSportCategoriesModel(
         imageUrl: AppAssets().golf6,
         title: 'Golf',
-        backgroundColor: SecondryColor),
+        backgroundColor: secondryColor),
   ];
 
   ///

@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use, use_key_in_widget_constructors
+
 import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/sportat/home_sport_categories.dart';
@@ -11,14 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -70,35 +66,23 @@ class _HomeScreenState extends State<HomeScreen> {
         10.horizontalSpace,
         Row(
           children: [
-            Container(
-              height: 25.h,
-              width: 19.w,
-              decoration: BoxDecoration(
-                color: whitecolor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Image.asset(
-                AppAssets().locationIcon,
-                fit: BoxFit.cover,
-                color: borderColor,
-              ),
+            Image.asset(
+              AppAssets().locationIcon,
+              fit: BoxFit.cover,
+              color: borderColor,
+              scale: 3.5,
             ),
             5.horizontalSpace,
             Text(
               'Riyadh Area',
-              style: style14B.copyWith(
+              style: style16B.copyWith(
                   fontWeight: FontWeight.w400, color: blackColor),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Icon(
-                Icons.arrow_drop_down,
-                color: blackColor,
-                size: 50,
-              ),
-            )
+            Icon(
+              Icons.arrow_drop_down,
+              color: blackColor,
+              size: 30.sp,
+            ),
           ],
         ),
         Container(
@@ -114,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 51,
                 height: 51,
                 decoration: BoxDecoration(
-                  color: SecondryColor,
+                  color: secondryColor,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
@@ -141,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(
                   "1K",
                   style: style25B.copyWith(
-                    color: SecondryColor,
+                    color: secondryColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
@@ -168,30 +152,23 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         children: [
           Expanded(
-            child: Container(
-              height: 45.h,
-              child: customtextformfeild(
-                text: 'Search for sports or fields',
-                obscureText: false,
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.grey[600],
-                  size: 24,
-                ),
-                suffixIcon: Padding(
-                  padding: EdgeInsets.only(
-                    top: 10,
-                    right: 2,
-                  ),
-                  child: Image.asset(
-                    AppAssets()
-                        .searchfieldIcon, // Assuming this is the slider/filter icon
-                    fit: BoxFit.contain,
-                  ),
+              child: TextFormField(
+            decoration: authSignUpFieldDecoration.copyWith(
+              hintText: 'Search for sports or fields',
+              prefixIcon: Image.asset(
+                AppAssets().searchicon2,
+                scale: 4,
+              ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Image.asset(
+                  AppAssets()
+                      .searchfieldIcon, // Assuming this is the slider/filter icon
+                  scale: 5,
                 ),
               ),
             ),
-          ),
+          )),
           10.horizontalSpace,
           // Notification Icon
           Container(
@@ -210,12 +187,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            child: Padding(
-              padding: EdgeInsets.all(5),
-              child: Image.asset(
-                AppAssets().notificationIcon,
-                fit: BoxFit.contain,
-              ),
+            child: Image.asset(
+              AppAssets().notificationIcon,
+              scale: 3,
             ),
           ),
         ],
@@ -227,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _sliderSection() {
     return Consumer<HomeViewModel>(
       builder: (context, viewModel, child) {
-        return Container(
+        return SizedBox(
           height: 220.h,
           child: Stack(
             alignment: Alignment.center,
@@ -307,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           text: 'first',
                                           style: style20N.copyWith(
                                               fontFamily: 'Antonio',
-                                              color: SecondryColor
+                                              color: secondryColor
                                               // Make "first" blue
                                               ),
                                         ),
@@ -329,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             fontFamily: 'Antonio',
 
                                             color:
-                                                SecondryColor, // Make "world" blue
+                                                secondryColor, // Make "world" blue
                                           ),
                                         ),
                                       ],
@@ -388,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
                         color: viewModel.currentIndex == index
-                            ? SecondryColor
+                            ? secondryColor
                             : Colors.grey.withOpacity(0.3),
                       ),
                     ),
@@ -403,7 +377,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 //
-  // port Categories
   _sportCategories(HomeViewModel model) {
     return Column(
       children: [
@@ -427,7 +400,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {},
                 child: Text(
                   "See All",
-                  style: style16.copyWith(color: PrimaryColor),
+                  style: style16.copyWith(color: primaryColor),
                 ),
               ),
             )
@@ -485,7 +458,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {},
                   child: Text(
                     "See All",
-                    style: style16.copyWith(color: PrimaryColor),
+                    style: style16.copyWith(color: primaryColor),
                   ),
                 ),
               ),
@@ -560,7 +533,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {},
                   child: Text(
                     "See All",
-                    style: style16.copyWith(color: PrimaryColor),
+                    style: style16.copyWith(color: primaryColor),
                   ),
                 ),
               ),
@@ -631,7 +604,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {},
                   child: Text(
                     "See All",
-                    style: style16.copyWith(color: PrimaryColor),
+                    style: style16.copyWith(color: primaryColor),
                   ),
                 ),
               ),
@@ -672,7 +645,7 @@ class _HomeScreenState extends State<HomeScreen> {
       width: 26.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(72),
-        color: isActive ? SecondryColor : Colors.grey,
+        color: isActive ? secondryColor : Colors.grey,
       ),
     );
   }

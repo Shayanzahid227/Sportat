@@ -1,14 +1,17 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, unused_element
 
-import 'package:code_structure/ui/auth/terms_privacy_policy/termns_and%20_condition_screen.dart';
-import 'package:code_structure/ui/auth/terms_privacy_policy/privacy_policyy_screen.dart';
+import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/auth_text_feild.dart';
+import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
+import 'package:code_structure/ui/auth/login/login_screen.dart';
+import 'package:code_structure/ui/terms_privacy_policy/termns_and%20_condition_screen.dart';
+import 'package:code_structure/ui/terms_privacy_policy/privacy_policyy_screen.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
-import 'package:code_structure/custom_widgets/sportat/text_field.dart';
 import 'package:code_structure/ui/auth/Interest/interest_Screen.dart';
-import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/constants/colors.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +25,19 @@ class SignUpScreen extends StatelessWidget {
       child: Consumer<SignUpViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: backgroundColor,
+
+          ///
+          /// Start App Bar
+          ///
+          appBar: PreferredSize(
+              preferredSize: Size.fromHeight(56.0),
+              child: CustomAppBar(
+                title: "Create an account",
+              )),
+
+          ///
+          /// Start Body
+          ///
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -29,15 +45,77 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  40.verticalSpace,
-                  _header(context),
-                  30.verticalSpace,
+                  20.verticalSpace,
                   _authFields(context),
+                  // CSCPickerPlus(
+                  //     layout: Layout.vertical,
+                  //     flagState: CountryFlag.ENABLE,
+                  //     onCountryChanged: (country) {
+                  //       print(country);
+                  //     },
+                  //     onStateChanged: (state) {
+                  //       print(state);
+                  //     },
+                  //     onCityChanged: (city) {
+                  //       print(city);
+                  //     },
+
+                  //     ///placeholders for dropdown search field
+                  //     countrySearchPlaceholder: "Country",
+                  //     stateSearchPlaceholder: "State",
+                  //     citySearchPlaceholder: "City",
+
+                  //     ///labels for dropdown
+                  //     countryDropdownLabel: "Select Country",
+                  //     stateDropdownLabel: "Select State",
+                  //     cityDropdownLabel: "Select City",
+                  //     dropdownDialogRadius: 30.0,
+                  //     searchBarRadius: 10.0,
+
+                  //     dropdownDecoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.all(Radius.circular(10)),
+                  //         color: whitecolor,
+                  //         border: Border.all(color: bordrColor, width: 1)),
+                  //     disabledDropdownDecoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.all(Radius.circular(10)),
+                  //         color: whitecolor,
+                  //         border: Border.all(color: borderColor, width: 1)),
+
+                  //     ///selected item style [OPTIONAL PARAMETER]
+                  //     selectedItemStyle: style16.copyWith(
+                  //       color: blackColor,
+                  //     ),
+
+                  //     ///DropdownDialog Heading style [OPTIONAL PARAMETER]
+                  //     dropdownHeadingStyle: style16B,
+
+                  //     ///DropdownDialog Item style [OPTIONAL PARAMETER]
+                  //     dropdownItemStyle: style16.copyWith(color: blackColor)),
                   15.verticalSpace,
                   _gender(context),
                   45.verticalSpace,
                   _custombutton(context),
                   60.verticalSpace,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "I have an account?",
+                        style: style16,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Get.offAll(LoginScreen());
+                        },
+                        child: Text(
+                          "Sign In",
+                          style: style16B.copyWith(color: primaryColor),
+                        ),
+                      )
+                    ],
+                  ),
+                  10.verticalSpace,
                   _warning(),
                 ],
               ),
@@ -48,87 +126,69 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-// header
-  _header(BuildContext? context) {
-    return Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: borderColor),
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: GestureDetector(
-              onTap: () {
-                Get.back();
-              },
-              child: GestureDetector(
-                onTap: () {
-                  navigator?.pop(context);
-                },
-                child: Icon(
-                  Icons.arrow_back_ios_new_sharp,
-                  size: 25,
-                  color: borderColor,
-                ),
-              )),
-        ),
-        40.horizontalSpace,
-        Align(
-          alignment: Alignment.topCenter,
-          child: Text(
-            "Create an account",
-            style: style25B.copyWith(
-                fontWeight: FontWeight.w500, color: Color(0xfff4A4A4A)),
-          ),
-        )
-      ],
-    );
-  }
-
 // textfield
   _authFields(BuildContext context) {
     final model = Provider.of<SignUpViewModel>(context);
     return Column(
       children: [
-        customtextformfeild(
-          text: 'Name',
-          obscureText: false,
+        TextFormField(
+          decoration: authSignUpFieldDecoration.copyWith(
+            hintText: "Name",
+          ),
+          validator: (val) {
+            return null;
+          },
+          onChanged: (value) {},
         ),
         10.verticalSpace,
-        customtextformfeild(
-          text: 'User name',
-          obscureText: false,
+        TextFormField(
+          decoration: authSignUpFieldDecoration.copyWith(hintText: "User name"),
+          validator: (val) {
+            return null;
+          },
+          onChanged: (value) {},
         ),
         10.verticalSpace,
-        customtextformfeild(
-          text: 'email',
-          obscureText: false,
+        TextFormField(
+          decoration: authSignUpFieldDecoration.copyWith(hintText: "Email"),
+          validator: (val) {
+            return null;
+          },
+          onChanged: (value) {},
         ),
         10.verticalSpace,
-        customtextformfeild(
-          text: model.selectedCountry ?? 'Select Country',
-          obscureText: false,
-          suffixIcon: GestureDetector(
-            onTap: () => _selectedCountry(context),
-            child: Icon(
+        10.verticalSpace,
+        TextFormField(
+          readOnly: true,
+          onTap: () {
+            showCustomCountryPicker(context, (selectedCountry) {
+              model.selectCountry(selectedCountry);
+            });
+          },
+          decoration: authSignUpFieldDecoration.copyWith(
+            hintText: model.selectedCountry?.name ?? 'Select Country',
+            suffixIcon: Icon(
               Icons.keyboard_arrow_down,
               color: blackColor,
             ),
           ),
         ),
         10.verticalSpace,
-        customtextformfeild(
-          text: model.selectedCity ?? 'Select City',
-          obscureText: false,
-          suffixIcon: GestureDetector(
-            onTap: () => _selectedCity(context),
-            child: Icon(
+        TextFormField(
+          readOnly: true,
+          onTap: () {
+            showCustomCityPicker(context, model.selectedCities, (selectedCity) {
+              model.selectCity(selectedCity);
+            }, model);
+          },
+          decoration: authSignUpFieldDecoration.copyWith(
+            hintText: model.selectedCity ?? 'Select City',
+            suffixIcon: Icon(
               Icons.keyboard_arrow_down,
               color: blackColor,
             ),
           ),
         ),
-        10.verticalSpace,
       ],
     );
   }
@@ -239,8 +299,8 @@ class SignUpScreen extends StatelessWidget {
 
 //button
   _custombutton(BuildContext context) {
-    return CustomloginButton(
-      text: 'sign Up',
+    return CustomButton(
+      text: 'Sign Up',
       onPressed: () {
         Navigator.push(
           context,
@@ -277,7 +337,7 @@ class SignUpScreen extends StatelessWidget {
                 style: style14.copyWith(
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  color: PrimaryColor,
+                  color: primaryColor,
                 ),
               ),
             ),
@@ -300,7 +360,7 @@ class SignUpScreen extends StatelessWidget {
                 style: style14.copyWith(
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
-                  color: PrimaryColor,
+                  color: primaryColor,
                 ),
               ),
             )
@@ -309,220 +369,232 @@ class SignUpScreen extends StatelessWidget {
       ],
     );
   }
+}
 
-// select country bottom sheet
-  _selectedCountry(BuildContext context) {
-    final model = Provider.of<SignUpViewModel>(context, listen: false);
-    return showModalBottomSheet(
-      backgroundColor: whitecolor,
-      context: context,
-      isScrollControlled: true,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.7,
-        child: Column(
-          children: [
-            // Header
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Text(
-                    "Select Country",
-                    style: style25.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: blackColor,
-                    ),
-                  ),
-                  // Positioned(
-                  //   right: 0,
+_outlineBorder() {
+  return OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  );
+}
 
-                  //   child: GestureDetector(
-                  //     onTap: () => Navigator.pop(context),
-                  //     child: Container(
-                  //       height: 30.h,
-                  //       width: 30.w,
-                  //       padding: EdgeInsets.all(8),
-                  //       decoration: BoxDecoration(
-                  //         shape: BoxShape.circle,
-                  //         border: Border.all(color: Colors.grey),
-                  //       ),
-                  //       child: Icon(Icons.close),
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
-            ),
+void showCustomCountryPicker(BuildContext context, Function(Country) onSelect) {
+  List<Country> countryList = CountryService().getAll(); // ✅ Get all countries
+  List<Country> filteredCountries = List.from(countryList); // ✅ Filtered List
 
-            // Search Field
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: customtextformfeild(
-                text: 'Search',
-                obscureText: false,
-                prefixIcon: Icon(Icons.search, color: Colors.grey),
-              ),
-            ),
+  Country? selectedCountry; // ✅ Track selected country
 
-            // Country List
-            Expanded(
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                itemCount: model.countries.length,
-                separatorBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  child: Divider(
-                    height: 1,
-                    color: borderColor,
-                  ),
-                ),
-                itemBuilder: (context, index) {
-                  final country = model.countries[index];
-                  final isSelected = model.selectedCountry == country;
-
-                  return ListTile(
-                    title: Text(
-                      country,
-                      style: style14N.copyWith(
-                        color: blackColor,
-                        fontWeight: FontWeight.w400,
+  showModalBottomSheet(
+    context: context,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    backgroundColor: Colors.white,
+    scrollControlDisabledMaxHeightRatio: 2,
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder: (context, setState) {
+          return Container(
+            height: MediaQuery.sizeOf(context).height * 0.8,
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                ListTile(
+                    title: Center(
+                      child: Text(
+                        "Select Country",
+                        style: style25.copyWith(color: blackColor),
                       ),
                     ),
-                    trailing: isSelected
-                        ? Icon(Icons.check_circle, color: PrimaryColor)
-                        : null,
-                    onTap: () {
-                      model.setSelectedCountry(country);
-                      // Navigator.pop(context);
-                    },
-                  );
-                },
-              ),
-            ),
-
-            // Done Button
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: CustomloginButton(
-                text: 'Done',
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-// selected city
-  _selectedCity(BuildContext context) {
-    final model = Provider.of<SignUpViewModel>(context, listen: false);
-    return showModalBottomSheet(
-      backgroundColor: whitecolor,
-      context: context,
-      isScrollControlled: true,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.7,
-        child: Column(
-          children: [
-            // Header
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Text(
-                    "Select City",
-                    style: style25.copyWith(
-                      fontWeight: FontWeight.w500,
-                      color: blackColor,
-                    ),
-                  ),
-                  // Positioned(
-                  //   right: 0,
-
-                  //   child: GestureDetector(
-                  //     onTap: () => Navigator.pop(context),
-                  //     child: Container(
-                  //       height: 30.h,
-                  //       width: 30.w,
-                  //       padding: EdgeInsets.all(8),
-                  //       decoration: BoxDecoration(
-                  //         shape: BoxShape.circle,
-                  //         border: Border.all(color: Colors.grey),
-                  //       ),
-                  //       child: Icon(Icons.close),
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
-            ),
-
-            // Search Field
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: customtextformfeild(
-                text: 'Search',
-                obscureText: false,
-                prefixIcon: Icon(Icons.search, color: Colors.grey),
-              ),
-            ),
-
-            // Country List
-            Expanded(
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                itemCount: model.cities.length,
-                separatorBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  child: Divider(
-                    height: 1,
-                    color: borderColor,
-                  ),
-                ),
-                itemBuilder: (context, index) {
-                  final city = model.cities[index];
-                  final isSelected = model.selectedCity == city;
-
-                  return ListTile(
-                    title: Text(
-                      city,
-                      style: style14N.copyWith(
-                        color: blackColor,
-                        fontWeight: FontWeight.w400,
+                    trailing: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset(
+                        AppAssets().close,
+                        scale: 3.5,
+                      ),
+                    )),
+                20.verticalSpace,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search Country',
+                      prefixIcon: Image.asset(
+                        AppAssets().countrySearchIcon,
+                        scale: 4,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
                       ),
                     ),
-                    trailing: isSelected
-                        ? Icon(Icons.check_circle, color: PrimaryColor)
-                        : null,
-                    onTap: () {
-                      model.setSelectedCity(city);
-                      // Navigator.pop(context);
+                    onChanged: (query) {
+                      setState(() {
+                        filteredCountries = countryList
+                            .where((country) => country.name
+                                .toLowerCase()
+                                .contains(query.toLowerCase()))
+                            .toList();
+                      });
                     },
-                  );
-                },
-              ),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: filteredCountries.length,
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.grey.shade300,
+                      thickness: 1,
+                      height: 1,
+                    ),
+                    itemBuilder: (context, index) {
+                      Country country = filteredCountries[index];
+                      return ListTile(
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        title: Text(
+                          country.name,
+                          style: style16,
+                        ),
+                        trailing: selectedCountry == country
+                            ? Icon(Icons.check_circle,
+                                size: 25.sp,
+                                color: Colors.green) // ✅ Show check icon
+                            : null,
+                        onTap: () {
+                          setState(() {
+                            selectedCountry =
+                                country; // ✅ Update selected country
+                          });
+                          onSelect(country);
+                        },
+                      );
+                    },
+                  ),
+                ),
+                CustomButton(
+                    text: "Done",
+                    onPressed: () {
+                      Navigator.pop(context, selectedCountry);
+                    }),
+              ],
             ),
+          );
+        },
+      );
+    },
+  );
+}
 
-            // Done Button
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: CustomloginButton(
-                text: 'Done',
-                onPressed: () => Navigator.pop(context),
-              ),
+void showCustomCityPicker(BuildContext context, List<String> cities,
+    Function(String) onSelect, SignUpViewModel model) {
+  List<String> filteredCities = List.from(model.selectedCities);
+  String? selectedCity; // ✅ Track selected city
+
+  showModalBottomSheet(
+    context: context,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    backgroundColor: Colors.white,
+    scrollControlDisabledMaxHeightRatio: 2,
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder: (context, setState) {
+          return Container(
+            height: MediaQuery.sizeOf(context).height * 0.8,
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Center(
+                    child: Text(
+                      "Select City",
+                      style: style25.copyWith(color: blackColor),
+                    ),
+                  ),
+                  trailing: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(AppAssets().close, scale: 3.5),
+                  ),
+                ),
+                10.verticalSpace,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Search City',
+                      prefixIcon: Image.asset(
+                        AppAssets().countrySearchIcon,
+                        scale: 4,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                    ),
+                    onChanged: (query) {
+                      setState(() {
+                        filteredCities = model.selectedCities
+                            .where((city) => city
+                                .toLowerCase()
+                                .contains(query.toLowerCase()))
+                            .toList();
+                      });
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: filteredCities.isEmpty
+                      ? Center(
+                          child: Text(
+                          "No cities found",
+                          style: style20.copyWith(color: blackColor),
+                        ))
+                      : ListView.separated(
+                          itemCount: filteredCities.length,
+                          separatorBuilder: (context, index) => Divider(
+                            color: Colors.grey.shade300,
+                            thickness: 1,
+                            height: 1,
+                          ),
+                          itemBuilder: (context, index) {
+                            String city = filteredCities[index];
+                            return ListTile(
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 10),
+                              title: Text(city, style: style16),
+                              trailing: selectedCity == city
+                                  ? Icon(Icons.check_circle,
+                                      size: 25,
+                                      color: Colors.green) // ✅ Show check icon
+                                  : null,
+                              onTap: () {
+                                setState(() {
+                                  selectedCity = city;
+                                });
+                                onSelect(city);
+                              },
+                            );
+                          },
+                        ),
+                ),
+                filteredCities.isEmpty
+                    ? SizedBox()
+                    : CustomButton(
+                        text: "Done",
+                        onPressed: () {
+                          Navigator.pop(context, selectedCity);
+                        }),
+              ],
             ),
-          ],
-        ),
-      ),
-    );
-  }
+          );
+        },
+      );
+    },
+  );
 }

@@ -1,8 +1,8 @@
-class InterestScreenModel {
-  final String? icon;
-  final String? title;
+class InterestModel {
+  String? icon;
+  String? title;
 
-  InterestScreenModel({
+  InterestModel({
     this.icon,
     this.title,
   });

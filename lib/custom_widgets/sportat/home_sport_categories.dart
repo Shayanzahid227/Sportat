@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:code_structure/core/model/home_sport_categories_model.dart';
 import 'package:flutter/material.dart';
 

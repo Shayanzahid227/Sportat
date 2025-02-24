@@ -26,3 +26,33 @@ final authFieldDecoration = InputDecoration(
       borderSide: const BorderSide(color: textfiledBorderColor, width: 2.0),
       borderRadius: BorderRadius.circular(16)),
 );
+
+final authSignUpFieldDecoration = InputDecoration(
+  hintText: "Enter your email",
+  hintStyle: style16,
+  prefixIconColor: blackColor,
+  suffixIconColor: blackColor,
+  fillColor: whitecolor,
+  filled: true,
+  border: InputBorder.none,
+  errorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  disabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: borderColor),
+    borderRadius: BorderRadius.circular(15),
+  ),
+);

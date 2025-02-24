@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
 import '../../core/constants/app_assest.dart';
-import 'onboarding_model.dart';
+import '../../core/model/onboarding_model.dart';
 
 class OnboardingViewModel extends ChangeNotifier {
   int _currentIndex = 0;
