@@ -7,46 +7,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTopSubscriptions extends StatelessWidget {
-  HomeTopSubscriptionsModel Object_topSubscriptions;
+  TopSubscriptionsModel topSubscriptions;
 
   CustomTopSubscriptions({
-    required this.Object_topSubscriptions,
-    required this.context,
+    required this.topSubscriptions,
   });
-
-  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // alignment: Alignment.bottomLeft,
-      width: MediaQuery.of(context).size.width * 0.9,
+      alignment: Alignment.bottomCenter,
       height: 130.h,
+      // margin: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('${Object_topSubscriptions.imageUrl}'),
+          image: AssetImage('${topSubscriptions.imageUrl}'),
         ),
       ),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Spacer(),
-          Row(
-            children: [
-              15.w.horizontalSpace,
-              CircleAvatar(
-                backgroundImage: AssetImage(
-                  '${Object_topSubscriptions.fieldLogo}',
-                ),
-                radius: 25,
-              ),
-              10.horizontalSpace,
-              Text(
-                "${Object_topSubscriptions.title}",
-                style: style16B.copyWith(color: whitecolor),
-              ),
-            ],
+          CircleAvatar(
+            backgroundImage: AssetImage(
+              '${topSubscriptions.fieldLogo}',
+            ),
+            radius: 25,
           ),
-          10.h.verticalSpace
+          10.horizontalSpace,
+          Text(
+            "${topSubscriptions.title}",
+            style: style16B.copyWith(color: whitecolor),
+          ),
         ],
       ),
     );

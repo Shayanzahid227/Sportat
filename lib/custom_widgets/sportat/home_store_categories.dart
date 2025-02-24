@@ -1,17 +1,20 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/home_store_categories.dart';
 import 'package:flutter/material.dart';
 
 class CustomStoreCategoriesCard extends StatelessWidget {
-  final HomeStoreCategoriesModel Object_HomeStoreCategoriesModel;
+  final StoreCategoriesModel storeCategoriesModel;
 
-  CustomStoreCategoriesCard({required this.Object_HomeStoreCategoriesModel});
+  const CustomStoreCategoriesCard({required this.storeCategoriesModel});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 76,
+      margin: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           Container(
@@ -26,9 +29,9 @@ class CustomStoreCategoriesCard extends StatelessWidget {
               padding: const EdgeInsets.all(5.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Object_HomeStoreCategoriesModel.imageUrl != null
+                child: storeCategoriesModel.imageUrl != null
                     ? Image.asset(
-                        Object_HomeStoreCategoriesModel
+                        storeCategoriesModel
                             .imageUrl!, // Use ! to assert not null
                         fit: BoxFit.cover,
                       )
@@ -39,7 +42,7 @@ class CustomStoreCategoriesCard extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            Object_HomeStoreCategoriesModel.title ??
+            storeCategoriesModel.title ??
                 'No Title', // Use ?? for default title
             style: style14.copyWith(
                 fontWeight: FontWeight.w500, color: blackColor),

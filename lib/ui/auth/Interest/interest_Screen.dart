@@ -8,8 +8,6 @@ import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart'
 import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
 import 'package:provider/provider.dart';
 
 class InterestScreen extends StatelessWidget {

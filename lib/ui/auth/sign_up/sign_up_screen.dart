@@ -226,9 +226,8 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      15.horizontalSpace,
                       Text(
                         'Males',
                         style: style14N.copyWith(
@@ -267,9 +266,8 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      15.horizontalSpace,
                       Text(
                         'Females',
                         style: style14N.copyWith(

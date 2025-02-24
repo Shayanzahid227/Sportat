@@ -1,13 +1,16 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
 import 'package:code_structure/core/model/home_sport_categories_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomHomeSportCategoryCard extends StatelessWidget {
-  final HomeSportCategoriesModel Object_homeSportcategories;
+  final SportCategoriesModel sportCategories;
+  LinearGradient? gradient;
 
-  const CustomHomeSportCategoryCard({
-    required this.Object_homeSportcategories,
+  CustomHomeSportCategoryCard({
+    required this.gradient,
+    required this.sportCategories,
   });
 
   @override
@@ -16,15 +19,18 @@ class CustomHomeSportCategoryCard extends StatelessWidget {
       width: 160,
       height: 200,
       decoration: BoxDecoration(
-        color: Object_homeSportcategories.backgroundColor,
+        gradient: gradient,
+        color: sportCategories.backgroundColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 8.0),
             child: Text(
-              '${Object_homeSportcategories.title}' ?? '',
+              '${sportCategories.title}' ?? '',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -32,15 +38,22 @@ class CustomHomeSportCategoryCard extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Image.network(
-                '${Object_homeSportcategories.imageUrl}' ?? '',
-                fit: BoxFit.cover,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                '${sportCategories.imageUrl}' ?? '',
+                height: 142.h,
+                width: 90.w,
+                fit: BoxFit.contain,
               ),
-            ),
-          ),
+              Image.asset(
+                "assets/icons_assets/ellipse.png",
+                scale: 4,
+              )
+            ],
+          )
         ],
       ),
     );

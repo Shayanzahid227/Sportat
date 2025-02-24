@@ -1,13 +1,13 @@
 class SliderModel {
-  final String? title;
-  final String? highlightedText;
-  final String? subText;
-  final String? imageUrl;
+  String? title;
+  String? highlightedText;
+  String? subText;
+  String? imageUrl;
 
   SliderModel({
-    required this.title,
-    required this.highlightedText,
-    required this.subText,
-    required this.imageUrl,
+    this.title,
+    this.highlightedText,
+    this.subText,
+    this.imageUrl,
   });
 }

@@ -1,23 +1,16 @@
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, use_key_in_widget_constructors
 
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/sportat/top_subscription_screen.dart';
-import 'package:code_structure/ui/home/top_subscription_screen/top_subscription_view_model.dart';
+import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:provider/provider.dart';
 
-class TopSUbscriptionScreen extends StatefulWidget {
-  const TopSUbscriptionScreen({super.key});
-
-  @override
-  State<TopSUbscriptionScreen> createState() => _TopSUbscriptionScreenState();
-}
-
-class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
+class TopSubScriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -27,7 +20,7 @@ class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
           body: Column(
             children: [
               60.verticalSpace,
-              _header(),
+              _header(context),
               20.h.verticalSpace,
               Expanded(
                 child: ListView.builder(
@@ -48,7 +41,7 @@ class _TopSUbscriptionScreenState extends State<TopSUbscriptionScreen> {
 
   ///
   ///
-  _header() {
+  _header(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Row(

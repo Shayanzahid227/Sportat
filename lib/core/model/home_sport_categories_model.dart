@@ -1,10 +1,10 @@
 import 'dart:ui';
 
-class HomeSportCategoriesModel {
+class SportCategoriesModel {
   final String? title;
   final String? imageUrl;
   final Color? backgroundColor;
-  HomeSportCategoriesModel(
+  SportCategoriesModel(
       {required this.imageUrl,
       required this.title,
       required this.backgroundColor});

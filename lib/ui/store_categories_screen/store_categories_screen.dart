@@ -1,15 +1,10 @@
-import 'package:code_structure/ui/home/store_categories_screen/store_categories_view_model.dart';
+// ignore_for_file: camel_case_types, use_key_in_widget_constructors
+
+import 'package:code_structure/ui/store_categories_screen/store_categories_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CategoriesSCreen_02 extends StatefulWidget {
-  const CategoriesSCreen_02({super.key});
-
-  @override
-  State<CategoriesSCreen_02> createState() => _CategoriesSCreen_02State();
-}
-
-class _CategoriesSCreen_02State extends State<CategoriesSCreen_02> {
+class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

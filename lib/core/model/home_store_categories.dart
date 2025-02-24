@@ -1,5 +1,5 @@
-class HomeStoreCategoriesModel {
+class StoreCategoriesModel {
   final String? imageUrl;
   final String? title;
-  HomeStoreCategoriesModel({required this.imageUrl, required this.title});
+  StoreCategoriesModel({required this.imageUrl, required this.title});
 }

@@ -1,17 +1,19 @@
-// ignore_for_file: deprecated_member_use, use_key_in_widget_constructors
+// ignore_for_file: deprecated_member_use, use_key_in_widget_constructors, avoid_unnecessary_containers
 
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/core/model/home_slider_model.dart';
 import 'package:code_structure/custom_widgets/sportat/home_sport_categories.dart';
 import 'package:code_structure/custom_widgets/sportat/home_store_categories.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_10_fields.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_subscriptions.dart';
-import 'package:code_structure/custom_widgets/sportat/text_field.dart';
-import 'package:code_structure/ui/home/home_Screen/home_screen_view_model.dart';
+import 'package:code_structure/ui/home/home_Screen/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,139 +24,52 @@ class HomeScreen extends StatelessWidget {
       child: Consumer<HomeViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: backGroundColor,
-          body: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: 20.h),
-                    _header(),
-                    SizedBox(height: 20.h),
-                    _searchField(),
-                    SizedBox(height: 20.h),
-                    _sliderSection(),
-                    20.h.verticalSpace,
-                    _sportCategories(model),
-                    20.h.verticalSpace,
-                    _TopSubScriptions(model, context),
-                    20.h.verticalSpace,
-                    _Top10Fields(model, context),
-                    20.h.verticalSpace,
-                    _storeCategories(model),
-                    100.h.verticalSpace,
-                  ],
-                ),
-              ),
+
+          ///
+          /// App Bar
+          ///
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(60.h),
+            child: _appBar(),
+          ),
+
+          ///
+          /// Start Body
+          ///
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                _searchField(),
+                _sliderSection(),
+                _sportCategories(model),
+                20.h.verticalSpace,
+                _topSubScriptions(model, context),
+                20.h.verticalSpace,
+                _top10Fields(model, context),
+                20.h.verticalSpace,
+                _storeCategories(model),
+                100.h.verticalSpace,
+              ],
             ),
           ),
         ),
       ),
-    );
-  }
-
-// header
-  _header() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CircleAvatar(
-          backgroundColor: Color(0xfff000000 % 40),
-          radius: 30,
-          backgroundImage: AssetImage(AppAssets().profileImage),
-        ),
-        10.horizontalSpace,
-        Row(
-          children: [
-            Image.asset(
-              AppAssets().locationIcon,
-              fit: BoxFit.cover,
-              color: borderColor,
-              scale: 3.5,
-            ),
-            5.horizontalSpace,
-            Text(
-              'Riyadh Area',
-              style: style16B.copyWith(
-                  fontWeight: FontWeight.w400, color: blackColor),
-            ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: blackColor,
-              size: 30.sp,
-            ),
-          ],
-        ),
-        Container(
-          height: 50,
-          decoration: BoxDecoration(
-            color: whitecolor,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 51,
-                height: 51,
-                decoration: BoxDecoration(
-                  color: secondryColor,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: blackColor.withOpacity(0.25),
-                      blurRadius: 8,
-                      offset: const Offset(2, 5),
-                      spreadRadius: 6,
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Image(
-                    image: AssetImage(
-                      AppAssets().pointsEarnIcon,
-                    ),
-                    fit: BoxFit.cover,
-                    height: 34.h,
-                    color: whitecolor,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: Text(
-                  "1K",
-                  style: style25B.copyWith(
-                    color: secondryColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        )
-      ],
     );
   }
 
 //  search field
   _searchField() {
-    return Container(
-      height: 60.h,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.transparent,
-          width: 1.5,
-        ),
-        borderRadius: BorderRadius.circular(8),
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
               child: TextFormField(
             decoration: authSignUpFieldDecoration.copyWith(
+              contentPadding: EdgeInsets.all(5),
               hintText: 'Search for sports or fields',
+              hintStyle: style16.copyWith(color: lightGreyColor),
               prefixIcon: Image.asset(
                 AppAssets().searchicon2,
                 scale: 4,
@@ -199,225 +114,180 @@ class HomeScreen extends StatelessWidget {
 
   // Slider Section
   Widget _sliderSection() {
-    return Consumer<HomeViewModel>(
-      builder: (context, viewModel, child) {
-        return SizedBox(
-          height: 220.h,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              // Background stacked cards
-              ...List.generate(
-                2,
-                (index) => Positioned(
-                  bottom: (10.0 * index),
-                  child: Container(
-                    height: 180.h - (10.0 * index),
-                    width: MediaQuery.of(context).size.width -
-                        32.w -
-                        (20.0 * index),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7 - (0.2 * index)),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-              ).reversed,
-
-              // Main card with content
-              Container(
-                height: 160.h,
-                width: MediaQuery.of(context).size.width - 32.w,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: PageView.builder(
-                  onPageChanged: (index) {
-                    viewModel.setCurrentIndex(index);
-                  },
-                  itemCount: viewModel.sliders.length,
-                  itemBuilder: (context, index) {
-                    final slider = viewModel.sliders[index];
-                    return Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    top: 30.h,
-                                    left: 10,
-                                  ),
-                                  child: RichText(
-                                    textAlign: TextAlign.left,
-                                    text: TextSpan(
-                                      style: TextStyle(
-                                        fontFamily:
-                                            'Antonio', // Replace with your font
-                                        color: Colors.black,
-                                      ),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: 'The ',
-                                          style: style20N.copyWith(
-                                            fontFamily: 'Antonio',
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: 'first',
-                                          style: style20N.copyWith(
-                                              fontFamily: 'Antonio',
-                                              color: secondryColor
-                                              // Make "first" blue
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: ' healthy sports\ncommunity\n',
-                                          style: style20N.copyWith(
-                                            fontFamily: 'Antonio',
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: 'in the ',
-                                          style: style20N.copyWith(
-                                            fontFamily: 'Antonio',
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: 'world',
-                                          style: style20N.copyWith(
-                                            fontFamily: 'Antonio',
-
-                                            color:
-                                                secondryColor, // Make "world" blue
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Stack(
-                              children: [
-                                Image.asset(
-                                  AppAssets().ellipse,
-                                  fit: BoxFit.contain,
-                                  height: 140.h,
-                                  width: 140.w,
-                                ),
-                                Positioned(
-                                    top: 10.h,
-                                    right: 60.w,
-                                    child: Container(
-                                      height: 100.h,
-                                      width: 100.w,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            slider.imageUrl!,
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ))
-                              ],
-                            ),
+    return Consumer<HomeViewModel>(builder: (context, viewModel, child) {
+      return SizedBox(
+        height: 220.h,
+        child: Transform.flip(
+          flipY: true,
+          child: Swiper(
+            loop: true,
+            itemWidth: 500,
+            itemHeight: 225,
+            autoplay: true,
+            duration: kDefaultAutoplayDelayMs,
+            layout: SwiperLayout.STACK,
+            scrollDirection: Axis.vertical,
+            itemCount: viewModel.sliders.length,
+            onIndexChanged: (index) {
+              viewModel.setCurrentIndex(index);
+            },
+            itemBuilder: (context, index) {
+              final slider = viewModel.sliders[index];
+              return Transform.flip(
+                flipY: true,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                      width: MediaQuery.of(context).size.width - 32.w,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.r),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
                           ),
                         ],
                       ),
-                    );
-                  },
-                ),
-              ),
+                      child: _buildTextWithImage(slider, context),
+                    ),
 
-              // Page indicators
-              Positioned(
-                bottom: 40.h,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    viewModel.sliders.length,
-                    (index) => Container(
-                      margin: EdgeInsets.symmetric(horizontal: 4.w),
-                      width: viewModel.currentIndex == index ? 34.w : 24.w,
-                      height: 8.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        color: viewModel.currentIndex == index
-                            ? secondryColor
-                            : Colors.grey.withOpacity(0.3),
+                    // Page indicators
+                    Positioned(
+                      bottom: 30.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          viewModel.sliders.length,
+                          (indicatorIndex) => AnimatedContainer(
+                            duration: Duration(milliseconds: 300),
+                            margin: EdgeInsets.symmetric(horizontal: 4.w),
+                            width: viewModel.currentIndex == indicatorIndex
+                                ? 34.w
+                                : 24.w,
+                            height: 6.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: viewModel.currentIndex == indicatorIndex
+                                  ? secondryColor
+                                  : Colors.grey.withOpacity(0.3),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ),
-            ],
+              );
+            },
           ),
-        );
-      },
+        ),
+      );
+    });
+  }
+
+// Function for Text on Left & Image on Right
+  Widget _buildTextWithImage(SliderModel slider, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 30),
+            child: _buildRichText(),
+          ),
+        ),
+        _buildImage(slider.imageUrl),
+      ],
+    );
+  }
+
+// Function for Text Content
+  Widget _buildRichText() {
+    return RichText(
+      textAlign: TextAlign.left,
+      text: TextSpan(
+        style: TextStyle(
+          fontFamily: GoogleFonts.antonio().fontFamily,
+          color: Colors.black,
+        ),
+        children: <TextSpan>[
+          TextSpan(
+            text: 'The ',
+            style: style20N.copyWith(fontFamily: 'Antonio'),
+          ),
+          TextSpan(
+            text: 'first',
+            style:
+                style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          ),
+          TextSpan(
+            text: ' healthy sports community ',
+            style: style20N.copyWith(fontFamily: 'Antonio'),
+          ),
+          TextSpan(
+            text: 'in the ',
+            style: style20N.copyWith(fontFamily: 'Antonio'),
+          ),
+          TextSpan(
+            text: 'world',
+            style:
+                style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          ),
+        ],
+      ),
+    );
+  }
+
+// Function for Image Widget
+  Widget _buildImage(String? imageUrl) {
+    return Stack(
+      alignment: Alignment.topRight,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.only(topRight: Radius.circular(20.r)),
+          child: Image.asset(AppAssets().ellipse, height: 120),
+        ),
+        Image.asset(imageUrl!),
+      ],
     );
   }
 
 //
+
   _sportCategories(HomeViewModel model) {
+    List<LinearGradient> shuffledGradients = List.from(model.sliderGradients);
+    shuffledGradients.shuffle(); // Gradients ko shuffle kar diya
+
     return Column(
       children: [
-        Row(
-          children: [
-            Image.asset(
-              AppAssets().spotsCategoriesIcon,
-              fit: BoxFit.cover,
-              height: 25.h,
-              width: 25.w,
-            ),
-            10.verticalSpace,
-            Text(
-              'Sport Categories',
-              style: style20N.copyWith(color: blackColor),
-            ),
-            100.w.horizontalSpace,
-            Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () {},
-                child: Text(
-                  "See All",
-                  style: style16.copyWith(color: primaryColor),
-                ),
-              ),
-            )
-          ],
+        _iconAndText(
+          img: AppAssets().spotsCategoriesIcon,
+          title: "Sport Categories",
+          ontap: () {},
         ),
         20.verticalSpace,
         SizedBox(
           height: 200.h,
           width: double.infinity,
           child: ListView.builder(
+            controller: model.scrollController,
             scrollDirection: Axis.horizontal,
             itemCount: model.sportCategoriesList.length,
             itemBuilder: (BuildContext context, int index) {
+              // int randomIndex = random.nextInt(model.sliderGradients.length);
               return Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: CustomHomeSportCategoryCard(
-                  Object_homeSportcategories: model.sportCategoriesList[index],
+                  sportCategories: model.sportCategoriesList[index],
+                  gradient: shuffledGradients[
+                      index % shuffledGradients.length], // Ensuring uniqueness
                 ),
               );
             },
@@ -430,54 +300,24 @@ class HomeScreen extends StatelessWidget {
   ///
   /// top subscriptions
   ///
-  Widget _TopSubScriptions(HomeViewModel model, BuildContext context) {
-    PageController _pageController =
-        PageController(viewportFraction: 0.8); // Adjusted viewport
-
+  Widget _topSubScriptions(HomeViewModel model, BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(
-          children: [
-            Image.asset(
-              AppAssets().topSubscriptionIcon,
-              fit: BoxFit.cover,
-              height: 23.h,
-              width: 23.w,
-            ),
-            SizedBox(
-                width: 10
-                    .w), // Use SizedBox with width in percentages for responsiveness
-            Text(
-              'Top Subscriptions',
-              style: style20N.copyWith(color: blackColor),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "See All",
-                    style: style16.copyWith(color: primaryColor),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+        _iconAndText(
+            img: AppAssets().topSubscriptionIcon,
+            title: "Top Subscriptions",
+            ontap: () {}),
         SizedBox(height: 10.h),
         SizedBox(
           height: 130.h, // Match CustomTop10Fields height
           child: PageView.builder(
-            controller: _pageController,
+            controller: model.subscriptionPageController,
             itemCount: model.topSubscriptionsList.length,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: CustomTopSubscriptions(
-                  Object_topSubscriptions: model.topSubscriptionsList[index],
-                  context: context,
-                ),
+              return CustomTopSubscriptions(
+                topSubscriptions: model.topSubscriptionsList[index],
               );
             },
             onPageChanged: (selectedSubscriptionIndex) {
@@ -486,7 +326,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(height: 10.h),
+        15.verticalSpace,
         // Page Indicator
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -505,54 +345,24 @@ class HomeScreen extends StatelessWidget {
   ///
   /// Top 10  Fields
   ///
-  Widget _Top10Fields(HomeViewModel model, BuildContext context) {
-    PageController _pageController =
-        PageController(viewportFraction: 0.8); // Adjusted viewport
-
+  Widget _top10Fields(HomeViewModel model, BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Image.asset(
-              AppAssets().top10FieldsIcon,
-              fit: BoxFit.cover,
-              height: 23.h,
-              width: 23.w,
-            ),
-            SizedBox(
-                width: 10
-                    .w), // Use SizedBox with width in percentages for responsiveness
-            Text(
-              'Top 10  Fields',
-              style: style20N.copyWith(color: blackColor),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "See All",
-                    style: style16.copyWith(color: primaryColor),
-                  ),
-                ),
-              ),
-            ),
-          ],
+        _iconAndText(
+          img: AppAssets().top10FieldsIcon,
+          title: "Top 10 Categories",
+          ontap: () {},
         ),
+
         SizedBox(height: 10.h),
         SizedBox(
           height: 130.h, // Match CustomTop10Fields height
           child: PageView.builder(
-            controller: _pageController,
+            controller: model.top10PageController,
             itemCount: model.top10FieldsList.length,
             itemBuilder: (context, selectedFieldIndex) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: CustomTop10Fields(
-                  Object_top10Field: model.top10FieldsList[selectedFieldIndex],
-                  context: context,
-                ),
+              return CustomTop10Fields(
+                top10Field: model.top10FieldsList[selectedFieldIndex],
               );
             },
             onPageChanged: (selectedFieldINdex) {
@@ -561,7 +371,7 @@ class HomeScreen extends StatelessWidget {
             },
           ),
         ),
-
+        15.verticalSpace,
         // Page Indicator
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -581,51 +391,22 @@ class HomeScreen extends StatelessWidget {
   _storeCategories(HomeViewModel model) {
     return Column(
       children: [
-        Row(
-          children: [
-            Image.asset(
-              AppAssets().storeCategoriesIcon,
-              fit: BoxFit.cover,
-              height: 23.h,
-              width: 23.w,
-            ),
-            SizedBox(
-                width: 10
-                    .w), // Use SizedBox with width in percentages for responsiveness
-            Text(
-              'Store Categories',
-              style: style20N.copyWith(
-                  color: blackColor, fontWeight: FontWeight.w500),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "See All",
-                    style: style16.copyWith(color: primaryColor),
-                  ),
-                ),
-              ),
-            ),
-          ],
+        _iconAndText(
+          img: AppAssets().storeCategoriesIcon,
+          title: "Store Categories",
+          ontap: () {},
         ),
         10.h.verticalSpace,
         SizedBox(
           height: 130.h,
-          width: double.infinity,
           child: ListView.builder(
+            controller: model.storeScrollController,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemCount: model.storeCategoriesList.length,
             itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: CustomStoreCategoriesCard(
-                  Object_HomeStoreCategoriesModel:
-                      model.storeCategoriesList[index],
-                ),
+              return CustomStoreCategoriesCard(
+                storeCategoriesModel: model.storeCategoriesList[index],
               );
             },
           ),
@@ -649,4 +430,131 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+AppBar _appBar() {
+  return AppBar(
+    elevation: 0.0,
+    backgroundColor: backGroundColor,
+    leading: Padding(
+      padding: const EdgeInsets.only(left: 10.0),
+      child: CircleAvatar(
+        backgroundColor: Color(0xfff000000 % 40),
+        radius: 30,
+        backgroundImage: AssetImage(AppAssets().profileImage),
+      ),
+    ),
+    centerTitle: true,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          AppAssets().locationIcon,
+          fit: BoxFit.cover,
+          color: borderColor,
+          scale: 3.5,
+        ),
+        5.horizontalSpace,
+        Text(
+          'Riyadh Area',
+          style:
+              style16B.copyWith(fontWeight: FontWeight.w400, color: blackColor),
+        ),
+        Icon(
+          Icons.arrow_drop_down,
+          color: blackColor,
+          size: 30.sp,
+        ),
+      ],
+    ),
+    actions: [
+      Container(
+        margin: EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          color: whitecolor,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 51,
+              height: 51,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: primaryColor.withOpacity(0.20),
+                    blurRadius: 30,
+                    offset: const Offset(0, 4),
+                    spreadRadius: 0,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Image(
+                  image: AssetImage(
+                    AppAssets().pointsEarnIcon,
+                  ),
+                  height: 30.h,
+                  color: whitecolor,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                "1K",
+                style: style25B.copyWith(
+                  color: secondryColor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+      )
+    ],
+  );
+}
+
+_iconAndText(
+    {required String? img,
+    required String? title,
+    required VoidCallback? ontap}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              img!,
+              fit: BoxFit.cover,
+              height: 25.h,
+              width: 25.w,
+            ),
+            10.horizontalSpace,
+            Text(
+              '$title',
+              style: style20N.copyWith(color: blackColor),
+            ),
+          ],
+        ),
+        TextButton(
+            onPressed: ontap,
+            child: Text(
+              "See All",
+              style: style16B.copyWith(color: primaryColor),
+            )),
+      ],
+    ),
+  );
 }
