@@ -5,14 +5,18 @@ import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/home_slider_model.dart';
+import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/custom_widgets/sportat/home_sport_categories.dart';
 import 'package:code_structure/custom_widgets/sportat/home_store_categories.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_10_fields.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_subscriptions.dart';
-import 'package:code_structure/ui/home/home_Screen/home_view_model.dart';
+import 'package:code_structure/ui/home/home_view_model.dart';
+import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -39,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                _searchField(),
+                _searchField(context),
                 _sliderSection(),
                 _sportCategories(model),
                 20.h.verticalSpace,
@@ -58,7 +62,7 @@ class HomeScreen extends StatelessWidget {
   }
 
 //  search field
-  _searchField() {
+  _searchField(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
@@ -74,37 +78,47 @@ class HomeScreen extends StatelessWidget {
                 AppAssets().searchicon2,
                 scale: 4,
               ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Image.asset(
-                  AppAssets()
-                      .searchfieldIcon, // Assuming this is the slider/filter icon
-                  scale: 5,
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  SearchFilterBottomSheet.show(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Image.asset(
+                    AppAssets()
+                        .searchfieldIcon, // Assuming this is the slider/filter icon
+                    scale: 5,
+                  ),
                 ),
               ),
             ),
           )),
           10.horizontalSpace,
           // Notification Icon
-          Container(
-            height: 45.h,
-            width: 45.w,
-            decoration: BoxDecoration(
-              color: whitecolor,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: transparentColor),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 1,
-                  blurRadius: 1,
-                  offset: Offset(0, 1),
-                ),
-              ],
-            ),
-            child: Image.asset(
-              AppAssets().notificationIcon,
-              scale: 3,
+          GestureDetector(
+            onTap: () {
+              Get.to(NotificationScreen());
+            },
+            child: Container(
+              height: 45.h,
+              width: 45.w,
+              decoration: BoxDecoration(
+                color: whitecolor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: transparentColor),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                AppAssets().notificationIcon,
+                scale: 3,
+              ),
             ),
           ),
         ],

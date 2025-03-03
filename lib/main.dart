@@ -1,6 +1,6 @@
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
-import 'package:code_structure/z_common/splash_screen.dart';
+import 'package:code_structure/ui/root_screen/root_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
               useMaterial3: true,
             ),
-            home: SplashScreen(),
+            home: RootScreen(),
           );
         },
       ),

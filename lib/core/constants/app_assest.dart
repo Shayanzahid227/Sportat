@@ -81,6 +81,15 @@ class AppAssets {
   String cameraIcon = "$iconsAssets/camera.png";
 
   ///
+  /// Root Screen
+  ///
+  String booking = "$iconsAssets/booking.png";
+  String home = "$iconsAssets/home.png";
+  String subscribe = "$iconsAssets/subscribe.png";
+  String store = "$iconsAssets/store.png";
+  String timeline = "$iconsAssets/timeline.png";
+
+  ///
   ///
   //************************************ *//
   //                                      //

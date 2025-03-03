@@ -1,7 +1,6 @@
 import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import '../../core/constants/app_assest.dart';
 import '../../core/model/onboarding_model.dart';
 

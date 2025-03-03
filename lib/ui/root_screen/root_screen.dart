@@ -1,8 +1,8 @@
-import 'package:code_structure/core/constants/strings.dart';
-import 'package:code_structure/custom_widgets/dialog_box/bottom_navigator_bar.dart';
+import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:provider/provider.dart';
 
@@ -29,70 +29,61 @@ class RootScreen extends StatelessWidget {
           ///
           /// BottomBar
           ///
-          bottomNavigationBar: Container(
-            height: 78.h,
-            decoration: BoxDecoration(color: Colors.white, boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
-                  offset: const Offset(0, 1),
-                  blurRadius: 7.r,
-                  spreadRadius: 0),
-            ]),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ///
-                ///
-                ///
-                GestureDetector(
-                  onTap: () {
-                    model.updatedScreen(0);
-                  },
-                  child: Container(
-                    // alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: model.selectedScreen == 0
-                            ? const Color(0xffE78377)
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(13.r)),
-                    child: Image.asset(
-                      '$staticAssets/home1.png',
-                      // 0 mean index 0
-                      color: model.selectedScreen == 0
-                          ? Colors.white
-                          : Colors.grey,
-                      scale: 4,
-                    ),
+          bottomNavigationBar: ConvexAppBar(
+            height: 100,
+            backgroundColor: whitecolor,
+            activeColor: primaryColor,
+            color: lightGreyColor,
+
+            style:
+                TabStyle.custom, // Change this to fixed so text always appears
+            initialActiveIndex: model.selectedScreen,
+            // disableDefaultTabController: true,
+            onTap: (index) {
+              model.updatedScreen(index);
+            },
+            items: [
+              TabItem(
+                  icon: Image.asset(
+                    AppAssets().booking,
+                    color:
+                        model.selectedScreen == 0 ? whitecolor : lightGreyColor,
+                    scale: 3,
                   ),
-                ),
-
-                CustomBottomNavigatorBar(
-                  image: '$staticAssets/booking1.png',
-                  onTap: () {
-                    model.updatedScreen(1);
-                  },
-                  iconColor:
-                      model.selectedScreen == 1 ? Colors.white : Colors.grey,
-                  boxColor: model.selectedScreen == 1
-                      ? const Color(0xffE78377)
-                      : Colors.transparent,
-                ),
-
-                CustomBottomNavigatorBar(
-                  image: '$staticAssets/person1.png',
-                  onTap: () {
-                    model.updatedScreen(2);
-                  },
-                  iconColor:
-                      model.selectedScreen == 2 ? Colors.white : Colors.grey,
-                  boxColor: model.selectedScreen == 2
-                      ? const Color(0xffE78377)
-                      : Colors.transparent,
-                ),
-              ],
-            ),
+                  title: 'Booking'),
+              TabItem(
+                  icon: Image.asset(
+                    AppAssets().subscribe,
+                    color:
+                        model.selectedScreen == 1 ? whitecolor : lightGreyColor,
+                    scale: 3,
+                  ),
+                  title: 'Subscribe'),
+              TabItem(
+                  icon: Image.asset(
+                    AppAssets().home,
+                    color:
+                        model.selectedScreen == 2 ? whitecolor : lightGreyColor,
+                    scale: 3,
+                  ),
+                  title: 'Home'),
+              TabItem(
+                  icon: Image.asset(
+                    AppAssets().store,
+                    color:
+                        model.selectedScreen == 3 ? whitecolor : lightGreyColor,
+                    scale: 3,
+                  ),
+                  title: 'Store'),
+              TabItem(
+                  icon: Image.asset(
+                    AppAssets().timeline,
+                    color:
+                        model.selectedScreen == 4 ? whitecolor : lightGreyColor,
+                    scale: 3,
+                  ),
+                  title: 'Timeline'),
+            ],
           ),
 
           ///
@@ -104,34 +95,3 @@ class RootScreen extends StatelessWidget {
     );
   }
 }
-
-//   Widget bottomBar(RootViewModel model) {
-//     return BottomAppBar(
-//       color: Colors.green,
-//       elevation: 0.0,
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceAround,
-//         children: [
-//           CustomBottomNavigator(
-//             currentIndex: model.selectedScreen,
-//             indexNumber: 1,
-//             text: 'Shop',
-//             image: model.selectedScreen == 0 ? "" : "AppAssets.shop",
-//             onPressed: () {
-//               model.updatedScreen(0);
-//             },
-//           ),
-//           CustomBottomNavigator(
-//             currentIndex: model.selectedScreen,
-//             indexNumber: 1,
-//             text: 'Shop',
-//             image: model.selectedScreen == 1 ? "" : "AppAssets.shop",
-//             onPressed: () {
-//               model.updatedScreen(1);
-//             },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

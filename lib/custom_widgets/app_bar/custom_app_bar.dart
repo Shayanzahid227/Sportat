@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
       foregroundColor: foregroundColor ?? backGroundColor,
       elevation: 0.0,
       leading: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.all(13.0),
         child: CustomBackButton(),
       ),
       centerTitle: true,

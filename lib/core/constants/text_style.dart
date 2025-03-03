@@ -17,19 +17,19 @@ TextStyle style16 = TextStyle(
     fontFamily: GoogleFonts.tajawal().fontFamily);
 TextStyle style14 = TextStyle(
     fontSize: 14.sp,
-    color: whitecolor,
+    color: blackColor,
     fontWeight: FontWeight.w400,
     fontFamily: GoogleFonts.tajawal().fontFamily);
 
 TextStyle style20 = TextStyle(
     fontSize: 20.sp,
-    color: whitecolor,
+    color: blackColor,
     fontWeight: FontWeight.w500,
     fontFamily: GoogleFonts.tajawal().fontFamily);
 
 TextStyle style18 = TextStyle(
     fontSize: 18.sp,
-    color: whitecolor,
+    color: blackColor,
     fontWeight: FontWeight.w500,
     fontFamily: GoogleFonts.tajawal().fontFamily);
 
@@ -63,6 +63,12 @@ TextStyle style25B = TextStyle(
     color: blackColor,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.tajawal().fontFamily);
+TextStyle style20B = TextStyle(
+    fontSize: 20.sp,
+    color: blackColor,
+    fontWeight: FontWeight.bold,
+    fontFamily: GoogleFonts.tajawal().fontFamily);
+
 TextStyle style16B = TextStyle(
     fontSize: 16.sp,
     color: blackColor,
@@ -70,6 +76,6 @@ TextStyle style16B = TextStyle(
     fontFamily: GoogleFonts.tajawal().fontFamily);
 TextStyle style14B = TextStyle(
     fontSize: 14.sp,
-    color: whitecolor,
+    color: blackColor,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.tajawal().fontFamily);
