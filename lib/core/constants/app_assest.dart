@@ -147,6 +147,9 @@ class AppAssets {
   String returnConfirmationIcon = "$iconsAssets/returnconfirmationicon.png";
   String eventReminderIcon = "$iconsAssets/eventremindericon.png";
   String discountForYouIcon = "$iconsAssets/storecategoriesicon.png";
+  String discount = "$iconsAssets/discount.svg";
+
+  String likeicon = "$iconsAssets/likeicon.png";
 
   /// discount icon is not downloading
   ///
@@ -221,6 +224,8 @@ class AppAssets {
   String blueTickIcon = "$iconsAssets/blueTickIcon.png";
   String followIcon = "$iconsAssets/followIcon.png";
   String heartIcon = "$iconsAssets/heartIcon.png";
+  String hashtag = "$iconsAssets/hashtag.png";
+
   String repostIcon = "$iconsAssets/repostIcon.png";
   // share icon is already used
   //************** club profile screen 2 **************************//

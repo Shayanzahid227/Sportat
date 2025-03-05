@@ -56,6 +56,7 @@ dependencies:
   flutter_swiper_view:
   convex_bottom_bar:
   intl:
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:

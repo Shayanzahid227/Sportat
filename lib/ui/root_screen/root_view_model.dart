@@ -1,6 +1,10 @@
 import 'package:code_structure/core/enums/view_state_model.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
+import 'package:code_structure/ui/booking/booking_screen.dart';
 import 'package:code_structure/ui/home/home_screen.dart';
+import 'package:code_structure/ui/store/store_screen.dart';
+import 'package:code_structure/ui/subscription/subscribtion_screen.dart';
+import 'package:code_structure/ui/timeline/timeline_screen.dart';
 import 'package:flutter/material.dart';
 
 class RootViewModel extends BaseViewModel {
@@ -9,11 +13,11 @@ class RootViewModel extends BaseViewModel {
   int selectedScreen = 0;
 
   List<Widget> allScreen = [
+    BookingScreen(),
+    SubscribtionScreen(),
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    StoreScreen(),
+    TimelineScreen(),
   ];
 
   ///
