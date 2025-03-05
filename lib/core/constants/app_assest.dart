@@ -102,6 +102,7 @@ class AppAssets {
 
   String profileImage = "$dynamicAssets/profileimage.png";
   String locate1 = "$dynamicAssets/locate1.png";
+  String shirts = "$dynamicAssets/shirts.png";
   String ellipse = "$dynamicAssets/ellipse.png";
   String pointsEarnIcon = "$iconsAssets/pointsearnicon.png";
   String searchicon2 = "$iconsAssets/search2icon.png";
@@ -116,19 +117,24 @@ class AppAssets {
   String sportCategories4 = "$dynamicAssets/volleyBall4.png";
   String sportCategories5 = "$dynamicAssets/squash5.png";
   String sportCategories6 = "$dynamicAssets/golf6.png";
+  String arrivals1 = "$dynamicAssets/arrivals1.png";
+
   //
   //  sub part of home screen--> top  subscription
+
   String topSubscriptionIcon = "$iconsAssets/topsubscriptionicon.png";
   String topSubscriptionStadiumImage =
       "$dynamicAssets/subscriptionfield.png"; //image
   String topSubscriptionStadiumLogo = "$dynamicAssets/stadiumlogo.png"; //logo
   //
   //    sub part of home screen-->top 10 fields
+
   String top10FieldsIcon = "$iconsAssets/top10fieldsicon.png";
   String top10FieldImage = "$dynamicAssets/field.png";
   String top10FieldLogo = "$dynamicAssets/footballclubdp.png";
   //
   //  sub part of home screen--> store categories in list view
+
   String storeCategoriesIcon = "$iconsAssets/storecategoriesicon.png";
   String storeCategories1 = "$dynamicAssets/categories1.png";
   String storeCategories2 = "$dynamicAssets/categories2.png";
@@ -140,6 +146,7 @@ class AppAssets {
 
   ///
   // ///**************  notification screen  **************************//
+
   String bookingConfirmationIcon = "$iconsAssets/bookingconfirmationicon.png";
   String pointsEarnedIcon = "$iconsAssets/pointsearnicon.png";
   String productPurchaseConfirmationIcon =
@@ -148,7 +155,6 @@ class AppAssets {
   String eventReminderIcon = "$iconsAssets/eventremindericon.png";
   String discountForYouIcon = "$iconsAssets/storecategoriesicon.png";
   String discount = "$iconsAssets/discount.svg";
-
   String likeicon = "$iconsAssets/likeicon.png";
 
   /// discount icon is not downloading
@@ -162,6 +168,8 @@ class AppAssets {
   String screenStoreCategories4 = "$dynamicAssets/categoriesScreen4.png";
   String screenStoreCategories5 = "$dynamicAssets/categoriesScreen5.png";
   String screenStoreCategories6 = "$dynamicAssets/categoriesScreen6.png";
+
+  String arrival = "$iconsAssets/arrival_icon.png";
 
   ///
   // ///************** search screens  **************************//
@@ -190,7 +198,7 @@ class AppAssets {
   String fieldDetails = "$dynamicAssets/fieldDetails.png";
   String locationIcon = "$iconsAssets/locationIcon.png";
   String mapIcon = "$iconsAssets/mapIcon.png";
-  String StareIcon = "$iconsAssets/StareIcon.png";
+  String stareIcon = "$iconsAssets/StareIcon.png";
   String termsAndConditionIcon = "$iconsAssets/termsAndConditionIcon.png";
   String genderIcon = "$iconsAssets/genderIcon.png";
   String selectedFieldIcon = "$iconsAssets/selectedFieldIcon.png";
@@ -225,8 +233,8 @@ class AppAssets {
   String followIcon = "$iconsAssets/followIcon.png";
   String heartIcon = "$iconsAssets/heartIcon.png";
   String hashtag = "$iconsAssets/hashtag.png";
-
   String repostIcon = "$iconsAssets/repostIcon.png";
+
   // share icon is already used
   //************** club profile screen 2 **************************//
   //
@@ -247,10 +255,18 @@ class AppAssets {
   //************** Booking 2 screen **************************//
 
   String gym = "$dynamicAssets/gym.png";
-  String MartialArts = "$dynamicAssets/MartialArts.png";
-  String OutdoorActivities = "$dynamicAssets/OutdoorActivities.png";
+  String martialArts = "$dynamicAssets/MartialArts.png";
+  String outdoorActivities = "$dynamicAssets/OutdoorActivities.png";
   String massage = "$dynamicAssets/massage.png";
   String sportsClub = "$dynamicAssets/sportsClub.png";
+  String swimming = "$dynamicAssets/swimming.png";
+  String yoga = "$dynamicAssets/yoga.png";
+
+  String pngwing = "$dynamicAssets/pngwing.png";
+  String pngwing2 = "$dynamicAssets/pngwing2.png";
+  String pngwing3 = "$dynamicAssets/pngwing3.png";
+  String pngwing4 = "$dynamicAssets/pngwing4.png";
+  String pngwing5 = "$dynamicAssets/pngwing5.png";
 
   //************** Booking  screen **************************//
 

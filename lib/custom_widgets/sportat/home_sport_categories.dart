@@ -4,11 +4,11 @@ import 'package:code_structure/core/model/home_sport_categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomHomeSportCategoryCard extends StatelessWidget {
+class CustomSportCategory extends StatelessWidget {
   final SportCategoriesModel sportCategories;
   LinearGradient? gradient;
 
-  CustomHomeSportCategoryCard({
+  CustomSportCategory({
     required this.gradient,
     required this.sportCategories,
   });
@@ -17,11 +17,11 @@ class CustomHomeSportCategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160,
-      height: 200,
+      margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
         gradient: gradient,
         color: sportCategories.backgroundColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(21.r),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -50,7 +50,7 @@ class CustomHomeSportCategoryCard extends StatelessWidget {
               ),
               Image.asset(
                 "assets/icons_assets/ellipse.png",
-                scale: 4,
+                height: 10,
               )
             ],
           )
