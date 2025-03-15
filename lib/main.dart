@@ -1,3 +1,4 @@
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/ui/root_screen/root_screen.dart';
@@ -8,16 +9,13 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
-
-  /// Builds the main widget tree for the application, which includes multiple
-  /// providers for managing state and initializes screen size adaptations.
-  /// Returns a `GetMaterialApp` with a specified theme and home page.
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
@@ -25,7 +23,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => InterestScreenViewModel()),
       ],
       child: ScreenUtilInit(
-        designSize: const Size(375, 812),
+        designSize: Size(MediaQuery.of(context).size.width,
+            MediaQuery.sizeOf(context).height),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, child) {
@@ -33,6 +32,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Sportat',
             theme: ThemeData(
+              scaffoldBackgroundColor: backGroundColor,
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
               useMaterial3: true,
             ),

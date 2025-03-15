@@ -9,7 +9,6 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import 'package:provider/provider.dart';
 
@@ -112,6 +111,9 @@ AppBar _appBar(BuildContext context) {
   return AppBar(
       elevation: 0.0,
       backgroundColor: backGroundColor,
+      surfaceTintColor: backGroundColor,
+      shadowColor: backGroundColor,
+      foregroundColor: backGroundColor,
       leading: Padding(
         padding: const EdgeInsets.only(left: 10.0),
         child: CircleAvatar(
@@ -195,14 +197,18 @@ AppBar _appBar(BuildContext context) {
         )
       ],
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(70.h),
+        preferredSize: Size.fromHeight(80.h),
         child: _searchField(context),
       ));
 }
 
 _searchField(BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    padding: const EdgeInsets.only(
+      left: 16.0,
+      right: 16.0,
+      bottom: 10,
+    ),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

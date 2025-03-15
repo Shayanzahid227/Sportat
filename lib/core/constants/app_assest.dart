@@ -106,6 +106,8 @@ class AppAssets {
   String ellipse = "$dynamicAssets/ellipse.png";
   String pointsEarnIcon = "$iconsAssets/pointsearnicon.png";
   String searchicon2 = "$iconsAssets/search2icon.png";
+  String backicon = "$iconsAssets/back_icon.png";
+
   String searchfieldIcon = "$iconsAssets/searchfieldicon.png";
   String notificationIcon = "$iconsAssets/notificationicon.png";
   //
@@ -118,7 +120,6 @@ class AppAssets {
   String sportCategories5 = "$dynamicAssets/squash5.png";
   String sportCategories6 = "$dynamicAssets/golf6.png";
   String arrivals1 = "$dynamicAssets/arrivals1.png";
-
   //
   //  sub part of home screen--> top  subscription
 
@@ -170,6 +171,7 @@ class AppAssets {
   String screenStoreCategories6 = "$dynamicAssets/categoriesScreen6.png";
 
   String arrival = "$iconsAssets/arrival_icon.png";
+  String limitedTimeoffer = "$iconsAssets/limitedTimeoffer.png";
 
   ///
   // ///************** search screens  **************************//
@@ -241,6 +243,8 @@ class AppAssets {
   String vedioImage = "$dynamicAssets/vedio.png";
   String videoPlayBackIcon = "$iconsAssets/vedioPlayBackIcon.png";
   String videoIcon = "$iconsAssets/vedioIcon.png";
+  String playCircle = "$iconsAssets/play-circle.png";
+
   //************** sportat profile screen **************************//
   //
   String finalLogo2 = "$staticAssets/finalLogo2.png";
@@ -251,8 +255,6 @@ class AppAssets {
   //      05 : subscribe                  //
   //                                      //
   //************************************ *//
-  //
-  //************** Booking 2 screen **************************//
 
   String gym = "$dynamicAssets/gym.png";
   String martialArts = "$dynamicAssets/MartialArts.png";
@@ -276,22 +278,9 @@ class AppAssets {
   //String selectedMembershipIcon = "$iconsAssets/selectedMembershipIcon.png";
   String dollarIcon = "$iconsAssets/dollarIcon.png";
 
-  //************** available services  screen **************************//
-  // already done in Booking  > available services screen
-
-  //************** terms and condition screen **************************//
-  // no data
-
-  //************** check out screen **************************//
-  // already done in Booking > check out screen
-
   //************** confirmed  screen **************************//
   String confirmedIcon = "$iconsAssets/confirmedIcon.png";
 
-  //************** search  screen **************************//
-  //  already done in search screen
-
-  //************** search filter screen **************************//
   ///
   //************************************ *//
   //                                      //
@@ -299,5 +288,13 @@ class AppAssets {
   //                                      //
   //************************************ *//
   //
-  //************** Booking 2 screen **************************//
+  String videoPlay = "$iconsAssets/video-play.png";
+  String addFav = "$iconsAssets/add_fav.png";
+  String like = "$iconsAssets/like.png";
+  String likee = "$iconsAssets/likee.png";
+  String share = "$iconsAssets/share.png";
+  String comment = "$iconsAssets/comment.png";
+  String views = "$iconsAssets/views.png";
+  String repost = "$iconsAssets/repost.png";
+  String follow = "$iconsAssets/follow.png";
 }

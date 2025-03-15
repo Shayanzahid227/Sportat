@@ -1,12 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
-import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/sportat/home_sport_categories.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class BookingScreen extends StatelessWidget {

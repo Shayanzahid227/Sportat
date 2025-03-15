@@ -15,24 +15,25 @@ class CustomTop10Fields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.bottomCenter,
-        height: 130.h,
+        alignment: Alignment.bottomLeft,
         padding: const EdgeInsets.all(8.0),
+        margin: EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
           image: DecorationImage(
             image: AssetImage('${top10Field.imageUrl}'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            15.w.horizontalSpace,
             CircleAvatar(
               backgroundImage: AssetImage(
                 '${top10Field.fieldLogo}',
               ),
-              radius: 25,
+              radius: 25.r,
             ),
             10.horizontalSpace,
             Text(

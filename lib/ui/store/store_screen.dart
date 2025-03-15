@@ -36,7 +36,7 @@ class StoreScreen extends StatelessWidget {
                     ontap: () {},
                   ),
                   SizedBox(
-                    height: 215.h,
+                    height: 220.h,
                     child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -75,10 +75,59 @@ class StoreScreen extends StatelessWidget {
                                     Border.all(width: 0.4, color: primaryColor),
                                 borderRadius: BorderRadius.circular(10.r)),
                             child: Image.asset(
-                                "${model.topStoresList[index].imgUrl}"),
+                              "${model.topStoresList[index].imgUrl}",
+                              scale: 3,
+                            ),
                           );
                         }),
                   ),
+                  10.verticalSpace,
+
+                  ///
+                  /// Arrivals
+                  ///
+                  _iconAndText(
+                    img: AppAssets().arrival,
+                    title: "Top Selling Products",
+                    ontap: () {},
+                  ),
+                  SizedBox(
+                    height: 220.h,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: model.sellingProducts.length,
+                        itemBuilder: (context, index) {
+                          return CustomNewArrivals(
+                            newArrivalsModel: model.sellingProducts[index],
+                            addCartOnTap: () {},
+                          );
+                        }),
+                  ),
+                  10.verticalSpace,
+
+                  ///
+                  /// Limited Time Offer
+                  ///
+                  _iconAndText(
+                    img: AppAssets().limitedTimeoffer,
+                    title: "Limitted Time Offers!",
+                    ontap: () {},
+                  ),
+                  SizedBox(
+                    height: 220.h,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: model.limitedProducts.length,
+                        itemBuilder: (context, index) {
+                          return CustomNewArrivals(
+                            newArrivalsModel: model.limitedProducts[index],
+                            addCartOnTap: () {},
+                          );
+                        }),
+                  ),
+                  10.verticalSpace,
                 ],
               ),
             )),

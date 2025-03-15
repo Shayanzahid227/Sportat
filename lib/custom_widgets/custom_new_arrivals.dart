@@ -15,7 +15,7 @@ class CustomNewArrivals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 157.w,
+      width: 160.w,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(

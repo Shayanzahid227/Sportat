@@ -9,8 +9,11 @@ import 'package:code_structure/custom_widgets/sportat/home_store_categories.dart
 import 'package:code_structure/custom_widgets/sportat/home_top_10_fields.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_subscriptions.dart';
 import 'package:code_structure/ui/home/home_view_model.dart';
+import 'package:code_structure/ui/store_categories_screen/store_categories_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -203,7 +206,9 @@ _sportCategories(HomeViewModel model) {
       _iconAndText(
         img: AppAssets().spotsCategoriesIcon,
         title: "Sport Categories",
-        ontap: () {},
+        ontap: () {
+          Get.to(CategoriesScreen());
+        },
       ),
       5.verticalSpace,
       SizedBox(
@@ -215,10 +220,15 @@ _sportCategories(HomeViewModel model) {
           itemCount: model.sportCategoriesList.length,
           itemBuilder: (BuildContext context, int index) {
             // int randomIndex = random.nextInt(model.sliderGradients.length);
-            return CustomSportCategory(
-              sportCategories: model.sportCategoriesList[index],
-              gradient: shuffledGradients[
-                  index % shuffledGradients.length], // Ensuring uniqueness
+            return GestureDetector(
+              onTap: () {
+                Get.to(CategoriesScreen());
+              },
+              child: CustomSportCategory(
+                sportCategories: model.sportCategoriesList[index],
+                gradient: shuffledGradients[
+                    index % shuffledGradients.length], // Ensuring uniqueness
+              ),
             );
           },
         ),
@@ -241,7 +251,7 @@ Widget _topSubScriptions(HomeViewModel model, BuildContext context) {
           ontap: () {}),
       10.verticalSpace,
       SizedBox(
-        height: 130.h, // Match CustomTop10Fields height
+        height: 140.h,
         child: PageView.builder(
           controller: model.subscriptionPageController,
           itemCount: model.topSubscriptionsList.length,
@@ -286,7 +296,7 @@ Widget _top10Fields(HomeViewModel model, BuildContext context) {
 
       SizedBox(height: 10.h),
       SizedBox(
-        height: 130.h, // Match CustomTop10Fields height
+        height: 140.h,
         child: PageView.builder(
           controller: model.top10PageController,
           itemCount: model.top10FieldsList.length,

@@ -13,20 +13,11 @@ class CategoriesScreen extends StatelessWidget {
         builder: (context, model, child) => DefaultTabController(
           length: 6,
           child: Scaffold(
+            ///
+            /// Start Body
+            ///
             body: Column(
-              children: [
-                TabBar(
-                  isScrollable: true,
-                  tabs: [
-                    Tab(text: '${model.categoriesList[0].imageUrl}'),
-                    Tab(text: 'Electronics'),
-                    Tab(text: 'Electronics'),
-                    Tab(text: 'Electronics'),
-                    Tab(text: 'Electronics'),
-                    Tab(text: 'Electronics'),
-                  ],
-                ),
-              ],
+              children: [],
             ),
           ),
         ),

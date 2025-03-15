@@ -16,14 +16,16 @@ class CustomTopSubscriptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.bottomCenter,
-      height: 130.h,
-      // margin: EdgeInsets.symmetric(horizontal: 5),
-      padding: EdgeInsets.all(16),
+      // width: 300.w,
+      alignment: Alignment.bottomLeft,
+      margin: EdgeInsets.only(right: 10),
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('${topSubscriptions.imageUrl}'),
+          fit: BoxFit.cover,
         ),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

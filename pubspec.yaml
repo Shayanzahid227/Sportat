@@ -57,6 +57,11 @@ dependencies:
   convex_bottom_bar:
   intl:
   flutter_svg:
+  video_player:
+  youtube_player_flutter:
+  path_provider:
+  change_app_package_name: 
+  reels_viewer:
 
 dev_dependencies:
   flutter_test:

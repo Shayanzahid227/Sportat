@@ -46,7 +46,7 @@ class StoreViewModel extends BaseViewModel {
       price: '421',
     ),
     NewArrivalsModel(
-      imageUrl: AppAssets().arrivals1,
+      imageUrl: AppAssets().screenStoreCategories1,
       title: 'chemical compounds',
       price: '300',
     ),
@@ -106,6 +106,33 @@ class StoreViewModel extends BaseViewModel {
     });
   }
 
+  List<NewArrivalsModel> sellingProducts = [
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories1,
+      title: 'Union BOA Clipless Shoes',
+      price: '421',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().shirts,
+      title: 'chemical compounds',
+      price: '300',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories3,
+      title: 'Union BOA Clipless Shoes',
+      price: '500',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories2,
+      title: 'chemical compounds',
+      price: '250',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories1,
+      title: 'Sports Apparel',
+      price: '300',
+    ),
+  ];
   List<TopStoresModel> topStoresList = [
     TopStoresModel(
       imgUrl: AppAssets().pngwing,
@@ -121,6 +148,34 @@ class StoreViewModel extends BaseViewModel {
     ),
     TopStoresModel(
       imgUrl: AppAssets().pngwing5,
+    ),
+  ];
+
+  List<NewArrivalsModel> limitedProducts = [
+    NewArrivalsModel(
+      imageUrl: AppAssets().shirts,
+      title: 'Union BOA Clipless Shoes',
+      price: '421',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories5,
+      title: 'chemical compounds',
+      price: '300',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories3,
+      title: 'Union BOA Clipless Shoes',
+      price: '500',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories2,
+      title: 'chemical compounds',
+      price: '250',
+    ),
+    NewArrivalsModel(
+      imageUrl: AppAssets().screenStoreCategories1,
+      title: 'Sports Apparel',
+      price: '300',
     ),
   ];
 }
