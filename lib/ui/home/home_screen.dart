@@ -206,9 +206,7 @@ _sportCategories(HomeViewModel model) {
       _iconAndText(
         img: AppAssets().spotsCategoriesIcon,
         title: "Sport Categories",
-        ontap: () {
-          Get.to(CategoriesScreen());
-        },
+        ontap: () {},
       ),
       5.verticalSpace,
       SizedBox(
@@ -221,13 +219,10 @@ _sportCategories(HomeViewModel model) {
           itemBuilder: (BuildContext context, int index) {
             // int randomIndex = random.nextInt(model.sliderGradients.length);
             return GestureDetector(
-              onTap: () {
-                Get.to(CategoriesScreen());
-              },
+              onTap: () {},
               child: CustomSportCategory(
                 sportCategories: model.sportCategoriesList[index],
-                gradient: shuffledGradients[
-                    index % shuffledGradients.length], // Ensuring uniqueness
+                gradient: shuffledGradients[index % shuffledGradients.length],
               ),
             );
           },
@@ -334,7 +329,9 @@ _storeCategories(HomeViewModel model) {
       _iconAndText(
         img: AppAssets().storeCategoriesIcon,
         title: "Store Categories",
-        ontap: () {},
+        ontap: () {
+          Get.to(CategoriesScreen());
+        },
       ),
       10.h.verticalSpace,
       SizedBox(

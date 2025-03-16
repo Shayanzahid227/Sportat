@@ -3,7 +3,7 @@ import 'package:code_structure/core/model/top_subscriptions_screen.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 
 class TopSubscriptionViewModel extends BaseViewModel {
-  List<TopSubscriptionsScreenModel> topSubscriptionsScreenList = [
+  List<TopSubscriptionsScreenModel> topSubscriptionsList = [
     TopSubscriptionsScreenModel(
         imageUrl: AppAssets().topSubscriptionStadiumImage,
         profileLogo: AppAssets().topSubscriptionStadiumLogo,

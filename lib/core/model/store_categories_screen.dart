@@ -16,9 +16,16 @@ class StoreCategoryModel {
 class StoreSubCategoryModel {
   String? id;
   String? title;
+  List<StoreSubCategoryDetail>? subCategoryDetails;
 
-  StoreSubCategoryModel({
-    this.id,
-    this.title,
-  });
+  StoreSubCategoryModel({this.id, this.title, this.subCategoryDetails});
+}
+
+class StoreSubCategoryDetail {
+  String? id;
+  String? title;
+  String? imageUrl;
+  String? price;
+
+  StoreSubCategoryDetail({this.id, this.title, this.imageUrl, this.price});
 }

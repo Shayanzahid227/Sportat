@@ -1,30 +1,25 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/top_subscriptions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
-  final TopSubscriptionsScreenModel Object_topSubscriptionsScreenModel;
-  CustomTopSubscriptionsScreenWidget(
-      {required this.Object_topSubscriptionsScreenModel});
+class CustomTopSubscriptions extends StatelessWidget {
+  final TopSubscriptionsScreenModel topSubscriptions;
+  const CustomTopSubscriptions({required this.topSubscriptions});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0), // Add some margin
+      margin: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(21.0), // Rounded corners
-        border: Border.all(color: primaryColor, width: 0.3), // Purple border
+        borderRadius: BorderRadius.circular(21.0),
+        border: Border.all(color: primaryColor, width: 0.3),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //  _buildImageSection(),
-          //10.verticalSpace,
-          // _textBelowImage()
-          // 10.verticalspace,
           Container(
             alignment: Alignment.bottomLeft,
             height: 170.h,
@@ -32,8 +27,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(21),
               image: DecorationImage(
-                image: AssetImage(
-                    '${Object_topSubscriptionsScreenModel.imageUrl}'),
+                image: AssetImage('${topSubscriptions.imageUrl}'),
                 fit: BoxFit.cover,
               ),
               gradient: LinearGradient(
@@ -55,13 +49,13 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                     radius: 30.r,
                     backgroundColor: Colors.white,
                     child: Image.asset(
-                      '${Object_topSubscriptionsScreenModel.profileLogo}',
+                      '${topSubscriptions.profileLogo}',
                       fit: BoxFit.contain,
                     ),
                   ),
                   SizedBox(width: 8),
                   Text(
-                    "${Object_topSubscriptionsScreenModel.title}",
+                    "${topSubscriptions.title}",
                     style: style16.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -88,7 +82,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(0.0),
                         child: Image.asset(
-                          ' ${Object_topSubscriptionsScreenModel.title}',
+                          ' ${topSubscriptions.title}',
                           color: secondryColor,
                           fit: BoxFit.contain,
                         ),
@@ -96,7 +90,7 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                     ),
                     5.w.horizontalSpace,
                     Text(
-                      '${Object_topSubscriptionsScreenModel.energyPoints}',
+                      '${topSubscriptions.energyPoints}',
                       style: style14.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
@@ -114,14 +108,14 @@ class CustomTopSubscriptionsScreenWidget extends StatelessWidget {
                         decoration: BoxDecoration(),
                         padding: EdgeInsets.all(2),
                         child: Image.asset(
-                          '${Object_topSubscriptionsScreenModel.locationIcon}',
+                          '${topSubscriptions.locationIcon}',
                           color: borderColor,
                           fit: BoxFit.cover,
                         ),
                       ),
                       5.horizontalSpace,
                       Text(
-                        '${Object_topSubscriptionsScreenModel.location}',
+                        '${topSubscriptions.location}',
                         style: style14.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,

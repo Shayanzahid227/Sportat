@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element, use_key_in_widget_constructors
+// ignore_for_file: unused_element, use_key_in_widget_constructors, deprecated_member_use
 
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
@@ -24,11 +24,10 @@ class TopSubScriptionScreen extends StatelessWidget {
               20.h.verticalSpace,
               Expanded(
                 child: ListView.builder(
-                  itemCount: model.topSubscriptionsScreenList.length,
+                  itemCount: model.topSubscriptionsList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return CustomTopSubscriptionsScreenWidget(
-                        Object_topSubscriptionsScreenModel:
-                            model.topSubscriptionsScreenList[index]);
+                    return CustomTopSubscriptions(
+                        topSubscriptions: model.topSubscriptionsList[index]);
                   },
                 ),
               )
@@ -82,8 +81,6 @@ class TopSubScriptionScreen extends StatelessWidget {
     );
   }
 
-  ///
-  ////
   Widget _buildImageSection() {
     return Container(
       alignment: Alignment.bottomLeft,
@@ -97,16 +94,15 @@ class TopSubScriptionScreen extends StatelessWidget {
         ),
         gradient: LinearGradient(
           begin: Alignment.bottomCenter,
-          end: Alignment.center, // Adjust the end alignment
+          end: Alignment.center,
           colors: [
-            Colors.black.withOpacity(1), // Lower opacity
+            Colors.black.withOpacity(1),
             Colors.transparent,
           ],
-          stops: [0.6, 1.0], // Adjust the gradient stops
+          stops: [0.6, 1.0],
         ),
       ),
       child: Padding(
-        // Move padding to the container's child
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
