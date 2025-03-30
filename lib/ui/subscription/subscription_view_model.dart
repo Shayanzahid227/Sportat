@@ -1,8 +1,17 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/model/club_model.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
+import 'package:flutter/material.dart';
 
 class SubscribtionViewModel extends BaseViewModel {
+  final PageController pageController = PageController();
+  int currentIndex = 0;
+
+  List<String> images = [
+    AppAssets().ground,
+    AppAssets().ground,
+    AppAssets().ground,
+  ];
   List<ClubModel> clubList = [
     ClubModel(id: '1', name: 'Sports Clubs', imgUrl: AppAssets().sportsClub),
     ClubModel(id: '2', name: 'GYM', imgUrl: AppAssets().gym),

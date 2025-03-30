@@ -2,8 +2,11 @@
 
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/custom_widgets/custom_club.dart';
+import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
 class SubscribtionScreen extends StatelessWidget {
@@ -25,7 +28,11 @@ class SubscribtionScreen extends StatelessWidget {
                   childAspectRatio: 1.7,
                 ),
                 itemBuilder: (context, index) {
-                  return CustomClub(clubModel: model.clubList[index]);
+                  return GestureDetector(
+                      onTap: () {
+                        Get.to(() => FieldDetailsScreen());
+                      },
+                      child: CustomClub(clubModel: model.clubList[index]));
                 })),
       ),
     );

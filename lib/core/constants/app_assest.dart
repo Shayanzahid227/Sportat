@@ -198,7 +198,7 @@ class AppAssets {
   //************** field details screen **************************//
   //
   String fieldDetails = "$dynamicAssets/fieldDetails.png";
-  String locationIcon = "$iconsAssets/locationIcon.png";
+  String locationIcon = "$iconsAssets/location.png";
   String mapIcon = "$iconsAssets/mapIcon.png";
   String stareIcon = "$iconsAssets/StareIcon.png";
   String termsAndConditionIcon = "$iconsAssets/termsAndConditionIcon.png";
@@ -269,6 +269,7 @@ class AppAssets {
   String pngwing3 = "$dynamicAssets/pngwing3.png";
   String pngwing4 = "$dynamicAssets/pngwing4.png";
   String pngwing5 = "$dynamicAssets/pngwing5.png";
+  String ground = "$dynamicAssets/ground.png";
 
   //************** Booking  screen **************************//
 

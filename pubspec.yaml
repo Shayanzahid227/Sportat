@@ -62,6 +62,7 @@ dependencies:
   path_provider:
   change_app_package_name: 
   reels_viewer:
+  smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:
