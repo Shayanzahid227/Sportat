@@ -10,6 +10,7 @@ import 'package:code_structure/custom_widgets/sportat/home_top_10_fields.dart';
 import 'package:code_structure/custom_widgets/sportat/home_top_subscriptions.dart';
 import 'package:code_structure/ui/home/home_view_model.dart';
 import 'package:code_structure/ui/store_categories_screen/store_categories_screen.dart';
+import 'package:code_structure/ui/top_subscription_screen/top_subscription_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:get/route_manager.dart';
@@ -243,7 +244,9 @@ Widget _topSubScriptions(HomeViewModel model, BuildContext context) {
       _iconAndText(
           img: AppAssets().topSubscriptionIcon,
           title: "Top Subscriptions",
-          ontap: () {}),
+          ontap: () {
+            Get.to(TopSubScriptionScreen());
+          }),
       10.verticalSpace,
       SizedBox(
         height: 140.h,
@@ -283,10 +286,45 @@ Widget _topSubScriptions(HomeViewModel model, BuildContext context) {
 Widget _top10Fields(HomeViewModel model, BuildContext context) {
   return Column(
     children: [
-      _iconAndText(
-        img: AppAssets().top10FieldsIcon,
-        title: "Top 10 Categories",
-        ontap: () {},
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        color: transparentColor,
+                        border: Border.all(width: 2, color: borderColor),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Image.asset(
+                      AppAssets().top10FieldsIcon,
+                      scale: 3,
+                    ),
+                  ),
+                ),
+                10.horizontalSpace,
+                Text(
+                  'Top 10  Fields',
+                  style: style20B.copyWith(color: blackColor),
+                ),
+              ],
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  "See All",
+                  style: style16B.copyWith(color: primaryColor),
+                )),
+          ],
+        ),
       ),
 
       SizedBox(height: 10.h),
@@ -330,7 +368,7 @@ _storeCategories(HomeViewModel model) {
         img: AppAssets().storeCategoriesIcon,
         title: "Store Categories",
         ontap: () {
-          Get.to(CategoriesScreen());
+          Get.to(StoreCategoriesScreen());
         },
       ),
       10.h.verticalSpace,
@@ -392,7 +430,7 @@ _iconAndText(
             10.horizontalSpace,
             Text(
               '$title',
-              style: style20N.copyWith(color: blackColor),
+              style: style20B.copyWith(color: blackColor),
             ),
           ],
         ),

@@ -2,12 +2,12 @@
 
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
-import 'package:code_structure/core/model/home_top_subscriptions.dart';
+import 'package:code_structure/core/model/top_subscriptions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTopSubscriptions extends StatelessWidget {
-  TopSubscriptionsModel topSubscriptions;
+  TopSubscriptions topSubscriptions;
 
   CustomTopSubscriptions({
     required this.topSubscriptions,
@@ -33,7 +33,7 @@ class CustomTopSubscriptions extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundImage: AssetImage(
-              '${topSubscriptions.fieldLogo}',
+              '${topSubscriptions.profileLogo}',
             ),
             radius: 25,
           ),

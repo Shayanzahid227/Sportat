@@ -6,7 +6,7 @@ import 'package:code_structure/core/model/home_slider_model.dart';
 import 'package:code_structure/core/model/home_sport_categories_model.dart';
 import 'package:code_structure/core/model/home_store_categories.dart';
 import 'package:code_structure/core/model/home_top_10_fields_model.dart';
-import 'package:code_structure/core/model/home_top_subscriptions.dart';
+import 'package:code_structure/core/model/top_subscriptions_screen.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 import 'package:flutter/material.dart';
 
@@ -150,19 +150,22 @@ class HomeViewModel extends BaseViewModel {
   }
 
   //
-  List<TopSubscriptionsModel> topSubscriptionsList = [
-    TopSubscriptionsModel(
-        imageUrl: AppAssets().topSubscriptionStadiumImage,
-        title: 'Football for kids',
-        fieldLogo: AppAssets().topSubscriptionStadiumLogo),
-    TopSubscriptionsModel(
-        imageUrl: AppAssets().topSubscriptionStadiumImage,
-        title: 'Football for kids',
-        fieldLogo: AppAssets().topSubscriptionStadiumLogo),
-    TopSubscriptionsModel(
-        imageUrl: AppAssets().topSubscriptionStadiumImage,
-        title: 'Football for kids',
-        fieldLogo: AppAssets().topSubscriptionStadiumLogo),
+  List<TopSubscriptions> topSubscriptionsList = [
+    TopSubscriptions(
+      imageUrl: AppAssets().topSubscriptionStadiumImage,
+      profileLogo: AppAssets().topSubscriptionStadiumLogo,
+      title: 'Sporting Club',
+    ),
+    TopSubscriptions(
+      imageUrl: AppAssets().topSubscriptionStadiumImage,
+      profileLogo: AppAssets().topSubscriptionStadiumLogo,
+      title: 'Sporting Club',
+    ),
+    TopSubscriptions(
+      imageUrl: AppAssets().topSubscriptionStadiumImage,
+      profileLogo: AppAssets().topSubscriptionStadiumLogo,
+      title: 'Sporting Club',
+    ),
   ];
 
   ///

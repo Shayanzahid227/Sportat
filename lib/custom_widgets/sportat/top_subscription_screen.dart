@@ -1,4 +1,5 @@
-// ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors
+// ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors, deprecated_member_use
+import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/top_subscriptions_screen.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTopSubscriptions extends StatelessWidget {
-  final TopSubscriptionsScreenModel topSubscriptions;
+  final TopSubscriptions topSubscriptions;
   const CustomTopSubscriptions({required this.topSubscriptions});
 
   @override
@@ -15,7 +16,20 @@ class CustomTopSubscriptions extends StatelessWidget {
       margin: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(21.0),
-        border: Border.all(color: primaryColor, width: 0.3),
+        border: Border(
+          bottom: BorderSide(
+            color: primaryColor, // Border color
+            width: 0.5, // Border width
+          ),
+          left: BorderSide(
+            color: primaryColor, // Border color
+            width: 0.5, // Border width
+          ),
+          right: BorderSide(
+            color: primaryColor, // Border color
+            width: 0.5, // Border width
+          ),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,15 +43,6 @@ class CustomTopSubscriptions extends StatelessWidget {
               image: DecorationImage(
                 image: AssetImage('${topSubscriptions.imageUrl}'),
                 fit: BoxFit.cover,
-              ),
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.center,
-                colors: [
-                  Colors.black.withOpacity(1),
-                  Colors.transparent,
-                ],
-                stops: [0.6, 1.0],
               ),
             ),
             child: Padding(
@@ -72,57 +77,38 @@ class CustomTopSubscriptions extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 20.h,
-                      width: 20.w,
-                      decoration: BoxDecoration(),
-                      child: Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: Image.asset(
-                          ' ${topSubscriptions.title}',
-                          color: secondryColor,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
+                    Image.asset(
+                      AppAssets().pointsEarnedIcon,
+                      color: secondryColor,
+                      scale: 4,
                     ),
-                    5.w.horizontalSpace,
+                    5.horizontalSpace,
                     Text(
                       '${topSubscriptions.energyPoints}',
                       style: style14.copyWith(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                          color: secondryColor),
+                          fontWeight: FontWeight.w500, color: secondryColor),
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 25.h,
-                        width: 20.w,
-                        decoration: BoxDecoration(),
-                        padding: EdgeInsets.all(2),
-                        child: Image.asset(
-                          '${topSubscriptions.locationIcon}',
-                          color: borderColor,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      5.horizontalSpace,
-                      Text(
-                        '${topSubscriptions.location}',
-                        style: style14.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                    ],
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      AppAssets().locationIcon,
+                      scale: 3.5,
+                    ),
+                    5.horizontalSpace,
+                    Text(
+                      '${topSubscriptions.location}',
+                      style: style14.copyWith(
+                          fontWeight: FontWeight.w400, color: blackColor),
+                    ),
+                  ],
                 ),
               ],
             ),

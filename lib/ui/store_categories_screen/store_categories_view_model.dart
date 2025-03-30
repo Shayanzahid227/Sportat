@@ -2,12 +2,12 @@ import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/model/store_categories_screen.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 
-class StoreCategoriesScreenViewModel extends BaseViewModel {
+class StoreCategoriesViewModel extends BaseViewModel {
   int selectedCategoryIndex = 0;
   int selectedSubCategoryIndex = 0;
   List<StoreSubCategoryDetail> selectedSubCategoryDetails = [];
 
-  StoreCategoriesScreenViewModel() {
+  StoreCategoriesViewModel() {
     // Initialize with the first category's data by default
     selectCategory(0);
   }
@@ -78,7 +78,7 @@ class StoreCategoriesScreenViewModel extends BaseViewModel {
                   price: '41 SAR',
                   imageUrl: AppAssets().screenStoreCategories6),
               StoreSubCategoryDetail(
-                  id: '2',
+                  id: '3',
                   title: 'chemical compounds',
                   price: '30 SAR',
                   imageUrl: AppAssets().shirts),

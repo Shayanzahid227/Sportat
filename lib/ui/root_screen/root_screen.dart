@@ -5,6 +5,7 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
+import 'package:code_structure/ui/search/search_screen.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +31,7 @@ class RootScreen extends StatelessWidget {
           ///
           /// App Bar
           ///
-          appBar: _appBar(context),
+          appBar: _appBar(context, model),
 
           ///
           /// Start Body
@@ -107,7 +108,7 @@ class RootScreen extends StatelessWidget {
   }
 }
 
-AppBar _appBar(BuildContext context) {
+AppBar _appBar(BuildContext context, RootViewModel model) {
   return AppBar(
       elevation: 0.0,
       backgroundColor: backGroundColor,
@@ -198,74 +199,82 @@ AppBar _appBar(BuildContext context) {
       ],
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(80.h),
-        child: _searchField(context),
+        child: _searchField(context, model),
       ));
 }
 
-_searchField(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(
-      left: 16.0,
-      right: 16.0,
-      bottom: 10,
-    ),
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-            child: TextFormField(
-          decoration: authSignUpFieldDecoration.copyWith(
-            contentPadding: EdgeInsets.all(5),
-            hintText: 'Search for sports or fields',
-            hintStyle: style16.copyWith(color: lightGreyColor),
-            prefixIcon: Image.asset(
-              AppAssets().searchicon2,
-              scale: 4,
-            ),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                SearchFilterBottomSheet.show(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Image.asset(
-                  AppAssets()
-                      .searchfieldIcon, // Assuming this is the slider/filter icon
-                  scale: 5,
+_searchField(BuildContext context, RootViewModel model) {
+  return SizedBox(
+    child: Padding(
+      padding: const EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        bottom: 10,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+              child: TextFormField(
+            readOnly: true,
+            onTap: () {
+              Get.to(SearchScreen(
+                search: model.selectedScreen,
+              ));
+            },
+            decoration: authSignUpFieldDecoration.copyWith(
+              contentPadding: EdgeInsets.all(5),
+              hintText: 'Search for sports or fields',
+              hintStyle: style16.copyWith(color: lightGreyColor),
+              prefixIcon: Image.asset(
+                AppAssets().searchicon2,
+                scale: 4,
+              ),
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  SearchFilterBottomSheet.show(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Image.asset(
+                    AppAssets()
+                        .searchfieldIcon, // Assuming this is the slider/filter icon
+                    scale: 5,
+                  ),
                 ),
               ),
             ),
-          ),
-        )),
-        10.horizontalSpace,
-        // Notification Icon
-        GestureDetector(
-          onTap: () {
-            Get.to(NotificationScreen());
-          },
-          child: Container(
-            height: 45.h,
-            width: 45.w,
-            decoration: BoxDecoration(
-              color: whitecolor,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: transparentColor),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 1,
-                  blurRadius: 1,
-                  offset: Offset(0, 1),
-                ),
-              ],
+          )),
+          10.horizontalSpace,
+          // Notification Icon
+          GestureDetector(
+            onTap: () {
+              Get.to(NotificationScreen());
+            },
+            child: Container(
+              height: 45.h,
+              width: 45.w,
+              decoration: BoxDecoration(
+                color: whitecolor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: transparentColor),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                AppAssets().notificationIcon,
+                scale: 3,
+              ),
             ),
-            child: Image.asset(
-              AppAssets().notificationIcon,
-              scale: 3,
-            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }

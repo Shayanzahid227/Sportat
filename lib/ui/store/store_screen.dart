@@ -7,9 +7,11 @@ import 'package:code_structure/core/model/home_slider_model.dart';
 import 'package:code_structure/custom_widgets/custom_new_arrivals.dart';
 import 'package:code_structure/custom_widgets/sportat/home_store_categories.dart';
 import 'package:code_structure/ui/store/store_view_model.dart';
+import 'package:code_structure/ui/store_categories_screen/store_categories_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -297,7 +299,7 @@ _iconAndText(
             10.horizontalSpace,
             Text(
               '$title',
-              style: style20N.copyWith(color: blackColor),
+              style: style20B.copyWith(color: blackColor),
             ),
           ],
         ),
@@ -318,7 +320,9 @@ _storeCategories(StoreViewModel model) {
       _iconAndText(
         img: AppAssets().storeCategoriesIcon,
         title: "Store Categories",
-        ontap: () {},
+        ontap: () {
+          Get.to(StoreCategoriesScreen());
+        },
       ),
       10.h.verticalSpace,
       SizedBox(

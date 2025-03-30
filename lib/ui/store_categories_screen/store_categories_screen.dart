@@ -7,15 +7,14 @@ import 'package:code_structure/custom_widgets/custom_sub_categories_details.dart
 import 'package:code_structure/ui/store_categories_screen/store_categories_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class StoreCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => StoreCategoriesScreenViewModel(),
-      child: Consumer<StoreCategoriesScreenViewModel>(
+      create: (context) => StoreCategoriesViewModel(),
+      child: Consumer<StoreCategoriesViewModel>(
         builder: (context, model, child) => DefaultTabController(
           length: model.categoriesList.length,
           child: Scaffold(
