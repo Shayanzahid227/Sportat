@@ -20,10 +20,18 @@ class FieldDetailsScreen extends StatelessWidget {
           ///
           /// Start Body
           ///
-          body: Column(
-            children: [
-              _topHeader(model),
-            ],
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                _topHeader(model),
+                SizedBox(
+                    height:
+                        180), // <-- to adjust because _topHeader has negative Positioned
+                _Secondsection(), // <-- add your dropdown section here
+                20.verticalSpace,
+                _ThirdSection()
+              ],
+            ),
           ),
         ),
       ),
@@ -31,6 +39,9 @@ class FieldDetailsScreen extends StatelessWidget {
   }
 }
 
+///
+///       first section
+///
 _topHeader(SubscribtionViewModel model) {
   return Stack(
     clipBehavior: Clip.none,
@@ -201,7 +212,7 @@ _topHeader(SubscribtionViewModel model) {
             ],
           ),
         ),
-      )
+      ),
     ],
   );
 }
@@ -245,4 +256,300 @@ _details(
       ),
     ),
   );
+}
+
+///
+///      second section
+///
+
+_Secondsection() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+    child: Column(
+      children: [
+        CustomDropdownField(
+          icon: Icons.male,
+          labelText: "Player's Gender",
+          items: ["Male", "Female", "Other"], // <-- dynamic list
+        ),
+        10.verticalSpace,
+        CustomDropdownField(
+          icon: Icons.location_on_sharp,
+          labelText: "Select Location",
+          items: ["Male", "Female", "Other"], // <-- dynamic list
+        ),
+        10.verticalSpace,
+        CustomDropdownField(
+          icon: Icons.format_line_spacing_outlined,
+          labelText: "Select Fields",
+          items: ["Male", "Female", "Other"], // <-- dynamic list
+        ),
+      ],
+    ),
+  );
+}
+
+///
+///      third section
+///
+// Add this method for the third section
+_ThirdSection() {
+  // Sample data - in a real app, this would come from your ViewModel
+  final DateTime selectedDate = DateTime(2024, 3, 12);
+  final List<String> timeSlots = [
+    '08:00 AM To 10:00 AM',
+    '10:00 AM To 12:00 PM',
+    '12:00 PM To 02:00 PM',
+    '02:00 PM To 04:00 PM',
+  ];
+  String? selectedSlot;
+
+  return StatefulBuilder(
+    builder: (BuildContext context, StateSetter setState) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Container(
+          height: 240,
+          decoration: BoxDecoration(
+              color: whitecolor,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: primaryColor, width: 0.5)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Icon(Icons.calendar_today_outlined),
+                    10.horizontalSpace,
+                    Text(
+                      'Date And Available Slot',
+                      style: style16B.copyWith(
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
+                // Date Display
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Container(
+                    height: 46.h,
+                    decoration: BoxDecoration(
+                      color: Color(0xffF3F5FA),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 25.h,
+                            width: 25.w,
+                            decoration: BoxDecoration(color: primaryColor),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                // Text(
+                //   _formatDate(selectedDate),
+                //   style: TextStyle(
+                //     fontSize: 16.sp,
+                //     fontWeight: FontWeight.w600,
+                //     color: Colors.black87,
+                //   ),
+                // ),
+                // const SizedBox(height: 20),
+
+                // Time Slots Grid
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.w,
+                    mainAxisSpacing: 10.h,
+                    childAspectRatio: 5,
+                  ),
+                  itemCount: timeSlots.length,
+                  itemBuilder: (context, index) {
+                    final slot = timeSlots[index];
+                    final isSelected = selectedSlot == slot;
+
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedSlot = isSelected ? null : slot;
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: isSelected ? primaryColor : Colors.white,
+                          border: Border.all(
+                            color: isSelected ? primaryColor : lightGreyColor,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Center(
+                          child: Text(
+                            slot,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: isSelected ? Colors.white : Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+// Add this helper method to format the date
+String _formatDate(DateTime date) {
+  final day = date.day;
+  String suffix;
+
+  if (day >= 11 && day <= 13) {
+    suffix = 'th';
+  } else {
+    switch (day % 10) {
+      case 1:
+        suffix = 'st';
+        break;
+      case 2:
+        suffix = 'nd';
+        break;
+      case 3:
+        suffix = 'rd';
+        break;
+      default:
+        suffix = 'th';
+    }
+  }
+
+  final monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+  return '${day}$suffix ${monthNames[date.month - 1]} ${date.year}';
+}
+
+///
+///      custom drop down field
+///
+class CustomDropdownField extends StatefulWidget {
+  final IconData icon;
+  final String labelText;
+  final List<String> items;
+
+  const CustomDropdownField({
+    super.key,
+    required this.icon,
+    required this.labelText,
+    required this.items,
+  });
+
+  @override
+  State<CustomDropdownField> createState() => _CustomDropdownFieldState();
+}
+
+class _CustomDropdownFieldState extends State<CustomDropdownField> {
+  String? selectedItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.green.withOpacity(0.5)),
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+      ),
+      child: Row(
+        children: [
+          Icon(widget.icon, color: Colors.black87),
+          const SizedBox(width: 8),
+          Text(
+            widget.labelText,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
+            ),
+          ),
+          const Spacer(),
+          Container(
+            height: 36.h,
+            width: 144.w,
+            decoration: BoxDecoration(
+                border: Border.all(color: lightGreyColor),
+                borderRadius: BorderRadius.circular(10.r)),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                hint: Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: Text(
+                    "Select Gender",
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                value: selectedItem,
+                items: widget.items.map((item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Text(
+                        item,
+                        style: const TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    selectedItem = value;
+                  });
+                },
+                style: const TextStyle(
+                  color: Colors.black87,
+                  fontSize: 15,
+                ),
+                icon: const Icon(Icons.keyboard_arrow_down),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

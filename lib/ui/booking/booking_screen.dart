@@ -2,6 +2,7 @@
 
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/custom_widgets/sportat/home_sport_categories.dart';
+import 'package:code_structure/ui/booking/booking_field_screen.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,19 @@ class BookingScreen extends StatelessWidget {
                       List.from(model.sliderGradients);
                   shuffledGradients.shuffle(); // Gradients ko shuffle kar diya
                   return CustomSportCategory(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BookingFieldScreen(
+                            sportsCategory: model.sportCategoriesList[index],
+                            gradient: shuffledGradients[index %
+                                shuffledGradients
+                                    .length], // Ensuring uniqueness
+                          ),
+                        ),
+                      );
+                    },
                     sportCategories: model.sportCategoriesList[index],
                     gradient: shuffledGradients[index %
                         shuffledGradients.length], // Ensuring uniqueness

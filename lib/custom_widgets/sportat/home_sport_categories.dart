@@ -7,54 +7,59 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomSportCategory extends StatelessWidget {
   final SportCategoriesModel sportCategories;
   LinearGradient? gradient;
+  void Function()? onTap; // <-- added optional onTap
 
   CustomSportCategory({
     required this.gradient,
     required this.sportCategories,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 160,
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        gradient: gradient,
-        color: sportCategories.backgroundColor,
-        borderRadius: BorderRadius.circular(21.r),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: Text(
-              '${sportCategories.title}' ?? '',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 160,
+        margin: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          gradient: gradient,
+          color: sportCategories.backgroundColor,
+          borderRadius: BorderRadius.circular(21.r),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                '${sportCategories.title}' ?? '',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                '${sportCategories.imageUrl}' ?? '',
-                height: 142.h,
-                width: 90.w,
-                fit: BoxFit.contain,
-              ),
-              Image.asset(
-                "assets/icons_assets/ellipse.png",
-                height: 10,
-              )
-            ],
-          )
-        ],
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  '${sportCategories.imageUrl}' ?? '',
+                  height: 142.h,
+                  width: 90.w,
+                  fit: BoxFit.contain,
+                ),
+                Image.asset(
+                  "assets/icons_assets/ellipse.png",
+                  height: 10,
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

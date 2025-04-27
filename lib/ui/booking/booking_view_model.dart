@@ -1,7 +1,10 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/model/home_sport_categories_model.dart';
+import 'package:code_structure/core/model/top_subscriptions_screen.dart'
+    show TopSubscriptions;
 import 'package:code_structure/core/others/base_view_model.dart';
+import 'package:code_structure/ui/top_subscription_screen/top_subscription_screen.dart';
 import 'package:flutter/material.dart';
 
 class BookingViewModel extends BaseViewModel {
@@ -53,5 +56,34 @@ class BookingViewModel extends BaseViewModel {
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
     ),
+  ];
+  //***************************************************************************************/
+  ///      booking field screen data
+  ///
+  List<TopSubscriptions> bookingFieldList = [
+    TopSubscriptions(
+        imageUrl: AppAssets().topSubscriptionStadiumImage,
+        profileLogo: AppAssets().topSubscriptionStadiumLogo,
+        title: 'Sporting Club',
+        energyPoints: '100 energy points',
+        location: 'Riyadh Area'),
+    TopSubscriptions(
+        imageUrl: AppAssets().topSubscriptionStadiumImage,
+        profileLogo: AppAssets().topSubscriptionStadiumLogo,
+        title: 'Sporting Club',
+        energyPoints: '100 energy points',
+        location: 'Riyadh Area'),
+    TopSubscriptions(
+        imageUrl: AppAssets().topSubscriptionStadiumImage,
+        profileLogo: AppAssets().topSubscriptionStadiumLogo,
+        title: 'Sporting Club',
+        energyPoints: '100 energy points',
+        location: 'Riyadh Area'),
+    TopSubscriptions(
+        imageUrl: AppAssets().topSubscriptionStadiumImage,
+        profileLogo: AppAssets().topSubscriptionStadiumLogo,
+        title: 'Sporting Club',
+        energyPoints: '100 energy points',
+        location: 'Riyadh Area'),
   ];
 }

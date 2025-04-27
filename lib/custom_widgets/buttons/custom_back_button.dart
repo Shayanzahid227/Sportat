@@ -13,16 +13,16 @@ class CustomBackButton extends StatelessWidget {
         Get.back();
       },
       child: Container(
-        height: 30,
-        width: 30,
+        height: 26,
+        width: 26,
         decoration: BoxDecoration(
-            border: Border.all(color: bordrColor, width: 1.5),
+            border: Border.all(color: whitecolor, width: 1.5),
             borderRadius: BorderRadius.circular(8)),
         child: Center(
           child: Icon(
             Icons.arrow_back_ios_new_sharp,
             size: 20.sp,
-            color: lightGreyColor,
+            color: whitecolor,
           ),
         ),
       ),

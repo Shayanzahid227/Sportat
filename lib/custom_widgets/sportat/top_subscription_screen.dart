@@ -13,7 +13,7 @@ class CustomTopSubscriptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
+      margin: EdgeInsets.symmetric(vertical: 10.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(21.0),
         border: Border(
