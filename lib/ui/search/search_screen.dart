@@ -192,10 +192,12 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _tabItem(String title, bool isSelected) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       decoration: BoxDecoration(
         color: isSelected ? secondryColor : whitecolor,
-        border: Border.all(width: 1, color: lightGreyColor),
+        border: Border.all(
+            width: 2.0, color: isSelected ? secondryColor : lightGreyColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
