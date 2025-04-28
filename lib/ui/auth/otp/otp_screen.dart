@@ -92,7 +92,7 @@ class OTPScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(16),
                                 border: Border.all(
                                     color:
-                                        secondryColor), // Active border color (Blue)
+                                        secondaryColor), // Active border color (Blue)
                               ),
                             ),
                             defaultPinTheme: PinTheme(

@@ -26,13 +26,13 @@ class StoreCategoriesScreen extends StatelessWidget {
               children: [
                 TabBar(
                   isScrollable: true,
-                  labelColor: secondryColor,
+                  labelColor: secondaryColor,
                   unselectedLabelColor: Colors.black,
                   indicatorWeight: 4.h,
                   dividerHeight: 0.0,
                   tabAlignment: TabAlignment.start,
                   indicatorSize: TabBarIndicatorSize.label,
-                  indicatorColor: secondryColor,
+                  indicatorColor: secondaryColor,
                   onTap: (index) => model.selectCategory(index),
                   tabs: model.categoriesList.asMap().entries.map((entry) {
                     final index = entry.key;
@@ -50,7 +50,7 @@ class StoreCategoriesScreen extends StatelessWidget {
                         Text(
                           "${category.title}",
                           style: style16B.copyWith(
-                            color: isSelected ? secondryColor : Colors.black,
+                            color: isSelected ? secondaryColor : Colors.black,
                           ),
                         ),
                         5.verticalSpace,
@@ -87,7 +87,7 @@ class StoreCategoriesScreen extends StatelessWidget {
                                           EdgeInsets.symmetric(horizontal: 16),
                                       decoration: BoxDecoration(
                                         color: isSelected
-                                            ? secondryColor.withOpacity(0.20)
+                                            ? secondaryColor.withOpacity(0.20)
                                             : whitecolor,
                                         borderRadius: BorderRadius.circular(10),
                                       ),
@@ -95,7 +95,7 @@ class StoreCategoriesScreen extends StatelessWidget {
                                         "${subCategory.title}",
                                         style: style16B.copyWith(
                                           color: isSelected
-                                              ? secondryColor
+                                              ? secondaryColor
                                               : blackColor,
                                         ),
                                       ),

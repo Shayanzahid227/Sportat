@@ -16,7 +16,7 @@ class BookingViewModel extends BaseViewModel {
     SportCategoriesModel(
         imageUrl: AppAssets().basketball2,
         title: 'Basketball',
-        backgroundColor: secondryColor),
+        backgroundColor: secondaryColor),
     SportCategoriesModel(
         imageUrl: AppAssets().tennis3,
         title: 'Tennis',
@@ -24,7 +24,7 @@ class BookingViewModel extends BaseViewModel {
     SportCategoriesModel(
         imageUrl: AppAssets().volleyBall4,
         title: 'Volleyball',
-        backgroundColor: secondryColor),
+        backgroundColor: secondaryColor),
     SportCategoriesModel(
         imageUrl: AppAssets().squash5,
         title: 'Squash',
@@ -32,27 +32,24 @@ class BookingViewModel extends BaseViewModel {
     SportCategoriesModel(
         imageUrl: AppAssets().golf6,
         title: 'Golf',
-        backgroundColor: secondryColor),
+        backgroundColor: secondaryColor),
   ];
   List<LinearGradient> sliderGradients = [
     LinearGradient(
-      colors: [Color(0xff81F78E), primaryColor],
+      colors: [lightGreenColor, primaryColor],
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
     ),
     LinearGradient(
       colors: [
-        Color(0xffFF876E),
-        Color(0xffFF3660),
+        lightOrangeColor,
+        pinkColor2,
       ],
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
     ),
     LinearGradient(
-      colors: [
-        Color(0xff35E0FC),
-        Color(0xff34A8FF),
-      ],
+      colors: [skyBlueColor, blueColor],
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
     ),

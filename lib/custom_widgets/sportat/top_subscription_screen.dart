@@ -84,14 +84,14 @@ class CustomTopSubscriptions extends StatelessWidget {
                   children: [
                     Image.asset(
                       AppAssets().pointsEarnedIcon,
-                      color: secondryColor,
+                      color: secondaryColor,
                       scale: 4,
                     ),
                     5.horizontalSpace,
                     Text(
                       '${topSubscriptions.energyPoints}',
                       style: style14.copyWith(
-                          fontWeight: FontWeight.w500, color: secondryColor),
+                          fontWeight: FontWeight.w500, color: secondaryColor),
                     ),
                   ],
                 ),

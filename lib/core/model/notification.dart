@@ -27,7 +27,7 @@ class NotificationModel {
     required this.messageSegments,
     required this.iconPath,
     this.cardColor = whitecolor,
-    this.borderColor = secondryColor,
+    this.borderColor = secondaryColor,
   });
 }
 

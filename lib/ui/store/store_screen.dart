@@ -198,7 +198,7 @@ Widget _sliderSection() {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
                             color: model.currentIndex == indicatorIndex
-                                ? secondryColor
+                                ? secondaryColor
                                 : whitecolor,
                           ),
                         ),
@@ -245,7 +245,8 @@ Widget _buildRichText() {
       children: <TextSpan>[
         TextSpan(
           text: 'Discover ',
-          style: style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          style:
+              style20N.copyWith(fontFamily: 'Antonio', color: secondaryColor),
         ),
         TextSpan(
           text: 'Top Brands at Unbeatable Prices and Exclusive ',
@@ -253,7 +254,8 @@ Widget _buildRichText() {
         ),
         TextSpan(
           text: 'Offers',
-          style: style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          style:
+              style20N.copyWith(fontFamily: 'Antonio', color: secondaryColor),
         ),
       ],
     ),

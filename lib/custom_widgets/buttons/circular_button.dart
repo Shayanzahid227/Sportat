@@ -1,3 +1,4 @@
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CircularButton extends StatelessWidget {
@@ -10,7 +11,7 @@ class CircularButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.icon,
-    this.backgroundColor = const Color(0xfffeaeaea),
+    this.backgroundColor = peachColor,
     this.radius = 18.0,
   });
 

@@ -79,3 +79,8 @@ TextStyle style14B = TextStyle(
     color: blackColor,
     fontWeight: FontWeight.bold,
     fontFamily: GoogleFonts.tajawal().fontFamily);
+TextStyle style18B = TextStyle(
+    fontSize: 18.sp,
+    color: blackColor,
+    fontWeight: FontWeight.w500,
+    fontFamily: GoogleFonts.tajawal().fontFamily);

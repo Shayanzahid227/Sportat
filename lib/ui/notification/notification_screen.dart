@@ -38,7 +38,7 @@ class NotificationScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: secondryColor.withOpacity(0.20),
+                      color: secondaryColor.withOpacity(0.20),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Image.asset(
                     AppAssets().bookingConfirmationIcon,
@@ -110,7 +110,7 @@ class NotificationScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: secondryColor.withOpacity(0.20),
+                      color: secondaryColor.withOpacity(0.20),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Image.asset(
                     AppAssets().pointsEarnIcon,
@@ -192,7 +192,7 @@ class NotificationScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: secondryColor.withOpacity(0.20),
+                      color: secondaryColor.withOpacity(0.20),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Image.asset(
                     AppAssets().productPurchaseConfirmationIcon,
@@ -264,7 +264,7 @@ class NotificationScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: secondryColor.withOpacity(0.20),
+                      color: secondaryColor.withOpacity(0.20),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Image.asset(
                     AppAssets().returnConfirmationIcon,
@@ -347,7 +347,7 @@ class NotificationScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: secondryColor.withOpacity(0.20),
+                      color: secondaryColor.withOpacity(0.20),
                       borderRadius: BorderRadius.circular(10.r)),
                   child: Image.asset(
                     AppAssets().eventReminderIcon,
@@ -428,7 +428,7 @@ class NotificationScreen extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: secondryColor.withOpacity(0.20),
+                        color: secondaryColor.withOpacity(0.20),
                         borderRadius: BorderRadius.circular(10.r)),
                     child: SvgPicture.asset(
                       AppAssets().discount,
@@ -578,12 +578,12 @@ _socialCard(
                 backgroundColor: whitecolor,
                 child: CircleAvatar(
                   radius: 8.r,
-                  backgroundColor: secondryColor.withOpacity(0.20),
+                  backgroundColor: secondaryColor.withOpacity(0.20),
                   child: Image.asset(
                     icon,
                     height: 10.h,
                     width: 10.w,
-                    color: secondryColor,
+                    color: secondaryColor,
                   ),
                 ),
               )
@@ -620,7 +620,7 @@ _cartNotification({required String title, required String imgUrl}) {
               padding: EdgeInsets.all(10),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  color: secondryColor.withOpacity(0.20),
+                  color: secondaryColor.withOpacity(0.20),
                   borderRadius: BorderRadius.circular(10.r)),
               child: Image.asset(
                 imgUrl,

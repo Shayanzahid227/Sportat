@@ -1,3 +1,4 @@
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class Switch_on_off_Button extends StatefulWidget {
@@ -37,7 +38,7 @@ class _CustomToggleButtonState extends State<Switch_on_off_Button> {
         width: 58,
         height: 27,
         decoration: BoxDecoration(
-          color: _isToggled ? const Color(0xfffdd854) : Colors.grey,
+          color: _isToggled ? custardColor3 : Colors.grey,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Stack(

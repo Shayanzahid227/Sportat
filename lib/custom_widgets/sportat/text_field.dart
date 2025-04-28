@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, unused_field
 import 'package:code_structure/core/constants/auth_text_feild.dart';
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -38,10 +39,8 @@ class CustomTextFormFeild extends StatelessWidget {
         hintText: text,
         prefix: prefixIcon,
         suffixIcon: suffixIcon,
-        hintStyle: style14.copyWith(
-          fontWeight: FontWeight.w400,
-          color: Color(0xfff5B7083),
-        ),
+        hintStyle:
+            style14.copyWith(fontWeight: FontWeight.w400, color: custardColor2),
       ),
       validator: validator,
     );

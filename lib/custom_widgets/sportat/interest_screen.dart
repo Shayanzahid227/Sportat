@@ -22,7 +22,7 @@ class CustomInterestScreen extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: isSelected ? secondryColor : backGroundColor,
+        color: isSelected ? secondaryColor : backGroundColor,
         borderRadius: BorderRadius.circular(82),
       ),
       child: Row(

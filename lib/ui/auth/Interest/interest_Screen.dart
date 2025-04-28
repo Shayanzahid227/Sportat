@@ -77,7 +77,7 @@ AppBar _appBar(
       TextButton(
         onPressed: () => model.onSkip(context),
         style: TextButton.styleFrom(
-          backgroundColor: Color(0xfff9EB94533 % 20),
+          backgroundColor: custardColor,
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

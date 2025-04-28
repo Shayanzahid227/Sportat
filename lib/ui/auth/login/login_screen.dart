@@ -101,10 +101,8 @@ class LoginScreen extends StatelessWidget {
                                     hintText: 'Start typing to search',
                                     prefixIcon: const Icon(Icons.search),
                                     border: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: const Color(0xFF8C98A8)
-                                            .withOpacity(0.2),
-                                      ),
+                                      borderSide:
+                                          BorderSide(color: lightGreyColor3),
                                     ),
                                   ),
                                 ),
@@ -141,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                           hintText: 'Phone Number',
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w500,
-                            color: Color(0xff595959),
+                            color: lightgreyColor2,
                           ),
                         ),
                       ),

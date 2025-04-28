@@ -113,7 +113,7 @@ Widget _sliderSection() {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
                             color: viewModel.currentIndex == indicatorIndex
-                                ? secondryColor
+                                ? secondaryColor
                                 : Colors.grey.withOpacity(0.3),
                           ),
                         ),
@@ -163,7 +163,8 @@ Widget _buildRichText() {
         ),
         TextSpan(
           text: 'first',
-          style: style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          style:
+              style20N.copyWith(fontFamily: 'Antonio', color: secondaryColor),
         ),
         TextSpan(
           text: ' healthy sports community ',
@@ -175,7 +176,8 @@ Widget _buildRichText() {
         ),
         TextSpan(
           text: 'world',
-          style: style20N.copyWith(fontFamily: 'Antonio', color: secondryColor),
+          style:
+              style20N.copyWith(fontFamily: 'Antonio', color: secondaryColor),
         ),
       ],
     ),
@@ -401,7 +403,7 @@ Widget buildIndicator(bool isActive, BuildContext context) {
     width: 26.w,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(72),
-      color: isActive ? secondryColor : Colors.grey,
+      color: isActive ? secondaryColor : Colors.grey,
     ),
   );
 }

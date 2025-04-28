@@ -195,9 +195,9 @@ class _SearchScreenState extends State<SearchScreen> {
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       decoration: BoxDecoration(
-        color: isSelected ? secondryColor : whitecolor,
+        color: isSelected ? secondaryColor : whitecolor,
         border: Border.all(
-            width: 2.0, color: isSelected ? secondryColor : lightGreyColor),
+            width: 2.0, color: isSelected ? secondaryColor : lightGreyColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(

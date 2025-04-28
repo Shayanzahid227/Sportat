@@ -1,11 +1,14 @@
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
+import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/ui/booking/booking_field_screen.dart';
 import 'package:code_structure/ui/booking/booking_screen.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
+import 'package:code_structure/ui/home/home_screen.dart';
 import 'package:code_structure/ui/root_screen/root_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
+import 'package:code_structure/ui/splash_screen.dart';
 import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

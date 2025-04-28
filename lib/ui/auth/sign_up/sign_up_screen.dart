@@ -203,7 +203,7 @@ class SignUpScreen extends StatelessWidget {
           "Gender",
           style: style14N.copyWith(
             fontWeight: FontWeight.w500,
-            color: Color(0xff4A4A4A),
+            color: titleColor,
           ),
         ),
         15.verticalSpace,
@@ -218,11 +218,11 @@ class SignUpScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
                     color: model.selectedGender == 'male'
-                        ? Color(0xff7E6EF2)
+                        ? secondaryColor
                         : Colors.white,
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(
-                      color: Color(0xff7E6EF2),
+                      color: secondaryColor,
                     ),
                   ),
                   child: Row(
@@ -233,7 +233,7 @@ class SignUpScreen extends StatelessWidget {
                         style: style14N.copyWith(
                           color: model.selectedGender == 'male'
                               ? Colors.white
-                              : Color(0xff7E6EF2),
+                              : secondaryColor,
                         ),
                       ),
                       Image.asset(
@@ -242,7 +242,7 @@ class SignUpScreen extends StatelessWidget {
                         width: 20,
                         color: model.selectedGender == 'male'
                             ? Colors.white
-                            : Color(0xff7E6EF2),
+                            : secondaryColor,
                       ),
                     ],
                   ),
@@ -258,12 +258,10 @@ class SignUpScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
                     color: model.selectedGender == 'female'
-                        ? Color(0xff7E6EF2)
+                        ? secondaryColor
                         : Colors.white,
                     borderRadius: BorderRadius.circular(25),
-                    border: Border.all(
-                      color: Color(0xff7E6EF2),
-                    ),
+                    border: Border.all(color: secondaryColor),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -271,19 +269,16 @@ class SignUpScreen extends StatelessWidget {
                       Text(
                         'Females',
                         style: style14N.copyWith(
+                            color: model.selectedGender == 'female'
+                                ? Colors.white
+                                : secondaryColor),
+                      ),
+                      Image.asset(AppAssets().genderfemaleIcon,
+                          height: 20,
+                          width: 20,
                           color: model.selectedGender == 'female'
                               ? Colors.white
-                              : Color(0xff7E6EF2),
-                        ),
-                      ),
-                      Image.asset(
-                        AppAssets().genderfemaleIcon,
-                        height: 20,
-                        width: 20,
-                        color: model.selectedGender == 'female'
-                            ? Colors.white
-                            : Color(0xff7E6EF2),
-                      ),
+                              : secondaryColor)
                     ],
                   ),
                 ),
@@ -317,7 +312,7 @@ class SignUpScreen extends StatelessWidget {
           style: style14.copyWith(
             fontWeight: FontWeight.w400,
             fontSize: 12,
-            color: Color(0xfff212529),
+            color: lightRedColor,
           ),
         ),
         Row(
@@ -344,7 +339,7 @@ class SignUpScreen extends StatelessWidget {
               style: style14.copyWith(
                 fontWeight: FontWeight.w400,
                 fontSize: 12,
-                color: Color(0xfff212529),
+                color: lightRedColor,
               ),
             ),
             GestureDetector(

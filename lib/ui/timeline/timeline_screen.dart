@@ -70,7 +70,7 @@ class TimelineScreen extends StatelessWidget {
                                         .profileImage), // Default Image
                                     fit: BoxFit.cover,
                                   ),
-                            border: Border.all(width: 1, color: secondryColor),
+                            border: Border.all(width: 1, color: secondaryColor),
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                           child: Center(

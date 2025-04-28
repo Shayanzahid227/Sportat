@@ -90,7 +90,7 @@ AppBar _appBar(BuildContext context, RootViewModel rootmodel) {
       leading: Padding(
         padding: const EdgeInsets.only(left: 10.0),
         child: CircleAvatar(
-          backgroundColor: Color(0xfff000000 % 40),
+          backgroundColor: redColor,
           radius: 30,
           backgroundImage: AssetImage(AppAssets().profileImage),
         ),
@@ -159,7 +159,7 @@ AppBar _appBar(BuildContext context, RootViewModel rootmodel) {
                 child: Text(
                   "1K",
                   style: style25B.copyWith(
-                    color: secondryColor,
+                    color: secondaryColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
