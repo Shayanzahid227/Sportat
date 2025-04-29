@@ -1,8 +1,13 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
+import 'package:code_structure/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/utils.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class ConfirmedBookingScreen extends StatelessWidget {
   const ConfirmedBookingScreen({super.key});
@@ -12,45 +17,65 @@ class ConfirmedBookingScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Column(
-          children: [
-            30.verticalSpace,
-            Row(
-              children: [
-                Column(
-                  children: [
-                    Image.asset(
-                      AppAssets().confirmedBooking,
-                      scale: 3,
-                    )
-                  ],
-                ),
-                10.horizontalSpace,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    20.verticalSpace,
-                    Text(
-                      'Booking',
-                      style:
-                          style25B.copyWith(fontSize: 28.sp, color: blackColor),
-                    ),
-                    Text(
-                      'Confirmed',
-                      style: style25B.copyWith(
-                          fontSize: 42.sp, color: primaryColor),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            30.verticalSpace,
-            _firstSection(),
-            _secondSection()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              30.verticalSpace,
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Image.asset(
+                        AppAssets().confirmedBooking,
+                        scale: 3,
+                      )
+                    ],
+                  ),
+                  10.horizontalSpace,
+                  _TopHeader()
+                ],
+              ),
+              30.verticalSpace,
+              _firstSection(),
+              20.verticalSpace,
+              _secondSection(),
+              20.verticalSpace,
+              CustomButton(text: 'Go To My Bookings', onPressed: () {}),
+              20.verticalSpace,
+              CustomButton(
+                text: 'Back To Home',
+                onPressed: () {
+                  Get.to(HomeScreen());
+                },
+                boxColor: whitecolor,
+                textColor: blackColor,
+              ),
+              50.verticalSpace,
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  ///
+  ///      top header of booking confirmed
+  ///
+  Column _TopHeader() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        20.verticalSpace,
+        Text(
+          'Booking',
+          style: style25B.copyWith(fontSize: 28.sp, color: blackColor),
+        ),
+        Text(
+          'Confirmed',
+          style: style25B.copyWith(fontSize: 42.sp, color: primaryColor),
+        ),
+      ],
     );
   }
 
@@ -148,68 +173,76 @@ class ConfirmedBookingScreen extends StatelessWidget {
   ///
   _secondSection() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 4))
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Access QR Code',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Center(
-            child: Container(
-              width: 68.25,
-              height: 68.25,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300),
-                borderRadius: BorderRadius.circular(8),
+          color: whitecolor,
+          border: Border.all(color: primaryColor, width: 0.5),
+          borderRadius: BorderRadius.circular(10.r)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Access QR Code',
+                    style: style16B,
+                  ),
+                  20.verticalSpace,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: backgroundColor,
+                          borderRadius: BorderRadius.circular(21)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              AppAssets().shareIcon,
+                              scale: 4,
+                            ),
+                            10.horizontalSpace,
+                            Text(
+                              'Share',
+                              style: style16,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
-              child: const Placeholder(), // Replace with actual QR code widget
             ),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(AppAssets().shareIcon),
-              const SizedBox(width: 8),
-              const Text(
-                'Share',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.blue,
+            Column(
+              children: [
+                // Image.asset(AppAssets().appleIcon),
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: QrImageView(
+                    data: "https://example.com", // The data to encode
+                    version: QrVersions.auto,
+                    size: 200.0,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          const Center(
-            child: Text(
-              '68.25 × 68.25',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: Colors.grey,
-              ),
+
+                Text(
+                  'SR:1234567890',
+                  style: style14,
+                )
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

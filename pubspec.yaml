@@ -60,7 +60,7 @@ dependencies:
   youtube_player_flutter:
   path_provider:
   change_app_package_name: 
-  
+  qr_flutter: ^4.1.0
   reels_viewer:
   smooth_page_indicator:
   
