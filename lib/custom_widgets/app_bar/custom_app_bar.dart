@@ -11,12 +11,17 @@ class CustomAppBar extends StatelessWidget {
   Color? surfaceTintColor;
   Color? shadowColor;
   Color? foregroundColor;
-  CustomAppBar(
-      {required this.title,
-      this.backgroundColor,
-      this.surfaceTintColor,
-      this.shadowColor,
-      this.foregroundColor});
+  bool? isBackButton;
+
+  CustomAppBar({
+    required this.title,
+    this.backgroundColor,
+    this.surfaceTintColor,
+    this.shadowColor,
+    this.foregroundColor,
+    this.isBackButton,
+  });
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -25,10 +30,15 @@ class CustomAppBar extends StatelessWidget {
       shadowColor: shadowColor ?? backGroundColor,
       foregroundColor: foregroundColor ?? backGroundColor,
       elevation: 0.0,
-      leading: Padding(
-        padding: const EdgeInsets.all(13.0),
-        child: CustomBackButton(),
-      ),
+      leading: isBackButton == true
+          ? Padding(
+              padding: const EdgeInsets.all(13.0),
+              child: Container(
+                alignment: Alignment.center,
+                child: CustomBackButton(),
+              ),
+            )
+          : null,
       centerTitle: true,
       title: Text(
         "$title",

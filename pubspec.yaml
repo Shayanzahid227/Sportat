@@ -34,7 +34,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-     
   provider:  # provider
   google_fonts:
   flutter_screenutil: 
@@ -61,8 +60,10 @@ dependencies:
   youtube_player_flutter:
   path_provider:
   change_app_package_name: 
+  
   reels_viewer:
   smooth_page_indicator:
+  
 
 dev_dependencies:
   flutter_test:

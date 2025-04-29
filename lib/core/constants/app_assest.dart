@@ -226,6 +226,7 @@ class AppAssets {
   String bookingConfirmedIcon = "$iconsAssets/bookingConfirmedIcon.png";
   String shareIcon = "$iconsAssets/shareIcon.png";
   String qrCode = "$dynamicAssets/qrCode.png";
+  String confirmedBooking = "$iconsAssets/confirmedBooking.png";
 //************** club profile screen 1 **************************//
   //
   String clubProfile = "$dynamicAssets/clubProfile.png";

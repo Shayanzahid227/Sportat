@@ -4,6 +4,7 @@ import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
+import 'package:code_structure/ui/subscription/field_details/check_out.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -78,7 +79,9 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomButton(
                     text: 'Confirm Booking',
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(CheckOutScreen());
+                    },
                   ),
                 ),
                 40.verticalSpace,
@@ -355,8 +358,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
   ///
 
   _ThirdSection({required Future<void> Function() pickDate}) {
-    //final DateTime selectedDate = DateTime(2024, 3, 12);
-    DateTime selectedDate = DateTime.now(); // <-- use current date initially
+    DateTime selectedDate = DateTime.now();
 
     final List<String> timeSlots = [
       '08:00 AM To 10:00 AM',
@@ -364,14 +366,15 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
       '12:00 PM To 02:00 PM',
       '02:00 PM To 04:00 PM',
     ];
-    String? selectedSlot;
+    //String? selectedSlot;
+    String? selectedSlot = timeSlots[0]; // Select first slot by default
 
     return StatefulBuilder(
       builder: (BuildContext context, StateSetter setState) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Container(
-            height: 240,
+            height: 250,
             decoration: BoxDecoration(
                 color: whitecolor,
                 borderRadius: BorderRadius.circular(10),
@@ -424,8 +427,6 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                               ),
                             ),
                           ),
-                          //  DateTime selectedDate = DateTime.now(); // <-- keep this in your State
-
                           GestureDetector(
                             //   onTap: pickDate,
                             onTap: () async {
@@ -478,7 +479,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                       crossAxisCount: 2,
                       crossAxisSpacing: 10.w,
                       mainAxisSpacing: 10.h,
-                      childAspectRatio: 5,
+                      childAspectRatio: 4,
                     ),
                     itemCount: timeSlots.length,
                     itemBuilder: (context, index) {
@@ -492,6 +493,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                           });
                         },
                         child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 2),
                           decoration: BoxDecoration(
                             color: isSelected ? secondaryColor : Colors.white,
                             border: Border.all(
@@ -622,6 +624,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                     ],
                   ),
                 ),
+                20.verticalSpace,
                 if (_addons.isNotEmpty) ...[
                   10.verticalSpace,
                   Padding(
@@ -632,7 +635,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                       children: _addons.map((addon) {
                         return Container(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 12.w, vertical: 6.h),
+                              horizontal: 12.w, vertical: 4.h),
                           decoration: BoxDecoration(
                             color: secondaryColor,
                             borderRadius: BorderRadius.circular(16),
@@ -646,7 +649,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                                 addon,
                                 style: style14B.copyWith(color: whitecolor),
                               ),
-                              5.horizontalSpace,
+                              10.horizontalSpace,
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
