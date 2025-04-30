@@ -5,6 +5,7 @@ import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
+import 'package:code_structure/ui/subscription/field_details/confirmed_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -39,7 +40,15 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     20.verticalSpace,
                     _secondSection(),
                     20.verticalSpace,
-                    CustomButton(text: 'Pay', onPressed: () {}),
+                    CustomButton(
+                        text: 'Pay',
+                        onPressed: () {
+                          Get.to(
+                            ConfirmedBookingScreen(),
+                            transition: Transition.fadeIn,
+                            duration: const Duration(milliseconds: 500),
+                          );
+                        }),
                     100.verticalSpace
                   ],
                 ),
