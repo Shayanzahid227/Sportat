@@ -14,7 +14,7 @@ class RootViewModel extends BaseViewModel {
 
   List<Widget> allScreen = [
     BookingScreen(),
-    SubscribtionScreen(),
+    SubscriptionScreen(),
     HomeScreen(),
     StoreScreen(),
     TimelineScreen(),

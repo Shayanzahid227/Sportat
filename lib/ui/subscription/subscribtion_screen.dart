@@ -9,7 +9,7 @@ import 'package:get/get_core/get_core.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
-class SubscribtionScreen extends StatelessWidget {
+class SubscriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
