@@ -4,6 +4,7 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/subscription/field_details/check_out.dart'
     show CheckOutScreen;
+import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,12 +36,23 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
               children: [
                 _topHeader(model),
                 SizedBox(height: 180),
-                // _SecondSection(),
+                //  CustomMembershipCard(),
+
+                _SecondSection(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: CustomDropdownField(
+                    icon: Icons.male,
+                    hintText: 'select gender',
+                    labelText: "select Gender",
+                    items: ["Male", "Female", "Other"],
+                  ),
+                ),
                 20.verticalSpace,
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomButton(
-                    text: 'Confirm Booking',
+                    text: 'Confirm Subscription',
                     onPressed: () {
                       Get.to(CheckOutScreen());
                     },
@@ -279,4 +291,192 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
   }
 
   ///
+  ///     second section of payment method
+  ///
+  Widget _SecondSection() {
+    final List<MembershipCardModel> memberships = [
+      MembershipCardModel(
+        title: 'Monthly Membership',
+        price: 300,
+        points: 1000,
+        description:
+            'Unlimited Access To All Facilities Including Gym,Pool, And Fitness Classes',
+      ),
+      MembershipCardModel(
+        title: 'Quarterly Membership',
+        price: 750,
+        points: 3000,
+        description:
+            'Unlimited Access To All Facilities Including Gym,Pool, And Fitness Classes',
+      ),
+      MembershipCardModel(
+        title: 'Annual Membership',
+        price: 2800,
+        points: 5000,
+        description:
+            'Unlimited Access To All Facilities Including Gym,Pool, And Fitness Classes',
+      ),
+      MembershipCardModel(
+        title: 'Family Membership',
+        price: 4500,
+        points: 9000,
+        description:
+            'Unlimited Access For Up To 4Family Members Including Gym,Pool, And Fitness Classes',
+      ),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Membership Plans",
+            style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          16.verticalSpace,
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16.w,
+              mainAxisSpacing: 16.h,
+              childAspectRatio: 0.85,
+            ),
+            itemCount: memberships.length,
+            itemBuilder: (context, index) {
+              final membership = memberships[index];
+              return CustomMembershipCard(
+                title: membership.title,
+                price: membership.price,
+                points: membership.points,
+                description: membership.description,
+              );
+            },
+          ),
+          20.verticalSpace,
+        ],
+      ),
+    );
+  }
+}
+
+class CustomMembershipCard extends StatelessWidget {
+  final String title;
+  final double price;
+  final int points;
+  final String description;
+
+  final Color? color;
+  const CustomMembershipCard({
+    super.key,
+    required this.title,
+    required this.price,
+    required this.points,
+    required this.description,
+    this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: 210.w,
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: color ?? primaryColor,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.withOpacity(0.3)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Title
+          Text(
+            title,
+            style: style16B.copyWith(
+              color: whitecolor,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Divider(
+            color: whitecolor,
+            thickness: 1,
+          ),
+
+          // Price and Points
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 25,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: whitecolor, width: 2),
+                ),
+                child: Icon(Icons.attach_money, color: whitecolor, size: 20),
+              ),
+              3.horizontalSpace,
+              Text(
+                '${price.toInt()} SAR',
+                style: style14B.copyWith(
+                  color: whitecolor,
+                ),
+              ),
+              Spacer(),
+              Image.asset(
+                AppAssets().pointsEarnIcon,
+                color: whitecolor,
+                scale: 5,
+              ),
+              3.horizontalSpace,
+              Text(
+                points.toString(),
+                style: style14B.copyWith(
+                  color: whitecolor,
+                ),
+              ),
+            ],
+          ),
+          Divider(
+            color: whitecolor,
+            thickness: 1,
+          ),
+
+          // Description
+          Text(
+            description,
+            style: TextStyle(
+              fontSize: 14,
+              color: whitecolor,
+              height: 1.4,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MembershipCardModel {
+  final String title;
+  final double price;
+  final Color? color;
+  final int points;
+  final String description;
+
+  MembershipCardModel({
+    required this.title,
+    this.color,
+    required this.price,
+    required this.points,
+    required this.description,
+  });
 }
