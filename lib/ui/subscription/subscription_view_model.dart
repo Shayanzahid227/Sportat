@@ -1,4 +1,5 @@
 import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/model/club_model.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 import 'package:flutter/material.dart';
@@ -26,5 +27,29 @@ class SubscribtionViewModel extends BaseViewModel {
     ClubModel(id: '8', name: 'Massage', imgUrl: AppAssets().massage),
     ClubModel(id: '9', name: 'Yoga and Pilates', imgUrl: AppAssets().yoga),
     ClubModel(id: '10', name: 'Martial Arts', imgUrl: AppAssets().martialArts),
+  ];
+
+  ///
+  ///
+  ///
+  List<LinearGradient> colorsList = [
+    LinearGradient(
+      colors: [lightGreenColor, primaryColor],
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    ),
+    LinearGradient(
+      colors: [
+        lightOrangeColor,
+        pinkColor2,
+      ],
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    ),
+    LinearGradient(
+      colors: [skyBlueColor, blueColor],
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    ),
   ];
 }

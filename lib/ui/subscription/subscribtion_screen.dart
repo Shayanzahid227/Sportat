@@ -3,6 +3,7 @@
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/custom_widgets/custom_club.dart';
 import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
+import 'package:code_structure/ui/subscription/subscription_sub_category.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
@@ -28,9 +29,21 @@ class SubscriptionScreen extends StatelessWidget {
                   childAspectRatio: 1.7,
                 ),
                 itemBuilder: (context, index) {
+                  List<LinearGradient> shuffledGradients =
+                      List.from(model.colorsList);
                   return GestureDetector(
                       onTap: () {
-                        Get.to(() => FieldDetailsScreen());
+                        Get.to(
+                          ///
+                          ///     check this portion
+                          ///
+                          () => SubscriptionSubCategoryScreen(
+                            clubObject: model.clubList[index],
+                            gradient: shuffledGradients[index %
+                                shuffledGradients
+                                    .length], // Ensuring uniqueness
+                          ),
+                        );
                       },
                       child: CustomClub(clubModel: model.clubList[index]));
                 })),

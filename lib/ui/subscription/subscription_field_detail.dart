@@ -1,10 +1,11 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
+import 'package:code_structure/core/model/subscription_membership_card.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
-import 'package:code_structure/ui/subscription/field_details/check_out.dart'
-    show CheckOutScreen;
+import 'package:code_structure/custom_widgets/sportat/subscription_membership_card.dart';
 import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
+import 'package:code_structure/ui/subscription/subscription_check_out.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,7 @@ class SubscriptionFieldDetail extends StatefulWidget {
 }
 
 class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
+  int selectedMembershipIndex = 0; // Track selected membership index
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -38,7 +40,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                 SizedBox(height: 180),
                 //  CustomMembershipCard(),
 
-                _SecondSection(),
+                _SecondSection(), 30.verticalSpace,
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomDropdownField(
@@ -49,15 +51,19 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                   ),
                 ),
                 20.verticalSpace,
+                _lastSection(),
+                20.verticalSpace,
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomButton(
                     text: 'Confirm Subscription',
                     onPressed: () {
-                      Get.to(CheckOutScreen());
+                      // showServicesBottomSheet(context);
+                      Get.to(SubscriptionCheckoutScreen());
                     },
                   ),
                 ),
+
                 40.verticalSpace,
               ],
             ),
@@ -230,7 +236,12 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                     _details(
                         icon: AppAssets().stareIcon,
                         title: 'available services',
-                        onTap: () {}),
+                        onTap: () {
+                          ///
+                          ///     just for checking
+                          ///
+                          showServicesBottomSheet(context);
+                        }),
                     10.horizontalSpace,
                     _details(
                         icon: AppAssets().termsAndConditionIcon,
@@ -294,9 +305,10 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
   ///     second section of payment method
   ///
   Widget _SecondSection() {
-    final List<MembershipCardModel> memberships = [
+    final List<MembershipCardModel> membershipsCategory = [
       MembershipCardModel(
         title: 'Monthly Membership',
+        color: lightGreyColor,
         price: 300,
         points: 1000,
         description:
@@ -312,6 +324,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       MembershipCardModel(
         title: 'Annual Membership',
         price: 2800,
+        color: Color(0xffEF4D57),
         points: 5000,
         description:
             'Unlimited Access To All Facilities Including Gym,Pool, And Fitness Classes',
@@ -320,6 +333,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
         title: 'Family Membership',
         price: 4500,
         points: 9000,
+        color: secondaryColor,
         description:
             'Unlimited Access For Up To 4Family Members Including Gym,Pool, And Fitness Classes',
       ),
@@ -330,31 +344,50 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Membership Plans",
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          16.verticalSpace,
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 16.w,
-              mainAxisSpacing: 16.h,
-              childAspectRatio: 0.85,
+              mainAxisSpacing: 50.h,
+              childAspectRatio: 0.72,
             ),
-            itemCount: memberships.length,
+            itemCount: membershipsCategory.length,
             itemBuilder: (context, index) {
-              final membership = memberships[index];
-              return CustomMembershipCard(
-                title: membership.title,
-                price: membership.price,
-                points: membership.points,
-                description: membership.description,
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedMembershipIndex = index;
+                  });
+                },
+                child: Stack(
+                  clipBehavior: Clip.none, // Add this line
+                  children: [
+                    CustomMembershipCard(
+                      membership: membershipsCategory[index],
+                    ),
+                    if (selectedMembershipIndex == index)
+                      Positioned(
+                        top: MediaQuery.of(context).size.height * 0.25,
+                        right: MediaQuery.of(context).size.width * 0.18,
+                        child: Container(
+                          width: 56, // Reduced size for better fit
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                          ),
+                          child: const Icon(
+                            Icons.check,
+                            color: Colors.white,
+                            size: 50,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               );
             },
           ),
@@ -363,120 +396,242 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       ),
     );
   }
+
+  ///
+  ///    subscription pricing detail last section of this page
+  ///
+  _lastSection() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: Container(
+        decoration: BoxDecoration(
+            color: whitecolor,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: primaryColor, width: 0.2)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              20.verticalSpace,
+              Text('booking summery',
+                  style: style25B.copyWith(
+                    color: darkGreyColor,
+                  )),
+              30.verticalSpace,
+              _pricingDetail('Plan', 'Monthly Membership'),
+              20.verticalSpace,
+              _pricingDetail('Price', '300 SAR'),
+              20.verticalSpace,
+              _pricingDetail('Energy Points', '100 Points',
+                  color: secondaryColor),
+              20.verticalSpace,
+              Divider(
+                color: lightGreyColor3,
+                thickness: 1,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total price',
+                    style: style18B.copyWith(
+                      color: blackColor,
+                    ),
+                  ),
+                  Text(
+                    '325 SAR',
+                    style: style25B.copyWith(
+                      color: primaryColor,
+                    ),
+                  ),
+                ],
+              ),
+              20.verticalSpace,
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  ///
+  ///     first section row of price and title
+  ///
+  Row _pricingDetail(String title, String price, {Color color = Colors.black}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: style16.copyWith(
+            color: lightGreyColor,
+          ),
+        ),
+        Text(
+          price,
+          style: style16B.copyWith(
+            color: color,
+          ),
+        ),
+      ],
+    );
+  }
+
+  ///
+  ///      available services bottom sheet
+  ///
+  ///
+  /// Bottom Sheet for Available Services
+  ///
+  void showServicesBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+          ),
+          padding: EdgeInsets.only(
+            top: 16.h,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 32.h,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Drag handle
+              Container(
+                width: 40.w,
+                height: 4.h,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.4),
+                  borderRadius: BorderRadius.circular(2.r),
+                ),
+              ),
+              16.verticalSpace,
+
+              // Title
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(''),
+                    Text(
+                      'Available Services',
+                      style: style18B.copyWith(
+                        fontSize: 20.sp,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        navigator?.pop(context);
+                      },
+                      child: Icon(Icons.cancel_outlined,
+                          color: lightGreyColor, size: 30.sp),
+                    ),
+                  ],
+                ),
+              ),
+              20.verticalSpace,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomAvailableServicesItem(
+                      image: AppAssets().acIcon,
+                      title: 'Air\nConditioning',
+                    ),
+                    CustomAvailableServicesItem(
+                      image: AppAssets().blueFootBallIcon,
+                      title: 'Ball',
+                    ),
+                    CustomAvailableServicesItem(
+                      image: AppAssets().botleIcon,
+                      title: 'Water',
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomAvailableServicesItem(
+                      image: AppAssets().kitIcon,
+                      title: 'Clothes',
+                    ),
+                    CustomAvailableServicesItem(
+                      image: AppAssets().carIcon,
+                      title: 'Parking',
+                    ),
+                    CustomAvailableServicesItem(
+                      image: AppAssets().showerIcon,
+                      title: 'Shower',
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  ///
+  ///
+  ///     last bracket
+  ///
 }
 
-class CustomMembershipCard extends StatelessWidget {
-  final String title;
-  final double price;
-  final int points;
-  final String description;
-
-  final Color? color;
-  const CustomMembershipCard({
+class CustomAvailableServicesItem extends StatelessWidget {
+  final String? image;
+  final String? title;
+  const CustomAvailableServicesItem({
     super.key,
+    required this.image,
     required this.title,
-    required this.price,
-    required this.points,
-    required this.description,
-    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // width: 210.w,
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color ?? primaryColor,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.3)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Title
-          Text(
-            title,
-            style: style16B.copyWith(
-              color: whitecolor,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          Divider(
-            color: whitecolor,
-            thickness: 1,
-          ),
-
-          // Price and Points
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(21.r),
+              border: Border.all(width: 0.5)),
+          child: Column(
             children: [
               Container(
-                height: 25,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: whitecolor, width: 2),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(21)),
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Image.asset(
+                    image!,
+                    scale: 3,
+                  ),
                 ),
-                child: Icon(Icons.attach_money, color: whitecolor, size: 20),
-              ),
-              3.horizontalSpace,
-              Text(
-                '${price.toInt()} SAR',
-                style: style14B.copyWith(
-                  color: whitecolor,
-                ),
-              ),
-              Spacer(),
-              Image.asset(
-                AppAssets().pointsEarnIcon,
-                color: whitecolor,
-                scale: 5,
-              ),
-              3.horizontalSpace,
-              Text(
-                points.toString(),
-                style: style14B.copyWith(
-                  color: whitecolor,
-                ),
-              ),
+              )
             ],
           ),
-          Divider(
-            color: whitecolor,
-            thickness: 1,
-          ),
-
-          // Description
-          Text(
-            description,
-            style: TextStyle(
-              fontSize: 14,
-              color: whitecolor,
-              height: 1.4,
-            ),
+        ),
+        5.verticalSpace,
+        Text(title!,
             textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+            style: style14B.copyWith(
+              color: blackColor,
+            )),
+      ],
     );
   }
-}
-
-class MembershipCardModel {
-  final String title;
-  final double price;
-  final Color? color;
-  final int points;
-  final String description;
-
-  MembershipCardModel({
-    required this.title,
-    this.color,
-    required this.price,
-    required this.points,
-    required this.description,
-  });
 }
