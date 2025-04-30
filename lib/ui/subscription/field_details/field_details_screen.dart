@@ -67,7 +67,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
               children: [
                 _topHeader(model),
                 SizedBox(height: 180),
-                _Secondsection(),
+                _SecondSection(),
                 20.verticalSpace,
                 _ThirdSection(pickDate: _pickDate),
                 20.verticalSpace,
@@ -317,7 +317,42 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
   ///      second section
   ///
 
-  _Secondsection() {
+  // _Secondsection() {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(horizontal: 15.0),
+  //     child: Column(
+  //       children: [
+  //         CustomDropdownField(
+  //           icon: Icons.male,
+  //           hintText: 'select gender',
+  //           labelText: "Player's Gender",
+  //           items: ["Male", "Female", "Other"], // <-- dynamic list
+  //         ),
+  //         10.verticalSpace,
+  //         CustomDropdownField(
+  //           icon: Icons.location_on_sharp,
+  //           labelText: "Select Location",
+  //           hintText: 'select location',
+  //           items: [
+  //             "Al-Maiaz",
+  //             "Olaya",
+  //           ], // <-- dynamic list
+  //         ),
+  //         10.verticalSpace,
+  //         CustomDropdownField(
+  //           icon: Icons.format_line_spacing_outlined,
+  //           labelText: "Select Fields",
+  //           hintText: 'select fields',
+  //           items: [
+  //             "Field 1 (11X11)",
+  //             "Field 2 (9X9)",
+  //           ], // <-- dynamic list
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+  _SecondSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
@@ -325,28 +360,22 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
           CustomDropdownField(
             icon: Icons.male,
             hintText: 'select gender',
-            labelText: "Player's Gender",
-            items: ["Male", "Female", "Other"], // <-- dynamic list
+            labelText: "select Gender",
+            items: ["Male", "Female", "Other"],
           ),
           10.verticalSpace,
           CustomDropdownField(
             icon: Icons.location_on_sharp,
             labelText: "Select Location",
             hintText: 'select location',
-            items: [
-              "Al-Maiaz",
-              "Olaya",
-            ], // <-- dynamic list
+            items: ["Al-Maiaz", "Olaya"],
           ),
           10.verticalSpace,
           CustomDropdownField(
             icon: Icons.format_line_spacing_outlined,
             labelText: "Select Fields",
             hintText: 'select fields',
-            items: [
-              "Field 1 (11X11)",
-              "Field 2 (9X9)",
-            ], // <-- dynamic list
+            items: ["Field 1 (11X11)", "Field 2 (9X9)"],
           ),
         ],
       ),
@@ -769,6 +798,101 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
 ///
 ///      custom drop down field
 ///
+// class CustomDropdownField extends StatefulWidget {
+//   final IconData icon;
+//   final String labelText;
+//   final String? hintText;
+//   final List<String> items;
+
+//   const CustomDropdownField({
+//     super.key,
+//     required this.icon,
+//     required this.labelText,
+//     this.hintText,
+//     required this.items,
+//   });
+
+//   @override
+//   State<CustomDropdownField> createState() => _CustomDropdownFieldState();
+// }
+
+// class _CustomDropdownFieldState extends State<CustomDropdownField> {
+//   String? selectedItem;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+//       decoration: BoxDecoration(
+//         border: Border.all(color: Colors.green.withOpacity(0.2)),
+//         borderRadius: BorderRadius.circular(12),
+//         color: Colors.white,
+//       ),
+//       child: Row(
+//         children: [
+//           Icon(
+//             widget.icon,
+//             color: lightGreyColor,
+//             size: 30,
+//           ),
+//           const SizedBox(width: 8),
+//           Text(
+//             widget.labelText,
+//             style: style16N.copyWith(
+//               fontSize: 16,
+//               fontWeight: FontWeight.w600,
+//               color: Colors.black87,
+//             ),
+//           ),
+//           const Spacer(),
+//           Container(
+//             height: 36.h,
+//             width: 144.w,
+//             decoration: BoxDecoration(
+//                 border: Border.all(color: lightGreyColor, width: 0.5),
+//                 borderRadius: BorderRadius.circular(10.r)),
+//             child: DropdownButtonHideUnderline(
+//               child: DropdownButton<String>(
+//                 hint: Padding(
+//                   padding: const EdgeInsets.only(left: 5.0),
+//                   child: Text(
+//                     widget.hintText ?? 'Select',
+//                     style: style16N.copyWith(
+//                       color: lightGreyColor,
+//                     ),
+//                   ),
+//                 ),
+//                 value: selectedItem,
+//                 items: widget.items.map((item) {
+//                   return DropdownMenuItem(
+//                     value: item,
+//                     child: Padding(
+//                       padding: const EdgeInsets.only(left: 5.0),
+//                       child: Text(
+//                         item,
+//                         style: const TextStyle(fontSize: 15),
+//                       ),
+//                     ),
+//                   );
+//                 }).toList(),
+//                 onChanged: (value) {
+//                   setState(() {
+//                     selectedItem = value;
+//                   });
+//                 },
+//                 style: const TextStyle(
+//                   color: Colors.black87,
+//                   fontSize: 15,
+//                 ),
+//                 icon: const Icon(Icons.keyboard_arrow_down),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 class CustomDropdownField extends StatefulWidget {
   final IconData icon;
   final String labelText;
@@ -790,77 +914,173 @@ class CustomDropdownField extends StatefulWidget {
 class _CustomDropdownFieldState extends State<CustomDropdownField> {
   String? selectedItem;
 
+  Future<void> _showSelectionSheet(BuildContext context) async {
+    final result = await showCustomSelectionBottomSheet(
+      context: context,
+      title: widget.labelText,
+      options: widget.items,
+    );
+
+    if (result != null) {
+      setState(() {
+        selectedItem = result;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.green.withOpacity(0.2)),
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.white,
-      ),
-      child: Row(
-        children: [
-          Icon(
-            widget.icon,
-            color: lightGreyColor,
-            size: 30,
-          ),
-          const SizedBox(width: 8),
-          Text(
-            widget.labelText,
-            style: style16N.copyWith(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.black87,
+    return GestureDetector(
+      onTap: () => _showSelectionSheet(context),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.green.withOpacity(0.2)),
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.white,
+        ),
+        child: Row(
+          children: [
+            Icon(
+              widget.icon,
+              color: lightGreyColor,
+              size: 30,
             ),
-          ),
-          const Spacer(),
-          Container(
-            height: 36.h,
-            width: 144.w,
-            decoration: BoxDecoration(
-                border: Border.all(color: lightGreyColor, width: 0.5),
-                borderRadius: BorderRadius.circular(10.r)),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                hint: Padding(
-                  padding: const EdgeInsets.only(left: 5.0),
-                  child: Text(
-                    widget.hintText ?? 'Select',
-                    style: style16N.copyWith(
-                      color: lightGreyColor,
-                    ),
-                  ),
-                ),
-                value: selectedItem,
-                items: widget.items.map((item) {
-                  return DropdownMenuItem(
-                    value: item,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 5.0),
-                      child: Text(
-                        item,
-                        style: const TextStyle(fontSize: 15),
-                      ),
-                    ),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    selectedItem = value;
-                  });
-                },
-                style: const TextStyle(
-                  color: Colors.black87,
-                  fontSize: 15,
-                ),
-                icon: const Icon(Icons.keyboard_arrow_down),
+            const SizedBox(width: 8),
+            Text(
+              widget.labelText,
+              style: style16N.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
               ),
             ),
-          ),
-        ],
+            const Spacer(),
+            Container(
+              height: 36.h,
+              width: 144.w,
+              decoration: BoxDecoration(
+                border: Border.all(color: lightGreyColor, width: 0.5),
+                borderRadius: BorderRadius.circular(10.r),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        selectedItem ?? widget.hintText ?? 'Select',
+                        style: style16N.copyWith(
+                          color: selectedItem != null
+                              ? Colors.black87
+                              : lightGreyColor,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const Icon(Icons.keyboard_arrow_down),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
+}
+
+///
+///     custom bottom sheet
+///
+Future<String?> showCustomSelectionBottomSheet({
+  required BuildContext context,
+  required String title,
+  required List<String> options,
+  String? currentSelection,
+}) async {
+  String? selectedValue = currentSelection;
+  bool isItemSelected = false;
+
+  await showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    builder: (context) {
+      return StatefulBuilder(
+        builder: (context, setState) {
+          return Container(
+            decoration: const BoxDecoration(
+              color: whitecolor,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: style18.copyWith(),
+                ),
+                const SizedBox(height: 16),
+                ...options.map((option) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedValue = option;
+                          isItemSelected = true;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: lightGreyColor.withOpacity(0.2),
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              option,
+                              textAlign: TextAlign.center,
+                              style: style16.copyWith(),
+                            ),
+                            if (selectedValue == option)
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: const BoxDecoration(
+                                  color: primaryColor,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  Icons.check,
+                                  color: whitecolor,
+                                  size: 16,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    )),
+                const SizedBox(height: 16),
+                CustomButton(
+                  text: 'Done',
+                  onPressed: () {
+                    Navigator.pop(context, selectedValue);
+                  },
+                ),
+                const SizedBox(height: 8),
+              ],
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  return selectedValue;
 }
