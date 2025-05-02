@@ -4,7 +4,7 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/subscription_membership_card.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/custom_widgets/sportat/subscription_membership_card.dart';
-import 'package:code_structure/ui/subscription/field_details/field_details_screen.dart';
+import 'package:code_structure/ui/booking/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/subscription/subscription_check_out.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';

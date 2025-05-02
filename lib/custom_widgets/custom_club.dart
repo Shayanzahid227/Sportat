@@ -8,22 +8,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomClub extends StatelessWidget {
   ClubModel clubModel;
-  CustomClub({required this.clubModel});
+  void Function()? onTap; // <-- added optional onTap
+  CustomClub({required this.clubModel, required this.onTap});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: 5),
-      alignment: Alignment.bottomCenter,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(21.r),
-          image: DecorationImage(
-              image: AssetImage(
-                "${clubModel.imgUrl}",
-              ),
-              fit: BoxFit.cover)),
-      child: Text(
-        "${clubModel.name}",
-        style: style16B.copyWith(color: whitecolor),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.only(bottom: 5),
+        alignment: Alignment.bottomCenter,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(21.r),
+            image: DecorationImage(
+                image: AssetImage(
+                  "${clubModel.imgUrl}",
+                ),
+                fit: BoxFit.cover)),
+        child: Text(
+          "${clubModel.name}",
+          style: style16B.copyWith(color: whitecolor),
+        ),
       ),
     );
   }

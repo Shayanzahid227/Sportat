@@ -4,7 +4,7 @@ import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
-import 'package:code_structure/ui/subscription/field_details/check_out.dart';
+import 'package:code_structure/ui/booking/field_details/check_out.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

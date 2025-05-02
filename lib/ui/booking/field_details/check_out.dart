@@ -5,7 +5,7 @@ import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
-import 'package:code_structure/ui/subscription/field_details/confirmed_booking.dart';
+import 'package:code_structure/ui/booking/field_details/confirmed_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
