@@ -178,4 +178,21 @@ class StoreViewModel extends BaseViewModel {
       price: '300',
     ),
   ];
+
+  ///****************************************************/
+  ///
+  ///     product detail view model section
+  ///
+  ///****************************************************/
+  final PageController pageController = PageController();
+  int productCurrentIndex = 0;
+
+  List<String> images = [
+    AppAssets().screenStoreCategories3,
+    AppAssets().screenStoreCategories4,
+    AppAssets().screenStoreCategories5,
+    AppAssets().screenStoreCategories1,
+    AppAssets().screenStoreCategories2,
+    AppAssets().screenStoreCategories6,
+  ];
 }

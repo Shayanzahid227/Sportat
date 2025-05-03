@@ -47,7 +47,7 @@ class BookingFieldScreen extends StatelessWidget {
                       Text(
                         '${sportsCategory!.title}' ?? '',
                         style: style20B.copyWith(
-                          color: whitecolor,
+                          color: whiteColor,
                           fontSize: 20.sp,
                         ),
                       ),
@@ -123,7 +123,7 @@ AppBar _appBar(BuildContext context, RootViewModel rootmodel) {
         Container(
           margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -150,7 +150,7 @@ AppBar _appBar(BuildContext context, RootViewModel rootmodel) {
                       AppAssets().pointsEarnIcon,
                     ),
                     height: 30.h,
-                    color: whitecolor,
+                    color: whiteColor,
                   ),
                 ),
               ),
@@ -227,7 +227,7 @@ _searchField(BuildContext context, RootViewModel rootmodel) {
               height: 45.h,
               width: 45.w,
               decoration: BoxDecoration(
-                color: whitecolor,
+                color: whiteColor,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: transparentColor),
                 boxShadow: [

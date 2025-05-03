@@ -26,7 +26,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -98,7 +98,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -180,7 +180,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -252,7 +252,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -335,7 +335,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -416,7 +416,7 @@ class NotificationScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: primaryColor, width: 0.4),
             ),
@@ -555,7 +555,7 @@ _socialCard(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(width: 0.4, color: primaryColor)),
       child: Row(
@@ -575,7 +575,7 @@ _socialCard(
               ),
               CircleAvatar(
                 radius: 10.r,
-                backgroundColor: whitecolor,
+                backgroundColor: whiteColor,
                 child: CircleAvatar(
                   radius: 8.r,
                   backgroundColor: secondaryColor.withOpacity(0.20),
@@ -609,7 +609,7 @@ _cartNotification({required String title, required String imgUrl}) {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(width: 0.4, color: primaryColor)),
       child: Row(

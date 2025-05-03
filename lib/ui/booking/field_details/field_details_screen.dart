@@ -56,8 +56,8 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
   ///
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SubscribtionViewModel(),
-      child: Consumer<SubscribtionViewModel>(
+      create: (context) => SubscriptionViewModel(),
+      child: Consumer<SubscriptionViewModel>(
         builder: (context, model, child) => Scaffold(
           ///
           /// Start Body
@@ -96,7 +96,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
   ///
   ///       first section
   ///
-  _topHeader(SubscribtionViewModel model) {
+  _topHeader(SubscriptionViewModel model) {
     return Stack(
       clipBehavior: Clip.none,
       alignment: Alignment.bottomCenter,
@@ -148,7 +148,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                         decoration: BoxDecoration(
                             color: blackColor.withOpacity(0.60),
                             borderRadius: BorderRadius.circular(8.r)),
-                        child: Icon(Icons.arrow_back, color: whitecolor)),
+                        child: Icon(Icons.arrow_back, color: whiteColor)),
                   ),
 
                   ///
@@ -184,7 +184,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
             effect: ExpandingDotsEffect(
                 dotHeight: 8,
                 dotWidth: 8,
-                dotColor: whitecolor,
+                dotColor: whiteColor,
                 activeDotColor: primaryColor),
           ),
         ),
@@ -196,7 +196,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
             width: 350,
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-                color: whitecolor, borderRadius: BorderRadius.circular(20)),
+                color: whiteColor, borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: [
                 Row(
@@ -225,7 +225,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                               borderRadius: BorderRadius.circular(8.r)),
                           child: Icon(
                             Icons.favorite_border,
-                            color: whitecolor,
+                            color: whiteColor,
                           )),
                     )
                   ],
@@ -366,7 +366,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
           child: Container(
             height: 250,
             decoration: BoxDecoration(
-                color: whitecolor,
+                color: whiteColor,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: primaryColor, width: 0.2)),
             child: Padding(
@@ -412,7 +412,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                                 padding: const EdgeInsets.all(2.0),
                                 child: Icon(
                                   Icons.arrow_back_ios_new_sharp,
-                                  color: whitecolor,
+                                  color: whiteColor,
                                 ),
                               ),
                             ),
@@ -451,7 +451,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                                 padding: const EdgeInsets.all(2.0),
                                 child: Icon(
                                   Icons.arrow_forward_ios_sharp,
-                                  color: whitecolor,
+                                  color: whiteColor,
                                 ),
                               ),
                             ),
@@ -566,7 +566,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: primaryColor, width: 0.2),
             ),
@@ -637,7 +637,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                             children: [
                               Text(
                                 addon,
-                                style: style14B.copyWith(color: whitecolor),
+                                style: style14B.copyWith(color: whiteColor),
                               ),
                               10.horizontalSpace,
                               GestureDetector(
@@ -651,11 +651,11 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                          color: whitecolor, width: 2)),
+                                          color: whiteColor, width: 2)),
                                   child: Icon(
                                     Icons.close,
                                     size: 16.sp,
-                                    color: whitecolor,
+                                    color: whiteColor,
                                   ),
                                 ),
                               ),
@@ -684,7 +684,7 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
       child: Container(
         height: 250.h,
         decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: primaryColor, width: 0.2)),
         child: Column(
@@ -874,7 +874,7 @@ Future<String?> showCustomSelectionBottomSheet({
         builder: (context, setState) {
           return Container(
             decoration: const BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
             ),
             padding: const EdgeInsets.all(16),
@@ -921,7 +921,7 @@ Future<String?> showCustomSelectionBottomSheet({
                                 ),
                                 child: const Icon(
                                   Icons.check,
-                                  color: whitecolor,
+                                  color: whiteColor,
                                   size: 16,
                                 ),
                               ),

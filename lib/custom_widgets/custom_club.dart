@@ -26,7 +26,7 @@ class CustomClub extends StatelessWidget {
                 fit: BoxFit.cover)),
         child: Text(
           "${clubModel.name}",
-          style: style16B.copyWith(color: whitecolor),
+          style: style16B.copyWith(color: whiteColor),
         ),
       ),
     );

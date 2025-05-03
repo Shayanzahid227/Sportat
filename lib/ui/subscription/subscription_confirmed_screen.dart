@@ -61,7 +61,7 @@ class SubscriptionConfirmedScreen extends StatelessWidget {
                 onPressed: () {
                   Get.to(HomeScreen());
                 },
-                boxColor: whitecolor,
+                boxColor: whiteColor,
                 textColor: blackColor,
               ),
               50.verticalSpace,
@@ -96,7 +96,7 @@ class SubscriptionConfirmedScreen extends StatelessWidget {
   _firstSection() {
     return Container(
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: primaryColor, width: 0.2)),
       child: Padding(
@@ -178,7 +178,7 @@ class SubscriptionConfirmedScreen extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           border: Border.all(color: primaryColor, width: 0.5),
           borderRadius: BorderRadius.circular(10.r)),
       child: Padding(

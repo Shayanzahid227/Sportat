@@ -61,7 +61,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   _firstSection() {
     return Container(
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: primaryColor, width: 0.2)),
       child: Padding(
@@ -169,7 +169,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
         return Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: primaryColor, width: 0.2),
           ),
@@ -286,7 +286,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: whitecolor,
+      backgroundColor: whiteColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

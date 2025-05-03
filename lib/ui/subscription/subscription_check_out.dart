@@ -64,7 +64,7 @@ class _SubscriptionCheckoutScreenState
   _firstSection() {
     return Container(
       decoration: BoxDecoration(
-          color: whitecolor,
+          color: whiteColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: primaryColor, width: 0.2)),
       child: Padding(
@@ -161,7 +161,7 @@ class _SubscriptionCheckoutScreenState
         return Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: primaryColor, width: 0.2),
           ),
@@ -278,7 +278,7 @@ class _SubscriptionCheckoutScreenState
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: whitecolor,
+      backgroundColor: whiteColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

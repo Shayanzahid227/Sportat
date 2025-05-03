@@ -14,8 +14,8 @@ class SubscriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SubscribtionViewModel(),
-      child: Consumer<SubscribtionViewModel>(
+      create: (context) => SubscriptionViewModel(),
+      child: Consumer<SubscriptionViewModel>(
         builder: (context, model, child) => Scaffold(
           backgroundColor: backGroundColor,
           body: GridView.builder(

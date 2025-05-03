@@ -34,7 +34,7 @@ class _SubscriptionSubCategoryScreenState
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => RootViewModel(0),
-      child: Consumer2<RootViewModel, SubscribtionViewModel>(
+      child: Consumer2<RootViewModel, SubscriptionViewModel>(
         builder: (context, rootModel, subscriptionModel, child) => Scaffold(
           appBar: _appBar(context, rootModel),
           body: Column(
@@ -57,7 +57,7 @@ class _SubscriptionSubCategoryScreenState
                         // '${clubObject!.title}' ?? '',
                         '${widget.clubObject!.name}' ?? '',
                         style: style20B.copyWith(
-                          color: whitecolor,
+                          color: whiteColor,
                           fontSize: 20.sp,
                         ),
                       ),
@@ -123,7 +123,7 @@ AppBar _appBar(BuildContext context, RootViewModel model) {
         Container(
           margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -150,7 +150,7 @@ AppBar _appBar(BuildContext context, RootViewModel model) {
                       AppAssets().pointsEarnIcon,
                     ),
                     height: 30.h,
-                    color: whitecolor,
+                    color: whiteColor,
                   ),
                 ),
               ),
@@ -227,7 +227,7 @@ _searchField(BuildContext context, RootViewModel model) {
               height: 45.h,
               width: 45.w,
               decoration: BoxDecoration(
-                color: whitecolor,
+                color: whiteColor,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: transparentColor),
                 boxShadow: [

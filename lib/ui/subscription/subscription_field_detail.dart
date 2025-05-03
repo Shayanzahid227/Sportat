@@ -27,8 +27,8 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SubscribtionViewModel(),
-      child: Consumer<SubscribtionViewModel>(
+      create: (context) => SubscriptionViewModel(),
+      child: Consumer<SubscriptionViewModel>(
         builder: (context, model, child) => Scaffold(
           ///
           /// Start Body
@@ -76,7 +76,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
   ///
   ///      top header section
   ///
-  _topHeader(SubscribtionViewModel model) {
+  _topHeader(SubscriptionViewModel model) {
     return Stack(
       clipBehavior: Clip.none,
       alignment: Alignment.bottomCenter,
@@ -128,7 +128,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                         decoration: BoxDecoration(
                             color: blackColor.withOpacity(0.60),
                             borderRadius: BorderRadius.circular(8.r)),
-                        child: Icon(Icons.arrow_back, color: whitecolor)),
+                        child: Icon(Icons.arrow_back, color: whiteColor)),
                   ),
 
                   ///
@@ -164,7 +164,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
             effect: ExpandingDotsEffect(
                 dotHeight: 8,
                 dotWidth: 8,
-                dotColor: whitecolor,
+                dotColor: whiteColor,
                 activeDotColor: primaryColor),
           ),
         ),
@@ -176,7 +176,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
             width: 350,
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-                color: whitecolor, borderRadius: BorderRadius.circular(20)),
+                color: whiteColor, borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: [
                 Row(
@@ -205,7 +205,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                               borderRadius: BorderRadius.circular(8.r)),
                           child: Icon(
                             Icons.favorite_border,
-                            color: whitecolor,
+                            color: whiteColor,
                           )),
                     )
                   ],
@@ -405,7 +405,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Container(
         decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: primaryColor, width: 0.2)),
         child: Padding(

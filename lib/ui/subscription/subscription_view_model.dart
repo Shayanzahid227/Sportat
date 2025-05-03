@@ -4,7 +4,7 @@ import 'package:code_structure/core/model/club_model.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
 import 'package:flutter/material.dart';
 
-class SubscribtionViewModel extends BaseViewModel {
+class SubscriptionViewModel extends BaseViewModel {
   final PageController pageController = PageController();
   int currentIndex = 0;
 

@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 class SearchFilterBottomSheet {
   static void show(BuildContext context) {
     showModalBottomSheet(
-      backgroundColor: whitecolor,
+      backgroundColor: whiteColor,
       context: context,
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
@@ -131,7 +131,7 @@ class __SearchFilterContentState extends State<_SearchFilterContent> {
         Text(label, style: style16.copyWith(color: lightGreyColor)),
         DropdownButtonHideUnderline(
           child: DropdownButton<String>(
-            dropdownColor: whitecolor,
+            dropdownColor: whiteColor,
             icon: Icon(Icons.keyboard_arrow_down),
             value: selectedItem,
             isExpanded: true,
@@ -226,7 +226,7 @@ class __SearchFilterContentState extends State<_SearchFilterContent> {
         Navigator.pop(context);
         // Apply filter logic here
       },
-      child: Text("Apply Filter", style: style16B.copyWith(color: whitecolor)),
+      child: Text("Apply Filter", style: style16B.copyWith(color: whiteColor)),
     );
   }
 }

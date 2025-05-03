@@ -17,7 +17,7 @@ class InterestScreen extends StatelessWidget {
       create: (context) => InterestScreenViewModel(),
       child: Consumer<InterestScreenViewModel>(
           builder: (context, model, child) => Scaffold(
-              backgroundColor: whitecolor,
+              backgroundColor: whiteColor,
 
               ///
               /// App Bar
@@ -60,10 +60,10 @@ AppBar _appBar(
   BuildContext context,
 ) {
   return AppBar(
-    backgroundColor: whitecolor,
-    shadowColor: whitecolor,
-    surfaceTintColor: whitecolor,
-    foregroundColor: whitecolor,
+    backgroundColor: whiteColor,
+    shadowColor: whiteColor,
+    surfaceTintColor: whiteColor,
+    foregroundColor: whiteColor,
     leading: Padding(
       padding: const EdgeInsets.all(13.0),
       child: CustomBackButton(),

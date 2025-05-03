@@ -113,19 +113,19 @@ class _SuccessScreenState extends State<SuccessScreen> {
         Text(
           "Account Created Successfully! ",
           style: style16N.copyWith(
-              fontSize: 20.sp, fontWeight: FontWeight.w500, color: whitecolor),
+              fontSize: 20.sp, fontWeight: FontWeight.w500, color: whiteColor),
         ),
         10.verticalSpace,
         Text(
           "Your Sportat account is now set up. Start exploring and ",
           style: style16N.copyWith(
-              fontSize: 12.sp, fontWeight: FontWeight.w400, color: whitecolor),
+              fontSize: 12.sp, fontWeight: FontWeight.w400, color: whiteColor),
         ),
         10.verticalSpace,
         Text(
           "booking sports activities today!",
           style: style16N.copyWith(
-              fontSize: 12.sp, fontWeight: FontWeight.w400, color: whitecolor),
+              fontSize: 12.sp, fontWeight: FontWeight.w400, color: whiteColor),
         )
       ],
     );

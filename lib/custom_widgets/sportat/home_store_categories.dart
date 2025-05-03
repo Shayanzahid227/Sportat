@@ -21,7 +21,7 @@ class CustomStoreCategoriesCard extends StatelessWidget {
             width: 70,
             height: 72,
             decoration: BoxDecoration(
-              color: whitecolor,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: primaryColor, width: 0.4),
             ),

@@ -40,7 +40,7 @@ class CustomTopSubscriptions extends StatelessWidget {
           10.horizontalSpace,
           Text(
             "${topSubscriptions.title}",
-            style: style16B.copyWith(color: whitecolor),
+            style: style16B.copyWith(color: whiteColor),
           ),
         ],
       ),

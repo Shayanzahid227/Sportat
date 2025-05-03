@@ -43,7 +43,7 @@ class RootScreen extends StatelessWidget {
           ///
           bottomNavigationBar: ConvexAppBar(
             height: 100,
-            backgroundColor: whitecolor,
+            backgroundColor: whiteColor,
             activeColor: primaryColor,
             color: lightGreyColor,
 
@@ -59,7 +59,7 @@ class RootScreen extends StatelessWidget {
                   icon: Image.asset(
                     AppAssets().booking,
                     color:
-                        model.selectedScreen == 0 ? whitecolor : lightGreyColor,
+                        model.selectedScreen == 0 ? whiteColor : lightGreyColor,
                     scale: 3,
                   ),
                   title: 'Booking'),
@@ -67,7 +67,7 @@ class RootScreen extends StatelessWidget {
                   icon: Image.asset(
                     AppAssets().subscribe,
                     color:
-                        model.selectedScreen == 1 ? whitecolor : lightGreyColor,
+                        model.selectedScreen == 1 ? whiteColor : lightGreyColor,
                     scale: 3,
                   ),
                   title: 'Subscribe'),
@@ -75,7 +75,7 @@ class RootScreen extends StatelessWidget {
                   icon: Image.asset(
                     AppAssets().home,
                     color:
-                        model.selectedScreen == 2 ? whitecolor : lightGreyColor,
+                        model.selectedScreen == 2 ? whiteColor : lightGreyColor,
                     scale: 3,
                   ),
                   title: 'Home'),
@@ -83,7 +83,7 @@ class RootScreen extends StatelessWidget {
                   icon: Image.asset(
                     AppAssets().store,
                     color:
-                        model.selectedScreen == 3 ? whitecolor : lightGreyColor,
+                        model.selectedScreen == 3 ? whiteColor : lightGreyColor,
                     scale: 3,
                   ),
                   title: 'Store'),
@@ -91,7 +91,7 @@ class RootScreen extends StatelessWidget {
                   icon: Image.asset(
                     AppAssets().timeline,
                     color:
-                        model.selectedScreen == 4 ? whitecolor : lightGreyColor,
+                        model.selectedScreen == 4 ? whiteColor : lightGreyColor,
                     scale: 3,
                   ),
                   title: 'Timeline'),
@@ -151,7 +151,7 @@ AppBar _appBar(BuildContext context, RootViewModel model) {
         Container(
           margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-            color: whitecolor,
+            color: whiteColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -178,7 +178,7 @@ AppBar _appBar(BuildContext context, RootViewModel model) {
                       AppAssets().pointsEarnIcon,
                     ),
                     height: 30.h,
-                    color: whitecolor,
+                    color: whiteColor,
                   ),
                 ),
               ),
@@ -255,7 +255,7 @@ _searchField(BuildContext context, RootViewModel model) {
               height: 45.h,
               width: 45.w,
               decoration: BoxDecoration(
-                color: whitecolor,
+                color: whiteColor,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: transparentColor),
                 boxShadow: [

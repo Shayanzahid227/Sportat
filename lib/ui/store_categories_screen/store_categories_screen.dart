@@ -88,7 +88,7 @@ class StoreCategoriesScreen extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         color: isSelected
                                             ? secondaryColor.withOpacity(0.20)
-                                            : whitecolor,
+                                            : whiteColor,
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: Text(

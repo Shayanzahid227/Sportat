@@ -1,11 +1,16 @@
 // ignore_for_file: deprecated_member_use, use_key_in_widget_constructors, avoid_unnecessary_containers
 
 import 'package:code_structure/core/constants/app_assest.dart';
+import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/home_slider_model.dart';
+import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/custom_widgets/custom_new_arrivals.dart';
 import 'package:code_structure/custom_widgets/sportat/home_store_categories.dart';
+import 'package:code_structure/ui/notification/notification_screen.dart';
+import 'package:code_structure/ui/root_screen/root_view_model.dart';
+import 'package:code_structure/ui/search/search_screen.dart';
 import 'package:code_structure/ui/store/store_view_model.dart';
 import 'package:code_structure/ui/store_categories_screen/store_categories_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +27,7 @@ class StoreScreen extends StatelessWidget {
       create: (context) => StoreViewModel(),
       child: Consumer<StoreViewModel>(
         builder: (context, model, child) => Scaffold(
+            // appBar: _appBar(context, rootModel),
             backgroundColor: backGroundColor,
             body: SingleChildScrollView(
               child: Column(
@@ -61,7 +67,7 @@ class StoreScreen extends StatelessWidget {
                     ontap: () {},
                   ),
                   SizedBox(
-                    height: 70.h,
+                    height: 80.h,
                     child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -72,13 +78,16 @@ class StoreScreen extends StatelessWidget {
                             margin: EdgeInsets.all(6),
                             width: 70,
                             decoration: BoxDecoration(
-                                color: whitecolor,
+                                color: whiteColor,
                                 border:
-                                    Border.all(width: 0.4, color: primaryColor),
-                                borderRadius: BorderRadius.circular(10.r)),
-                            child: Image.asset(
-                              "${model.topStoresList[index].imgUrl}",
-                              scale: 3,
+                                    Border.all(width: 0.3, color: primaryColor),
+                                borderRadius: BorderRadius.circular(20.r)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Image.asset(
+                                "${model.topStoresList[index].imgUrl}",
+                                scale: 3,
+                              ),
                             ),
                           );
                         }),
@@ -129,14 +138,192 @@ class StoreScreen extends StatelessWidget {
                           );
                         }),
                   ),
-                  10.verticalSpace,
+                  70.verticalSpace,
                 ],
               ),
             )),
       ),
     );
   }
+
+  ///
+  ///      app bar
+  ///
+  AppBar _appBar(BuildContext context, RootViewModel rootmodel) {
+    return AppBar(
+        elevation: 0.0,
+        backgroundColor: backGroundColor,
+        surfaceTintColor: backGroundColor,
+        shadowColor: backGroundColor,
+        foregroundColor: backGroundColor,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: CircleAvatar(
+            backgroundColor: redColor,
+            radius: 30,
+            backgroundImage: AssetImage(AppAssets().profileImage),
+          ),
+        ),
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppAssets().locationIcon,
+              fit: BoxFit.cover,
+              color: borderColor,
+              scale: 3.5,
+            ),
+            5.horizontalSpace,
+            Text(
+              'Riyadh Area',
+              style: style16B.copyWith(
+                  fontWeight: FontWeight.w400, color: blackColor),
+            ),
+            Icon(
+              Icons.arrow_drop_down,
+              color: blackColor,
+              size: 30.sp,
+            ),
+          ],
+        ),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 10),
+            decoration: BoxDecoration(
+              color: whiteColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 51,
+                  height: 51,
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: primaryColor.withOpacity(0.20),
+                        blurRadius: 30,
+                        offset: const Offset(0, 4),
+                        spreadRadius: 0,
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Image(
+                      image: AssetImage(
+                        AppAssets().pointsEarnIcon,
+                      ),
+                      height: 30.h,
+                      color: whiteColor,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    "1K",
+                    style: style25B.copyWith(
+                      color: secondaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(80.h),
+          child: _searchField(context, rootmodel),
+        ));
+  }
+
+  _searchField(BuildContext context, RootViewModel rootModel) {
+    return SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          right: 16.0,
+          bottom: 10,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+                child: TextFormField(
+              readOnly: true,
+              onTap: () {
+                Get.to(SearchScreen(
+                  search: rootModel.selectedScreen,
+                ));
+              },
+              decoration: authSignUpFieldDecoration.copyWith(
+                contentPadding: EdgeInsets.all(5),
+                hintText: 'Search for sports or fields',
+                hintStyle: style16.copyWith(color: lightGreyColor),
+                prefixIcon: Image.asset(
+                  AppAssets().searchicon2,
+                  scale: 4,
+                ),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    SearchFilterBottomSheet.show(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Image.asset(
+                      AppAssets()
+                          .searchfieldIcon, // Assuming this is the slider/filter icon
+                      scale: 5,
+                    ),
+                  ),
+                ),
+              ),
+            )),
+            10.horizontalSpace,
+            // Notification Icon
+            GestureDetector(
+              onTap: () {
+                Get.to(NotificationScreen());
+              },
+              child: Container(
+                height: 45.h,
+                width: 45.w,
+                decoration: BoxDecoration(
+                  color: whiteColor,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: transparentColor),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 1),
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  AppAssets().notificationIcon,
+                  scale: 3,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+///************************
+///    app bar end ///
+/// ***********************
 
 Widget _sliderSection() {
   return Consumer<StoreViewModel>(builder: (context, model, child) {
@@ -199,7 +386,7 @@ Widget _sliderSection() {
                             borderRadius: BorderRadius.circular(4),
                             color: model.currentIndex == indicatorIndex
                                 ? secondaryColor
-                                : whitecolor,
+                                : whiteColor,
                           ),
                         ),
                       ),
@@ -240,7 +427,7 @@ Widget _buildRichText() {
     text: TextSpan(
       style: TextStyle(
         fontFamily: GoogleFonts.antonio().fontFamily,
-        color: whitecolor,
+        color: whiteColor,
       ),
       children: <TextSpan>[
         TextSpan(
@@ -250,7 +437,7 @@ Widget _buildRichText() {
         ),
         TextSpan(
           text: 'Top Brands at Unbeatable Prices and Exclusive ',
-          style: style20N.copyWith(fontFamily: 'Antonio', color: whitecolor),
+          style: style20N.copyWith(fontFamily: 'Antonio', color: whiteColor),
         ),
         TextSpan(
           text: 'Offers',

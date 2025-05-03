@@ -38,7 +38,7 @@ class CustomTop10Fields extends StatelessWidget {
             10.horizontalSpace,
             Text(
               "${top10Field.title}",
-              style: style16B.copyWith(color: whitecolor),
+              style: style16B.copyWith(color: whiteColor),
             ),
           ],
         ));

@@ -126,7 +126,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                     ? VideoPlayer(controller!)
                     : Center(
                         child: CircularProgressIndicator(
-                          color: whitecolor,
+                          color: whiteColor,
                         ),
                       ),
 
@@ -177,7 +177,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         ),
                         Text(
                           "21.5k",
-                          style: style14.copyWith(color: whitecolor),
+                          style: style14.copyWith(color: whiteColor),
                         ),
                         10.verticalSpace,
                         IconButton(
@@ -186,7 +186,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         ),
                         Text(
                           "21.5k",
-                          style: style14.copyWith(color: whitecolor),
+                          style: style14.copyWith(color: whiteColor),
                         ),
                         10.verticalSpace,
                         IconButton(
@@ -195,7 +195,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         ),
                         Text(
                           "21.5k",
-                          style: style14.copyWith(color: whitecolor),
+                          style: style14.copyWith(color: whiteColor),
                         ),
                         10.verticalSpace,
                         IconButton(
@@ -204,7 +204,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         ),
                         Text(
                           "21.5k",
-                          style: style14.copyWith(color: whitecolor),
+                          style: style14.copyWith(color: whiteColor),
                         ),
                         10.verticalSpace,
                         IconButton(
@@ -213,7 +213,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         ),
                         Text(
                           "21.5k",
-                          style: style14.copyWith(color: whitecolor),
+                          style: style14.copyWith(color: whiteColor),
                         ),
                         10.verticalSpace,
                       ],
@@ -249,7 +249,7 @@ _appBar() {
               padding: const EdgeInsets.only(top: 5.0),
               child: Text(
                 "Reels",
-                style: style20B.copyWith(color: whitecolor),
+                style: style20B.copyWith(color: whiteColor),
               ),
             ),
           ],
@@ -258,7 +258,7 @@ _appBar() {
           onPressed: () {},
           icon: Image.asset(
             AppAssets().searchicon2,
-            color: whitecolor,
+            color: whiteColor,
             scale: 3,
           ),
         ),

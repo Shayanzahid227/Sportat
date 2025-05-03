@@ -43,7 +43,7 @@ class CustomInterestScreen extends StatelessWidget {
               Text(
                 "${interestModel.title}",
                 style: style14.copyWith(
-                  color: isSelected ? whitecolor : blackColor,
+                  color: isSelected ? whiteColor : blackColor,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -53,7 +53,7 @@ class CustomInterestScreen extends StatelessWidget {
             Expanded(
               child: Icon(
                 Icons.check,
-                color: whitecolor,
+                color: whiteColor,
                 size: 20.sp,
               ),
             ),

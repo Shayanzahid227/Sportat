@@ -29,7 +29,7 @@ class CustomMembershipCard extends StatelessWidget {
           Text(
             membership.title,
             style: style16B.copyWith(
-              color: whitecolor,
+              color: whiteColor,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class CustomMembershipCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           Divider(
-            color: whitecolor,
+            color: whiteColor,
             thickness: 1,
           ),
 
@@ -49,34 +49,34 @@ class CustomMembershipCard extends StatelessWidget {
                 height: 25,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: whitecolor, width: 2),
+                  border: Border.all(color: whiteColor, width: 2),
                 ),
-                child: Icon(Icons.attach_money, color: whitecolor, size: 20),
+                child: Icon(Icons.attach_money, color: whiteColor, size: 20),
               ),
               3.horizontalSpace,
               Text(
                 '${membership.price.toInt()} SAR',
                 style: style14B.copyWith(
-                  color: whitecolor,
+                  color: whiteColor,
                 ),
               ),
               Spacer(),
               Image.asset(
                 AppAssets().pointsEarnIcon,
-                color: whitecolor,
+                color: whiteColor,
                 scale: 5,
               ),
               3.horizontalSpace,
               Text(
                 membership.points.toString(),
                 style: style14B.copyWith(
-                  color: whitecolor,
+                  color: whiteColor,
                 ),
               ),
             ],
           ),
           Divider(
-            color: whitecolor,
+            color: whiteColor,
             thickness: 1,
           ),
 
@@ -85,7 +85,7 @@ class CustomMembershipCard extends StatelessWidget {
             membership.description,
             style: TextStyle(
               fontSize: 14,
-              color: whitecolor,
+              color: whiteColor,
               height: 1.4,
             ),
             textAlign: TextAlign.center,

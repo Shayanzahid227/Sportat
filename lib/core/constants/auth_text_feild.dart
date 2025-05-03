@@ -7,7 +7,7 @@ final authFieldDecoration = InputDecoration(
   hintStyle: style16,
   prefixIconColor: blackColor,
   suffixIconColor: blackColor,
-  fillColor: whitecolor,
+  fillColor: whiteColor,
   filled: true,
   border: InputBorder.none,
   enabledBorder: OutlineInputBorder(
@@ -32,7 +32,7 @@ final authSignUpFieldDecoration = InputDecoration(
   hintStyle: style16,
   prefixIconColor: blackColor,
   suffixIconColor: blackColor,
-  fillColor: whitecolor,
+  fillColor: whiteColor,
   filled: true,
   border: InputBorder.none,
   errorBorder: OutlineInputBorder(

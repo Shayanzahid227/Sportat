@@ -19,7 +19,7 @@ class CustomNewArrivals extends StatelessWidget {
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(
-          color: whitecolor, borderRadius: BorderRadius.circular(8.r)),
+          color: whiteColor, borderRadius: BorderRadius.circular(8.r)),
       child: Column(
         children: [
           ///

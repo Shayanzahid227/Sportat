@@ -56,7 +56,7 @@ class TermsScreen extends StatelessWidget {
           'Article 1',
           style: style25.copyWith(
             fontWeight: FontWeight.w500,
-            color: articalColor,
+            color: articleColor,
           ),
         ),
         20.verticalSpace,
@@ -111,7 +111,7 @@ class TermsScreen extends StatelessWidget {
           'Article 2',
           style: style25.copyWith(
             fontWeight: FontWeight.w500,
-            color: articalColor,
+            color: articleColor,
           ),
         ),
         20.verticalSpace,

@@ -195,7 +195,7 @@ class _SearchScreenState extends State<SearchScreen> {
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       decoration: BoxDecoration(
-        color: isSelected ? secondaryColor : whitecolor,
+        color: isSelected ? secondaryColor : whiteColor,
         border: Border.all(
             width: 2.0, color: isSelected ? secondaryColor : lightGreyColor),
         borderRadius: BorderRadius.circular(10),
@@ -203,7 +203,7 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Text(
         title,
         style: style16B.copyWith(
-          color: isSelected ? whitecolor : lightGreyColor,
+          color: isSelected ? whiteColor : lightGreyColor,
         ),
       ),
     );
