@@ -17,7 +17,7 @@ class _CartScreenState extends State<CartScreen> {
       child: Consumer<CartViewModel>(
         builder: (context, value, child) => Scaffold(
           body: Column(
-            children: [],
+            children: [Text('data')],
           ),
         ),
       ),
