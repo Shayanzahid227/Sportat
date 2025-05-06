@@ -1,18 +1,12 @@
 import 'package:code_structure/core/constants/app_assest.dart';
-import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
-import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/custom_widgets/custom_new_arrivals.dart';
-import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
-import 'package:code_structure/ui/search/search_screen.dart';
 import 'package:code_structure/ui/store/store_view_model.dart';
-import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

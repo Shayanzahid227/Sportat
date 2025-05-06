@@ -4,7 +4,6 @@ import 'package:code_structure/core/model/home_sport_categories_model.dart';
 import 'package:code_structure/core/model/top_subscriptions_screen.dart'
     show TopSubscriptions;
 import 'package:code_structure/core/others/base_view_model.dart';
-import 'package:code_structure/ui/top_subscription_screen/top_subscription_screen.dart';
 import 'package:flutter/material.dart';
 
 class BookingViewModel extends BaseViewModel {

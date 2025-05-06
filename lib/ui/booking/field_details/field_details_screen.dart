@@ -12,12 +12,13 @@ import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class FieldDetailsScreen extends StatefulWidget {
+class BookingFieldDetailsScreen extends StatefulWidget {
   @override
-  State<FieldDetailsScreen> createState() => _FieldDetailsScreenState();
+  State<BookingFieldDetailsScreen> createState() =>
+      _BookingFieldDetailsScreenState();
 }
 
-class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
+class _BookingFieldDetailsScreenState extends State<BookingFieldDetailsScreen> {
   ///
   ///    3rd section
   ///
@@ -483,7 +484,8 @@ class _FieldDetailsScreenState extends State<FieldDetailsScreen> {
                           });
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
                             color: isSelected ? secondaryColor : Colors.white,
                             border: Border.all(

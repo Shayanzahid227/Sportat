@@ -8,7 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTopSubscriptions extends StatelessWidget {
   final TopSubscriptions topSubscriptions;
-  const CustomTopSubscriptions({required this.topSubscriptions});
+  VoidCallback? ClubOnTap;
+  CustomTopSubscriptions(
+      {required this.topSubscriptions, required this.ClubOnTap});
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +52,15 @@ class CustomTopSubscriptions extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30.r,
-                    backgroundColor: Colors.white,
-                    child: Image.asset(
-                      '${topSubscriptions.profileLogo}',
-                      fit: BoxFit.contain,
+                  GestureDetector(
+                    onTap: ClubOnTap,
+                    child: CircleAvatar(
+                      radius: 30.r,
+                      backgroundColor: Colors.white,
+                      child: Image.asset(
+                        '${topSubscriptions.profileLogo}',
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                   SizedBox(width: 8),

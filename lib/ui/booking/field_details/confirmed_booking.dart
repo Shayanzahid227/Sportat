@@ -44,7 +44,7 @@ class ConfirmedBookingScreen extends StatelessWidget {
               CustomButton(
                   text: 'Go To My Bookings',
                   onPressed: () {
-                    Get.to(FieldDetailsScreen());
+                    Get.to(BookingFieldDetailsScreen());
                   }),
               20.verticalSpace,
               CustomButton(

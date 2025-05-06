@@ -9,7 +9,6 @@ import 'package:code_structure/ui/subscription/subscription_check_out.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -30,6 +29,8 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       create: (context) => SubscriptionViewModel(),
       child: Consumer<SubscriptionViewModel>(
         builder: (context, model, child) => Scaffold(
+          backgroundColor: whiteColor,
+
           ///
           /// Start Body
           ///
@@ -37,7 +38,7 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
             child: Column(
               children: [
                 _topHeader(model),
-                SizedBox(height: 180),
+                SizedBox(height: 160),
                 //  CustomMembershipCard(),
 
                 _SecondSection(), 30.verticalSpace,
@@ -349,9 +350,9 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 16.w,
+              crossAxisSpacing: 10.w,
               mainAxisSpacing: 50.h,
-              childAspectRatio: 0.72,
+              childAspectRatio: 0.65,
             ),
             itemCount: membershipsCategory.length,
             itemBuilder: (context, index) {
@@ -363,17 +364,18 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
                 },
                 child: Stack(
                   clipBehavior: Clip.none, // Add this line
+                  alignment: Alignment.bottomCenter,
                   children: [
                     CustomMembershipCard(
                       membership: membershipsCategory[index],
                     ),
                     if (selectedMembershipIndex == index)
                       Positioned(
-                        top: MediaQuery.of(context).size.height * 0.25,
-                        right: MediaQuery.of(context).size.width * 0.18,
+                        bottom: -30,
                         child: Container(
                           width: 56, // Reduced size for better fit
                           height: 60,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: Colors.green,
                             shape: BoxShape.circle,

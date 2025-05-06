@@ -1,19 +1,20 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/core/model/club_model.dart';
-import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
+import 'package:code_structure/custom_widgets/sportat/top_subscription_screen.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:code_structure/ui/search/search_screen.dart';
+import 'package:code_structure/ui/subscription/subscription_field_detail.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
-import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -35,15 +36,19 @@ class _SubscriptionSubCategoryScreenState
     return ChangeNotifierProvider(
       create: (context) => RootViewModel(0),
       child: Consumer2<RootViewModel, SubscriptionViewModel>(
-        builder: (context, rootModel, subscriptionModel, child) => Scaffold(
+        builder: (context, rootModel, model, child) => Scaffold(
           appBar: _appBar(context, rootModel),
           body: Column(
             children: [
               30.verticalSpace,
               Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
                 height: 66.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
+                    // image: DecorationImage(
+                    //     image: AssetImage("${widget.clubObject!.imgUrl}"),
+                    //     fit: BoxFit.cover),
                     gradient: widget.gradient,
                     borderRadius: BorderRadius.circular(20.r)),
                 child: Padding(
@@ -61,17 +66,29 @@ class _SubscriptionSubCategoryScreenState
                           fontSize: 20.sp,
                         ),
                       ),
-                      Spacer(),
-                      Image.asset(
-                        //  "${sportsCategory!.imageUrl}",
-                        "${widget.clubObject!.imgUrl}",
-                        scale: 2,
-                      ),
                     ],
                   ),
                 ),
               ),
-              30.verticalSpace,
+              Expanded(
+                child: ListView.builder(
+                  padding: EdgeInsets.all(20),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: model.bookingFieldList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(SubscriptionFieldDetail());
+                      },
+                      child: CustomTopSubscriptions(
+                        topSubscriptions: model.bookingFieldList[index],
+                        ClubOnTap: () {},
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),

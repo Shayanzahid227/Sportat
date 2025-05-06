@@ -15,7 +15,8 @@ class CustomMembershipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 210.w,
+      width: double.infinity,
+      alignment: Alignment.center,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: membership.color ?? primaryColor,
@@ -46,7 +47,6 @@ class CustomMembershipCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 25,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: whiteColor, width: 2),
@@ -54,10 +54,13 @@ class CustomMembershipCard extends StatelessWidget {
                 child: Icon(Icons.attach_money, color: whiteColor, size: 20),
               ),
               3.horizontalSpace,
-              Text(
-                '${membership.price.toInt()} SAR',
-                style: style14B.copyWith(
-                  color: whiteColor,
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.12,
+                child: Text(
+                  '${membership.price.toInt()} SAR',
+                  style: style14B.copyWith(
+                    color: whiteColor,
+                  ),
                 ),
               ),
               Spacer(),
@@ -67,10 +70,13 @@ class CustomMembershipCard extends StatelessWidget {
                 scale: 5,
               ),
               3.horizontalSpace,
-              Text(
-                membership.points.toString(),
-                style: style14B.copyWith(
-                  color: whiteColor,
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.10,
+                child: Text(
+                  membership.points.toString(),
+                  style: style14B.copyWith(
+                    color: whiteColor,
+                  ),
                 ),
               ),
             ],
@@ -81,14 +87,12 @@ class CustomMembershipCard extends StatelessWidget {
           ),
 
           // Description
-          Text(
-            membership.description,
-            style: TextStyle(
-              fontSize: 14,
-              color: whiteColor,
-              height: 1.4,
+          Expanded(
+            child: Text(
+              membership.description,
+              style: style14.copyWith(color: whiteColor),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ],
       ),

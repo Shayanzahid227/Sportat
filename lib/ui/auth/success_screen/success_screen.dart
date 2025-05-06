@@ -5,6 +5,7 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/auth/success_screen/success_screen_view_model.dart';
 import 'package:code_structure/ui/home/home_screen.dart';
+import 'package:code_structure/ui/root_screen/root_screen.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -138,10 +139,10 @@ class _SuccessScreenState extends State<SuccessScreen> {
       child: CustomButton(
         text: 'Get start',
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeScreen(),
+              builder: (context) => RootScreen(),
             ),
           );
         },

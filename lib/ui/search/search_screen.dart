@@ -214,6 +214,7 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: model.topSubscriptionsList.length,
       itemBuilder: (context, index) => CustomTopSubscriptions(
         topSubscriptions: model.topSubscriptionsList[index],
+        ClubOnTap: () {},
       ),
     );
   }
@@ -223,6 +224,7 @@ class _SearchScreenState extends State<SearchScreen> {
       itemCount: model.topSubscriptionsList.length,
       itemBuilder: (context, index) => CustomTopSubscriptions(
         topSubscriptions: model.topSubscriptionsList[index],
+        ClubOnTap: () {},
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
-import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:code_structure/ui/booking/field_details/confirmed_booking.dart';

@@ -31,7 +31,9 @@ class TopSubScriptionScreen extends StatelessWidget {
               itemCount: model.topSubscriptionsList.length,
               itemBuilder: (BuildContext context, int index) {
                 return CustomTopSubscriptions(
-                    topSubscriptions: model.topSubscriptionsList[index]);
+                  topSubscriptions: model.topSubscriptionsList[index],
+                  ClubOnTap: () {},
+                );
               },
             )),
       ),

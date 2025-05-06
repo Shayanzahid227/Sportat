@@ -1,4 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/constants/auth_text_feild.dart';
 import 'package:code_structure/core/constants/colors.dart';
@@ -8,6 +9,8 @@ import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_
 import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:code_structure/custom_widgets/sportat/top_subscription_screen.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
+import 'package:code_structure/ui/booking/field_details/field_details_screen.dart';
+import 'package:code_structure/ui/club_profile/club_profile_screen.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:code_structure/ui/search/search_screen.dart';
@@ -19,7 +22,8 @@ import 'package:provider/provider.dart';
 class BookingFieldScreen extends StatelessWidget {
   final SportCategoriesModel? sportsCategory;
   final LinearGradient? gradient;
-  BookingFieldScreen({required this.sportsCategory, required this.gradient});
+  const BookingFieldScreen(
+      {required this.sportsCategory, required this.gradient});
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +71,17 @@ class BookingFieldScreen extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: bookingmodel.bookingFieldList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return CustomTopSubscriptions(
-                        topSubscriptions: bookingmodel.bookingFieldList[index]);
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(BookingFieldDetailsScreen());
+                      },
+                      child: CustomTopSubscriptions(
+                        topSubscriptions: bookingmodel.bookingFieldList[index],
+                        ClubOnTap: () {
+                          Get.to(ClubProfileScreen());
+                        },
+                      ),
+                    );
                   },
                 ),
               ),

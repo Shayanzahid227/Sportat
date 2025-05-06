@@ -85,7 +85,7 @@ AppBar _appBar(
         ),
         child: GestureDetector(
           onTap: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => SuccessScreen(),

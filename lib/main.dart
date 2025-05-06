@@ -1,14 +1,10 @@
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
-import 'package:code_structure/ui/booking/booking_screen.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
-import 'package:code_structure/ui/booking/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
-import 'package:code_structure/ui/store/product_detal_screen.dart';
-import 'package:code_structure/ui/store/store_screen.dart';
-import 'package:code_structure/ui/store_categories_screen/store_categories_screen.dart';
-import 'package:code_structure/ui/subscription/subscribtion_screen.dart';
+import 'package:code_structure/ui/splash_screen.dart';
+import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +28,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => TopSubscriptionViewModel()),
         ChangeNotifierProvider(create: (context) => BookingViewModel()),
         ChangeNotifierProvider(create: (context) => RootViewModel(0)),
+        ChangeNotifierProvider(create: (_) => SubscriptionViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: Size(MediaQuery.of(context).size.width,
@@ -47,7 +44,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
                 useMaterial3: true,
               ),
-              home: ProductDetailScreen());
+              home: SplashScreen());
         },
       ),
     );

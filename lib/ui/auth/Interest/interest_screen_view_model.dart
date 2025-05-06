@@ -1,7 +1,7 @@
 import 'package:code_structure/core/constants/app_assest.dart';
 import 'package:code_structure/core/model/Interest_screen_model.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
-import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
+import 'package:code_structure/ui/auth/success_screen/success_screen.dart';
 import 'package:flutter/material.dart';
 
 class InterestScreenViewModel extends BaseViewModel {
@@ -62,7 +62,7 @@ class InterestScreenViewModel extends BaseViewModel {
       ///
       ///change the navigation path Later on
       ///
-      MaterialPageRoute(builder: (_) => SignUpScreen()),
+      MaterialPageRoute(builder: (_) => SuccessScreen()),
     );
   }
 
