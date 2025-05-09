@@ -32,7 +32,8 @@ class ClubProfileScreen extends StatelessWidget {
                   ///
                   Stack(
                     children: [
-                      _borderCircle(model),
+                      _borderCircle(
+                          model), // only in club profile not i n user profile
 
                       ///
                       /// Details Follow, reels and posts
@@ -263,6 +264,9 @@ _topHeader(ClubProfileViewModel model) {
   );
 }
 
+///
+///    follower    reels   and     posts    amount   container
+///
 _social({required String number, required String text}) {
   return Container(
     width: 95.w,
@@ -287,6 +291,9 @@ _social({required String number, required String text}) {
   );
 }
 
+///
+///      reels     posts   and    reposts    amount   container
+///
 _tabs(
     {required String text,
     required bool isSelected,

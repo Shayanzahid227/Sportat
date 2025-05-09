@@ -42,7 +42,7 @@ class InterestScreen extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () => model.toggleSelection(index),
-                      child: CustomInterestScreen(
+                      child: CustomInterestWidget(
                         interestModel: model.interestList[index],
                         isSelected: model.isSelected(index),
                         index: index,

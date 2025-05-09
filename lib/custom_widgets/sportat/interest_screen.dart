@@ -4,12 +4,12 @@ import 'package:code_structure/core/model/Interest_screen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomInterestScreen extends StatelessWidget {
+class CustomInterestWidget extends StatelessWidget {
   final InterestModel interestModel;
   final bool isSelected;
   final int index;
 
-  const CustomInterestScreen({
+  const CustomInterestWidget({
     super.key,
     required this.interestModel,
     required this.index,
@@ -20,7 +20,7 @@ class CustomInterestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
         color: isSelected ? secondaryColor : backGroundColor,
         borderRadius: BorderRadius.circular(82),

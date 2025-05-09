@@ -22,7 +22,7 @@ class RootViewModel extends BaseViewModel {
 
   ///
   /// Constructor
-  ///
+  ///a
   RootViewModel(val) {
     updatedScreen(val);
     notifyListeners();
