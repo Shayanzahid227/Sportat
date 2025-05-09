@@ -10,9 +10,24 @@ import 'package:flutter/material.dart';
 
 class StoreViewModel extends BaseViewModel {
   int _currentIndex = 0;
-
   int get currentIndex => _currentIndex;
   final ScrollController storeScrollController = ScrollController();
+
+  int _selectedColorIndex = 0;
+
+  int get selectedColorIndex => _selectedColorIndex;
+  String _selectedSize = '';
+  String get selectedSize => _selectedSize;
+
+  void selectColor(int index) {
+    _selectedColorIndex = index;
+    notifyListeners();
+  }
+
+  void selectSize(String size) {
+    _selectedSize = size;
+    notifyListeners();
+  }
 
   StoreViewModel() {
     _startStoreAutoScroll();

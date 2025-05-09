@@ -38,8 +38,14 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Sportat',
+              title: 'MOR',
               theme: ThemeData(
+                appBarTheme: AppBarTheme(
+                  backgroundColor: backGroundColor,
+                  surfaceTintColor: backGroundColor,
+                  shadowColor: backGroundColor,
+                  foregroundColor: backGroundColor,
+                ),
                 scaffoldBackgroundColor: backGroundColor,
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
                 useMaterial3: true,

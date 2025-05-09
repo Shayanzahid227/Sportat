@@ -13,9 +13,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
-  int search;
-  SearchScreen({required this.search});
-
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
@@ -57,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               const SizedBox(height: 20),
               _searchField(context),
-              if (widget.search == 0) Expanded(child: _subscriptions(model)),
+              Expanded(child: _subscriptions(model)),
             ],
           ),
         ),

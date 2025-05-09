@@ -1,3 +1,4 @@
+import 'package:code_structure/core/constants/strings.dart';
 import 'package:code_structure/ui/store/cart/cart_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +17,11 @@ class _CartScreenState extends State<CartScreen> {
       create: (context) => CartViewModel(),
       child: Consumer<CartViewModel>(
         builder: (context, value, child) => Scaffold(
-          body: Column(
-            children: [Text('data')],
-          ),
+          body: Center(
+              child: Image.asset(
+            "$iconsAssets/cart.png",
+            scale: 4,
+          )),
         ),
       ),
     );

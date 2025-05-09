@@ -8,6 +8,7 @@ import 'package:code_structure/core/model/club_model.dart';
 import 'package:code_structure/custom_widgets/bottom_sheet/search_filter_bottom_sheet.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:code_structure/custom_widgets/sportat/top_subscription_screen.dart';
+import 'package:code_structure/ui/club_profile/club_profile_screen.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:code_structure/ui/search/search_screen.dart';
@@ -83,7 +84,9 @@ class _SubscriptionSubCategoryScreenState
                       },
                       child: CustomTopSubscriptions(
                         topSubscriptions: model.bookingFieldList[index],
-                        ClubOnTap: () {},
+                        ClubOnTap: () {
+                          Get.to(ClubProfileScreen());
+                        },
                       ),
                     );
                   },
@@ -207,9 +210,7 @@ _searchField(BuildContext context, RootViewModel model) {
               child: TextFormField(
             readOnly: true,
             onTap: () {
-              Get.to(SearchScreen(
-                search: model.selectedScreen,
-              ));
+              Get.to(SearchScreen());
             },
             decoration: authSignUpFieldDecoration.copyWith(
               contentPadding: EdgeInsets.all(5),

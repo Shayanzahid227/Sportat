@@ -2,9 +2,9 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 <!-- android/app/src/main/AndroidManifest.xml -->
     <application
-        android:label="Sportat"
+        android:label="MOR"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         android:usesCleartextTraffic="true" <!-- Allow HTTP -->
 
         <activity

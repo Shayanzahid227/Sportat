@@ -2,9 +2,12 @@
 
 import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/sportat/top_subscription_screen.dart';
+import 'package:code_structure/ui/club_profile/club_profile_screen.dart';
 import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/utils.dart';
 import 'package:provider/provider.dart';
 
 class TopSubScriptionScreen extends StatelessWidget {
@@ -26,13 +29,16 @@ class TopSubScriptionScreen extends StatelessWidget {
             /// Start Body
             ///
             body: ListView.builder(
+              padding: EdgeInsets.all(20),
               physics: BouncingScrollPhysics(),
               shrinkWrap: true,
               itemCount: model.topSubscriptionsList.length,
               itemBuilder: (BuildContext context, int index) {
                 return CustomTopSubscriptions(
                   topSubscriptions: model.topSubscriptionsList[index],
-                  ClubOnTap: () {},
+                  ClubOnTap: () {
+                    Get.to((ClubProfileScreen()));
+                  },
                 );
               },
             )),

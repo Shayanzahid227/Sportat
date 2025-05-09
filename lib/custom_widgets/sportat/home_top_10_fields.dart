@@ -8,9 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTop10Fields extends StatelessWidget {
   HomeTop10FieldsModel top10Field;
-  CustomTop10Fields({
-    required this.top10Field,
-  });
+  VoidCallback? ClubProfileOnTap;
+  CustomTop10Fields({required this.top10Field, required this.ClubProfileOnTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +28,14 @@ class CustomTop10Fields extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(
-                '${top10Field.fieldLogo}',
+            GestureDetector(
+              onTap: ClubProfileOnTap,
+              child: CircleAvatar(
+                backgroundImage: AssetImage(
+                  '${top10Field.fieldLogo}',
+                ),
+                radius: 25.r,
               ),
-              radius: 25.r,
             ),
             10.horizontalSpace,
             Text(

@@ -10,6 +10,7 @@ import 'package:code_structure/ui/auth/login/login_view_model.dart';
 import 'package:code_structure/ui/auth/otp/otp_screen.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_screen.dart';
 import 'package:code_structure/ui/home/home_screen.dart';
+import 'package:code_structure/ui/root_screen/root_screen.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -168,7 +169,7 @@ class LoginScreen extends StatelessWidget {
                       boxColor: transparentColor,
                       textColor: primaryColor,
                       onPressed: () {
-                        Get.offAll(HomeScreen());
+                        Get.offAll(RootScreen());
                       },
                     ),
 

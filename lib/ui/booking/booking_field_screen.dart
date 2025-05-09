@@ -203,9 +203,7 @@ _searchField(BuildContext context, RootViewModel rootmodel) {
               child: TextFormField(
             readOnly: true,
             onTap: () {
-              Get.to(SearchScreen(
-                search: rootmodel.selectedScreen,
-              ));
+              Get.to(SearchScreen());
             },
             decoration: authSignUpFieldDecoration.copyWith(
               contentPadding: EdgeInsets.all(5),

@@ -8,9 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTopSubscriptions extends StatelessWidget {
   TopSubscriptions topSubscriptions;
+  VoidCallback? ClubProfileOnTap;
 
   CustomTopSubscriptions({
     required this.topSubscriptions,
+    required this.ClubProfileOnTap,
   });
 
   @override
@@ -31,11 +33,14 @@ class CustomTopSubscriptions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
-            backgroundImage: AssetImage(
-              '${topSubscriptions.profileLogo}',
+          GestureDetector(
+            onTap: ClubProfileOnTap,
+            child: CircleAvatar(
+              backgroundImage: AssetImage(
+                '${topSubscriptions.profileLogo}',
+              ),
+              radius: 25,
             ),
-            radius: 25,
           ),
           10.horizontalSpace,
           Text(

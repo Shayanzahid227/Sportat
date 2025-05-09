@@ -163,6 +163,8 @@ class AppAssets {
   // ///************** store categories screen  **************************//
   ///
   String addToCartScreenIcon = "$iconsAssets/AddtocartIcon.png";
+  String viewCart = "$iconsAssets/view_cart.png";
+
   String screenStoreCategories1 = "$dynamicAssets/categoriesScreen1.png";
   String screenStoreCategories2 = "$dynamicAssets/categoriesScreen2.png";
   String screenStoreCategories3 = "$dynamicAssets/categoriesScreen3.png";
@@ -215,6 +217,9 @@ class AppAssets {
   String kitIcon = "$iconsAssets/kitIcon.png";
   String carIcon = "$iconsAssets/carIcon.png";
   String showerIcon = "$iconsAssets/showerIcon.png";
+  String play = "$iconsAssets/Play.png";
+  String onlineShop = "$staticAssets/online_shop.png";
+
   //************** check out screen **************************//
   //
   String walletIcon = "$iconsAssets/walletIcon.png";
@@ -248,7 +253,7 @@ class AppAssets {
 
   //************** sportat profile screen **************************//
   //
-  String finalLogo2 = "$staticAssets/finalLogo2.png";
+  String logo = "$staticAssets/logo.png";
 
   ///
   //************************************ *//
@@ -298,5 +303,7 @@ class AppAssets {
   String comment = "$iconsAssets/comment.png";
   String views = "$iconsAssets/views.png";
   String repost = "$iconsAssets/repost.png";
+  String privacy = "$iconsAssets/privacy.png";
+  String returnOption = "$iconsAssets/return_option.png";
   String follow = "$iconsAssets/follow.png";
 }
