@@ -63,6 +63,9 @@ dependencies:
   qr_flutter: ^4.1.0
   reels_viewer:
   smooth_page_indicator:
+  image_picker:
+  permission_handler: ^12.0.0+1
+  dotted_decoration: ^2.0.0
 
   
   

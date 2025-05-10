@@ -5,6 +5,8 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/sportat/interest_screen.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
+import 'package:code_structure/ui/timeline/video_play.dart';
+import 'package:code_structure/ui/user_profile/edit_profile/edit_profile_screen.dart';
 import 'package:code_structure/ui/user_profile/user_profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,9 +38,359 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     /// Details Follow, reels and posts
                     ///
                     _clubInfo(model, interestModel),
-                    _buildTabContent(model.selectedTabIndex),
+
+                    ///
+                    ///      if want to separate each section (reels , post and reposts then uncomment below line )
+                    ///
+
+                    // _buildTabContent(model.selectedTabIndex),
                   ],
                 ),
+                model.selectedTabIndex == 0
+
+                    ///
+                    ///      posts
+                    ///
+                    ? GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: model.videoUrls.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, childAspectRatio: 0.7),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => VideoPlayerPage(
+                                    videoUrls: model.videoUrls,
+                                    startIndex: index,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(left: 16.w),
+                              width: 108.w,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.r),
+                                image: model.videoThumbnails
+                                        .containsKey(model.videoUrls[index])
+                                    ? DecorationImage(
+                                        image: NetworkImage(
+                                            model.videoThumbnails[
+                                                model.videoUrls[index]]!),
+                                        fit: BoxFit.cover,
+                                      )
+                                    : DecorationImage(
+                                        image: AssetImage(AppAssets()
+                                            .profileImage), // Default Image
+                                        fit: BoxFit.cover,
+                                      ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(),
+                                  8.verticalSpace,
+                                  Image.asset(AppAssets().playCircle, scale: 3),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 8.0, left: 8.0),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            AppAssets().play,
+                                            scale: 3,
+                                          ),
+                                          10.horizontalSpace,
+                                          Text(
+                                            "1.2M",
+                                            style: style14B.copyWith(
+                                                color: whiteColor),
+                                          )
+                                        ]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        })
+
+                    ///
+                    ///      reels
+                    ///
+                    : model.selectedTabIndex == 1
+                        ? ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 4,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  ListTile(
+                                    leading: CircleAvatar(
+                                      radius: 20.r,
+                                      backgroundImage:
+                                          AssetImage(AppAssets().profileImage),
+                                    ),
+                                    title: Text(
+                                      "Muhammad Darwish",
+                                      style: style14,
+                                    ),
+                                    subtitle: Text(
+                                      '1 minute ago',
+                                      style:
+                                          style14.copyWith(color: borderColor),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.more_vert,
+                                      color: blackColor,
+                                    ),
+                                  ),
+                                  Container(
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 16),
+                                    height: 183.h,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(5.r),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                AppAssets().vedioImage),
+                                            fit: BoxFit.cover)),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16.0, vertical: 16),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              AppAssets().likee,
+                                              scale: 3,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "12.2k",
+                                              style: style14.copyWith(
+                                                  color: pinkColor),
+                                            ),
+                                            20.horizontalSpace,
+                                            Image.asset(
+                                              AppAssets().repost,
+                                              scale: 3,
+                                              color: bordrColor,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "120",
+                                              style: style14.copyWith(
+                                                  color: bordrColor),
+                                            ),
+                                            20.horizontalSpace,
+                                            Image.asset(
+                                              AppAssets().share,
+                                              scale: 3,
+                                              color: bordrColor,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "12",
+                                              style: style14.copyWith(
+                                                  color: bordrColor),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16.0),
+                                        child: Image.asset(
+                                          AppAssets().addFav,
+                                          scale: 3,
+                                          color: bordrColor,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
+                          )
+                        : ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 4,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  ListTile(
+                                    leading: CircleAvatar(
+                                      radius: 20.r,
+                                      backgroundImage:
+                                          AssetImage(AppAssets().profileImage),
+                                    ),
+                                    title: Text(
+                                      "Muhammad Darwish",
+                                      style: style14,
+                                    ),
+                                    subtitle: Text(
+                                      '1 minute ago',
+                                      style:
+                                          style14.copyWith(color: borderColor),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.more_vert,
+                                      color: blackColor,
+                                    ),
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        height: 183.h,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5.r),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.r),
+                                          child: Image.asset(
+                                            AppAssets().vedioImage,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        top: 5,
+                                        left: 16,
+                                        right: 16,
+                                        child: Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 8),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 15,
+                                                    backgroundImage: AssetImage(
+                                                        AppAssets()
+                                                            .profileImage),
+                                                  ),
+                                                  SizedBox(width: 8),
+                                                  Text(
+                                                    'shayan zahid',
+                                                    style: style12.copyWith(
+                                                        color: whiteColor),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    AppAssets().repost,
+                                                    width: 24,
+                                                    height: 24,
+                                                  ),
+                                                  SizedBox(width: 6),
+                                                  Text(
+                                                    "Repost",
+                                                    style: style12.copyWith(
+                                                        color: whiteColor),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16.0, vertical: 16),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              AppAssets().likee,
+                                              scale: 3,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "12.2k",
+                                              style: style14.copyWith(
+                                                  color: pinkColor),
+                                            ),
+                                            20.horizontalSpace,
+                                            Image.asset(
+                                              AppAssets().repost,
+                                              scale: 3,
+                                              color: bordrColor,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "120",
+                                              style: style14.copyWith(
+                                                  color: bordrColor),
+                                            ),
+                                            20.horizontalSpace,
+                                            Image.asset(
+                                              AppAssets().share,
+                                              scale: 3,
+                                              color: bordrColor,
+                                            ),
+                                            5.horizontalSpace,
+                                            Text(
+                                              "12",
+                                              style: style14.copyWith(
+                                                  color: bordrColor),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 16.0),
+                                        child: Image.asset(
+                                          AppAssets().addFav,
+                                          scale: 3,
+                                          color: bordrColor,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
+                          )
+                // model.selectedTabIndex == 0
+                //     ? Text('reels')
+                //     : model.selectedTabIndex == 1
+                //         ? Text('posts')
+                //         : model.selectedTabIndex == 2
+                //             ? Text('reposts')
+                //             : Text('no data found')
               ],
             ),
           ),
@@ -47,7 +399,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  ///
   ///
   ///     top header section have back and notification button
   ///
@@ -110,158 +461,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   ///
-  ///    follower    reels   and     posts    amount   container
-  ///
-  _social({required String number, required String text}) {
-    return Container(
-      // width: 95.w,
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 9),
-      decoration: BoxDecoration(
-          color: transparentColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(width: 1, color: borderColor)),
-      child: Column(
-        children: [
-          Text(
-            number,
-            style: style16B,
-          ),
-          Text(
-            text,
-            style: style14,
-            maxLines: 1,
-          )
-        ],
-      ),
-    );
-  }
-
-  ///
-  ///      reels     posts   and    reposts    amount   container
-  ///
-  _tabs(
-      {required String text,
-      required bool isSelected,
-      required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        width: 90.w,
-        padding: EdgeInsets.symmetric(vertical: 10),
-        decoration: BoxDecoration(
-          color: isSelected ? secondaryColor : Colors.transparent,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            width: 1,
-            color: isSelected ? secondaryColor : blackColor,
-          ),
-        ),
-        child: Text(
-          text,
-          style: style14.copyWith(color: isSelected ? whiteColor : blackColor),
-        ),
-      ),
-    );
-  }
-
-  ///
-  ///     user interest
-  ///
-  _userInterestSection(InterestScreenViewModel model) {
-    return Padding(
-      padding: EdgeInsets.symmetric(),
-      child: Row(
-        children: [
-          CustomInterestWidget(
-              interestModel: model.interestList[0],
-              index: 0,
-              isSelected: false),
-          5.horizontalSpace,
-          CustomInterestWidget(
-              interestModel: model.interestList[2],
-              index: 1,
-              isSelected: false),
-          5.horizontalSpace,
-          CustomInterestWidget(
-              interestModel: model.interestList[3], index: 3, isSelected: false)
-        ],
-      ),
-    );
-  }
-
-  ///
-  /// Content widgets for each tab
-  ///
-  Widget _buildReelsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Reels Content Will Appear Here",
-          style: style16B,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPostsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Posts Content Will Appear Here",
-          style: style16B,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRepostsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Reposts Content Will Appear Here",
-          style: style16B,
-        ),
-      ),
-    );
-  }
-
-  ///
-  /// Method to switch between content based on selected tab
-  ///
-  Widget _buildTabContent(int selectedIndex) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 630.0),
-      child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 300),
-        child: _getContentWidget(selectedIndex),
-      ),
-    );
-  }
-
-  Widget _getContentWidget(int selectedIndex) {
-    switch (selectedIndex) {
-      case 0:
-        return _buildReelsContent(key: ValueKey('reels'));
-      case 1:
-        return _buildPostsContent(key: ValueKey('posts'));
-      case 2:
-        return _buildRepostsContent(key: ValueKey('reposts'));
-      default:
-        return _buildReelsContent(key: ValueKey('reels_default'));
-    }
-  }
-
-  ///
   /// Club Info Widget with updated tab content section
   ///
   _clubInfo(UserProfileViewModel model, InterestScreenViewModel interestModel) {
@@ -320,23 +519,29 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 20.verticalSpace,
                 Center(
-                  child: Container(
-                    width: 150,
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: primaryColor, width: 0.3)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "edit Profile",
-                          style: style14.copyWith(
-                            color: titleColor,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(EditProfileScreen());
+                    },
+                    child: Container(
+                      width: 150,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: primaryColor, width: 0.3)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "edit Profile",
+                            style: style14.copyWith(
+                              color: titleColor,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -427,6 +632,158 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  ///
+  ///    follower    reels   and     posts    amount   container
+  ///
+  _social({required String number, required String text}) {
+    return Container(
+      // width: 95.w,
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 9),
+      decoration: BoxDecoration(
+          color: transparentColor,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(width: 1, color: borderColor)),
+      child: Column(
+        children: [
+          Text(
+            number,
+            style: style16B,
+          ),
+          Text(
+            text,
+            style: style14,
+            maxLines: 1,
+          )
+        ],
+      ),
+    );
+  }
+
+  ///
+  ///      reels     posts   and    reposts    amount   container
+  ///
+  _tabs(
+      {required String text,
+      required bool isSelected,
+      required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        width: 90.w,
+        padding: EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          color: isSelected ? secondaryColor : Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            width: 1,
+            color: isSelected ? secondaryColor : blackColor,
+          ),
+        ),
+        child: Text(
+          text,
+          style: style14.copyWith(color: isSelected ? whiteColor : blackColor),
+        ),
+      ),
+    );
+  }
+
+  ///
+  ///     user interest
+  ///
+  _userInterestSection(InterestScreenViewModel model) {
+    return Padding(
+      padding: EdgeInsets.symmetric(),
+      child: Row(
+        children: [
+          CustomInterestWidget(
+              interestModel: model.interestList[0],
+              index: 0,
+              isSelected: false),
+          5.horizontalSpace,
+          CustomInterestWidget(
+              interestModel: model.interestList[2],
+              index: 1,
+              isSelected: false),
+          5.horizontalSpace,
+          CustomInterestWidget(
+              interestModel: model.interestList[3], index: 3, isSelected: false)
+        ],
+      ),
+    );
+  }
+
+  ///
+  /// Method to switch between content based on selected tab
+  ///
+  Widget _buildTabContent(int selectedIndex) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 630.0),
+      child: AnimatedSwitcher(
+        duration: Duration(milliseconds: 300),
+        child: _getContentWidget(selectedIndex),
+      ),
+    );
+  }
+
+  Widget _getContentWidget(int selectedIndex) {
+    switch (selectedIndex) {
+      case 0:
+        return _buildReelsContent(key: ValueKey('reels'));
+      case 1:
+        return _buildPostsContent(key: ValueKey('posts'));
+      case 2:
+        return _buildRepostsContent(key: ValueKey('reposts'));
+      default:
+        return _buildReelsContent(key: ValueKey('reels_default'));
+    }
+  }
+
+  ///
+  /// Content widgets for each tab
+  ///
+  Widget _buildReelsContent({Key? key}) {
+    return Container(
+      key: key,
+      height: 200, // Adjust height as needed
+      padding: EdgeInsets.all(16),
+      child: Center(
+        child: Text(
+          "Reels Content Will Appear Here",
+          style: style16B,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPostsContent({Key? key}) {
+    return Container(
+      key: key,
+      height: 200, // Adjust height as needed
+      padding: EdgeInsets.all(16),
+      child: Center(
+        child: Text(
+          "Posts Content Will Appear Here",
+          style: style16B,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRepostsContent({Key? key}) {
+    return Container(
+      key: key,
+      height: 200, // Adjust height as needed
+      padding: EdgeInsets.all(16),
+      child: Center(
+        child: Text(
+          "Reposts Content Will Appear Here",
+          style: style16B,
+        ),
       ),
     );
   }

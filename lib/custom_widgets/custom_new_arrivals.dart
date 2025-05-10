@@ -15,7 +15,7 @@ class CustomNewArrivals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160.w,
+      //  width: 160.w,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class CustomNewArrivals extends StatelessWidget {
               color: blackColor,
             ),
           ),
-          10.verticalSpace,
+          5.verticalSpace,
 
           ///
           /// Price

@@ -88,6 +88,10 @@ class AppAssets {
   String subscribe = "$iconsAssets/subscribe.png";
   String store = "$iconsAssets/store.png";
   String timeline = "$iconsAssets/timeline.png";
+  String boxIcon = "$iconsAssets/boxIcon.png";
+  String whiteheartIcon = "$iconsAssets/whiteheartIcon.svg";
+  String settingIcon = "$iconsAssets/settingIcon.png";
+  String helpIcon = "$iconsAssets/helpIcon.png";
 
   ///
   ///
@@ -110,6 +114,7 @@ class AppAssets {
 
   String searchfieldIcon = "$iconsAssets/searchfieldicon.png";
   String notificationIcon = "$iconsAssets/notificationicon.png";
+  String noteIcon = "$iconsAssets/noteIcon.png";
   //
   //   sub part of home screen-->  sport categories
   String spotsCategoriesIcon = "$iconsAssets/spotscoategoriesicon.png";
@@ -254,6 +259,13 @@ class AppAssets {
   //************** sportat profile screen **************************//
   //
   String logo = "$staticAssets/logo.png";
+  String settingLogo = "$staticAssets/settingLogo.png";
+  String i = "$iconsAssets/i.png";
+  String l = "$iconsAssets/l.png";
+  String t = "$iconsAssets/t.png";
+  String w = "$iconsAssets/w.png";
+  String f = "$iconsAssets/f.png";
+  String x = "$iconsAssets/x.png";
 
   ///
   //************************************ *//
@@ -306,4 +318,5 @@ class AppAssets {
   String privacy = "$iconsAssets/privacy.png";
   String returnOption = "$iconsAssets/return_option.png";
   String follow = "$iconsAssets/follow.png";
+  String settingLogo2 = "$staticAssets/settingLogo2.png";
 }

@@ -6,20 +6,22 @@ import 'package:code_structure/custom_widgets/buttons/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  String? title;
-  Color? backgroundColor;
-  Color? surfaceTintColor;
-  Color? shadowColor;
-  Color? foregroundColor;
-  bool? isBackButton;
+  final String? title;
+  final Color? backgroundColor;
+  final Color? surfaceTintColor;
+  final Color? shadowColor;
+  final Color? foregroundColor;
+  final bool? isBackButton;
+  final Color? titleColor;
 
   CustomAppBar({
-    required this.title,
+    this.title,
     this.backgroundColor,
     this.surfaceTintColor,
     this.shadowColor,
     this.foregroundColor,
     this.isBackButton,
+    this.titleColor = lightGreyColor,
   });
 
   @override
@@ -41,10 +43,10 @@ class CustomAppBar extends StatelessWidget {
           : null,
       centerTitle: true,
       title: Text(
-        "$title",
+        title ?? "",
         style: style25B.copyWith(
           fontWeight: FontWeight.w500,
-          color: lightGreyColor,
+          color: titleColor,
         ),
       ),
     );
