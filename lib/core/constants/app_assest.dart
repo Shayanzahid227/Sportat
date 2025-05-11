@@ -266,6 +266,10 @@ class AppAssets {
   String w = "$iconsAssets/w.png";
   String f = "$iconsAssets/f.png";
   String x = "$iconsAssets/x.png";
+  String historyIcon = "$iconsAssets/history.png";
+  String arrowRightIcon = "$iconsAssets/ArrowRight.png";
+  String cardsIcon = "$iconsAssets/cards.png";
+  String depositIcon = "$iconsAssets/deposit.png";
 
   ///
   //************************************ *//

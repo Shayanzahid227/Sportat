@@ -384,13 +384,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               );
                             },
                           )
-                // model.selectedTabIndex == 0
-                //     ? Text('reels')
-                //     : model.selectedTabIndex == 1
-                //         ? Text('posts')
-                //         : model.selectedTabIndex == 2
-                //             ? Text('reposts')
-                //             : Text('no data found')
               ],
             ),
           ),
@@ -713,77 +706,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           CustomInterestWidget(
               interestModel: model.interestList[3], index: 3, isSelected: false)
         ],
-      ),
-    );
-  }
-
-  ///
-  /// Method to switch between content based on selected tab
-  ///
-  Widget _buildTabContent(int selectedIndex) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 630.0),
-      child: AnimatedSwitcher(
-        duration: Duration(milliseconds: 300),
-        child: _getContentWidget(selectedIndex),
-      ),
-    );
-  }
-
-  Widget _getContentWidget(int selectedIndex) {
-    switch (selectedIndex) {
-      case 0:
-        return _buildReelsContent(key: ValueKey('reels'));
-      case 1:
-        return _buildPostsContent(key: ValueKey('posts'));
-      case 2:
-        return _buildRepostsContent(key: ValueKey('reposts'));
-      default:
-        return _buildReelsContent(key: ValueKey('reels_default'));
-    }
-  }
-
-  ///
-  /// Content widgets for each tab
-  ///
-  Widget _buildReelsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Reels Content Will Appear Here",
-          style: style16B,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPostsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Posts Content Will Appear Here",
-          style: style16B,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildRepostsContent({Key? key}) {
-    return Container(
-      key: key,
-      height: 200, // Adjust height as needed
-      padding: EdgeInsets.all(16),
-      child: Center(
-        child: Text(
-          "Reposts Content Will Appear Here",
-          style: style16B,
-        ),
       ),
     );
   }
