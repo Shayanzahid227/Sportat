@@ -1,6 +1,7 @@
 import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_bookings/booking_detail.dart';
 import 'package:code_structure/ui/user_profile/menu_and_setting/my_bookings/my_booking_view_model.dart';
 import 'package:code_structure/ui/user_profile/my_orders/detail_order.dart';
 import 'package:code_structure/ui/user_profile/my_orders/track_order.dart';
@@ -217,7 +218,7 @@ class CustomSubscriptionCard extends StatelessWidget {
                     if (!showDetailsButton && onTrackTap != null)
                       GestureDetector(
                         onTap: () {
-                          Get.to(TrackOrderScreen());
+                          Get.to(BookingDetailScreen());
                         },
                         child: Container(
                           height: 40.h,
@@ -241,7 +242,7 @@ class CustomSubscriptionCard extends StatelessWidget {
                     if (showDetailsButton && onDetailsTap != null)
                       GestureDetector(
                         onTap: () {
-                          Get.to(OrderDetailScreen());
+                          Get.to(BookingDetailScreen());
                         },
                         child: Container(
                           height: 40.h,

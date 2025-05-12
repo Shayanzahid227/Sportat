@@ -466,13 +466,13 @@ class _SubscriptionFieldDetailState extends State<SubscriptionFieldDetail> {
       children: [
         Text(
           title,
-          style: style16.copyWith(
+          style: style14.copyWith(
             color: lightGreyColor,
           ),
         ),
         Text(
           price,
-          style: style16B.copyWith(
+          style: style14.copyWith(
             color: color,
           ),
         ),

@@ -75,7 +75,7 @@ class MenuAndSettingsScreen extends StatelessWidget {
             ),
             SelectableCard(
               onTap: () {
-                Get.to(MySubscriptionScreen());
+                Get.to(MySUbscriptionScreen());
               },
               imagePath: AppAssets().topSubscriptionIcon,
               text: 'My \nSubscription',

@@ -743,13 +743,13 @@ class _BookingFieldDetailsScreenState extends State<BookingFieldDetailsScreen> {
       children: [
         Text(
           title,
-          style: style16B.copyWith(
-            color: const Color(0xff5B7083),
+          style: style14.copyWith(
+            color: lightGreyColor,
           ),
         ),
         Text(
           price,
-          style: style16.copyWith(
+          style: style14.copyWith(
             color: color,
           ),
         ),
