@@ -6,7 +6,7 @@ import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/auth/success_screen/success_screen_view_model.dart';
 import 'package:code_structure/ui/home/home_screen.dart';
 import 'package:code_structure/ui/root_screen/root_screen.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/wallet/wallet_screen.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_wallet/wallet_screen.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

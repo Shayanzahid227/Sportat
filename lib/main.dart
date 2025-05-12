@@ -5,10 +5,11 @@ import 'package:code_structure/ui/booking/booking_view_model.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart';
 import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
-import 'package:code_structure/ui/user_profile/followings_followers/follow_following.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/wallet/amount_added_to_wallet.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/wallet/depositt_screen.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/wallet/wallet_screen.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/menu_and_settings.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_bookings/my_booking_screen.dart';
+import 'package:code_structure/ui/user_profile/my_orders/detail_order.dart';
+import 'package:code_structure/ui/user_profile/my_orders/my_orders_screen.dart';
+import 'package:code_structure/ui/user_profile/my_orders/track_order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
                 useMaterial3: true,
               ),
-              home: FollowFollowingScreen());
+              home: MyBookingScreen());
         },
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:code_structure/core/others/base_view_model.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/wallet/wallet_screen.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_wallet/wallet_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 class WalletViewModel extends BaseViewModel {

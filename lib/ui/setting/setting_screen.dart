@@ -11,7 +11,7 @@ class SettingScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(56.0),
         child: CustomAppBar(
           isBackButton: true,
-          title: "Verification Request",
+          title: "Setting Screen",
         ),
       ),
       body: Column(

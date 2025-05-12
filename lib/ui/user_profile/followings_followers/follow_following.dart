@@ -147,59 +147,65 @@ class FollowerFollowingListItem extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: Row(
+      child: Column(
         children: [
-          CircleAvatar(
-            radius: 25.r,
-            backgroundImage: AssetImage(
-              AppAssets().profileImage,
-            ),
-            backgroundColor: Colors.grey.shade300,
-          ),
-          SizedBox(width: 12.w),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  user.name,
-                  style: style18.copyWith(fontWeight: FontWeight.w500),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 25.r,
+                backgroundImage: AssetImage(
+                  AppAssets().profileImage,
                 ),
-                Text(
-                  '${user.followerCount}  Followers',
-                  style: style12.copyWith(color: darkGreyColor),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(width: 12.w),
-          GestureDetector(
-            onTap: () {
-              model.toggleFollowStatus(user.id);
-            },
-            child: Container(
-              width: 100.w,
-              decoration: BoxDecoration(
-                color: user.isFollowing ? Colors.white : secondaryColor,
-                border: Border.all(
-                  color: user.isFollowing ? Colors.red : transparentColor,
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(16),
+                backgroundColor: Colors.grey.shade300,
               ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Center(
-                  child: Text(
-                    user.isFollowing ? 'UnFollow' : 'Follow',
-                    style: style14.copyWith(
-                      color: user.isFollowing ? Colors.red : whiteColor,
+              SizedBox(width: 12.w),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      user.name,
+                      style: style18.copyWith(fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      '${user.followerCount}  Followers',
+                      style: style12.copyWith(color: darkGreyColor),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(width: 12.w),
+              GestureDetector(
+                onTap: () {
+                  model.toggleFollowStatus(user.id);
+                },
+                child: Container(
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                    color: user.isFollowing ? Colors.white : secondaryColor,
+                    border: Border.all(
+                      color: user.isFollowing ? Colors.red : transparentColor,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    child: Center(
+                      child: Text(
+                        user.isFollowing ? 'UnFollow' : 'Follow',
+                        style: style14.copyWith(
+                          color: user.isFollowing ? Colors.red : whiteColor,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          )
+            ],
+          ),
+          10.verticalSpace,
+          Divider()
         ],
       ),
     );

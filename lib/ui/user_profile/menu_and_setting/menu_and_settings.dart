@@ -5,7 +5,11 @@ import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
 import 'package:code_structure/ui/setting/setting_screen.dart';
 import 'package:code_structure/ui/user_profile/menu_and_setting/help_screen.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/my_orders.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_bookings/my_booking_screen.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_note/my_note.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_subscription/my_subscription.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/my_wallet/wallet_screen.dart';
+import 'package:code_structure/ui/user_profile/my_orders/my_orders_screen.dart';
 import 'package:code_structure/ui/user_profile/menu_and_setting/wish_list/my_wish_list.dart';
 import 'package:code_structure/ui/user_profile/menu_and_setting/shipping_address.dart';
 import 'package:flutter/material.dart';
@@ -61,14 +65,18 @@ class MenuAndSettingsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SelectableCard(
-              onTap: () {},
+              onTap: () {
+                Get.to(MyBookingScreen());
+              },
               imagePath: AppAssets().booking,
               text: 'My Booking',
               borderColor: secondaryColor,
               iconContainerColor: secondaryColor,
             ),
             SelectableCard(
-              onTap: () {},
+              onTap: () {
+                Get.to(MySubscriptionScreen());
+              },
               imagePath: AppAssets().topSubscriptionIcon,
               text: 'My \nSubscription',
               borderColor: primaryColor,
@@ -81,14 +89,18 @@ class MenuAndSettingsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SelectableCard(
-              onTap: () {},
+              onTap: () {
+                Get.to(MyNoteScreen());
+              },
               imagePath: AppAssets().noteIcon,
               text: 'My Notes',
               borderColor: secondaryColor,
               iconContainerColor: lightGreyColor,
             ),
             SelectableCard(
-              onTap: () {},
+              onTap: () {
+                Get.to(WalletScreen());
+              },
               imagePath: AppAssets().walletIcon,
               text: 'My wallet',
               borderColor: secondaryColor,
