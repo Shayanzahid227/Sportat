@@ -11,7 +11,6 @@ import 'package:code_structure/ui/user_profile/menu_and_setting/my_subscription/
 import 'package:code_structure/ui/user_profile/menu_and_setting/my_wallet/wallet_screen.dart';
 import 'package:code_structure/ui/user_profile/my_orders/my_orders_screen.dart';
 import 'package:code_structure/ui/user_profile/menu_and_setting/wish_list/my_wish_list.dart';
-import 'package:code_structure/ui/user_profile/menu_and_setting/shipping_address.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/get_core.dart';
@@ -151,7 +150,6 @@ class MenuAndSettingsScreen extends StatelessWidget {
                 title: 'Shipping Address',
                 trailingIcon: Icons.arrow_forward_ios,
                 onTap: () {
-                  Get.to(ShippingAddressScreen());
                   print('Tapped My Notes');
                 },
               ),

@@ -5,8 +5,10 @@ import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/sportat/interest_screen.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/notification/notification_screen.dart';
+import 'package:code_structure/ui/setting/setting_screen.dart';
 import 'package:code_structure/ui/timeline/video_play.dart';
 import 'package:code_structure/ui/user_profile/edit_profile/edit_profile_screen.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/menu_and_settings.dart';
 import 'package:code_structure/ui/user_profile/user_profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -397,7 +399,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   ///
   _topHeaderSection() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 50.0, left: 15),
@@ -420,6 +422,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ),
           ),
         ),
+        Spacer(),
         GestureDetector(
           onTap: () {
             Get.to(NotificationScreen());
@@ -444,6 +447,39 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               ),
               child: Image.asset(
                 AppAssets().notificationIcon,
+                scale: 3,
+              ),
+            ),
+          ),
+        ),
+
+        ///
+        ///     menu and  setting
+        ///
+        GestureDetector(
+          onTap: () {
+            Get.to(MenuAndSettingsScreen());
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 50.0, right: 15),
+            child: Container(
+              height: 45.h,
+              width: 45.w,
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: transparentColor),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 1),
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                AppAssets().settingIcon,
                 scale: 3,
               ),
             ),

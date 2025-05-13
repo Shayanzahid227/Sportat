@@ -3,8 +3,12 @@ import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/core/constants/text_style.dart';
 import 'package:code_structure/custom_widgets/app_bar/custom_app_bar.dart';
 import 'package:code_structure/custom_widgets/buttons/custom_button.dart';
+import 'package:code_structure/ui/user_profile/menu_and_setting/customer_support/customer_suppoet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/utils.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class TrackOrderScreen extends StatelessWidget {
   const TrackOrderScreen({super.key});
@@ -22,8 +26,8 @@ class TrackOrderScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             20.verticalSpace,
-            Text('shipping phase remain '),
-            10.verticalSpace,
+            const _OrderTimeline(),
+            20.verticalSpace,
             _secondSection(),
             GestureDetector(
               onTap: () {},
@@ -51,7 +55,9 @@ class TrackOrderScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(right: 15),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(CustomerSupportScreen());
+                  },
                   child: CircleAvatar(
                     radius: 30,
                     backgroundColor: primaryColor.withOpacity(0.3),
@@ -263,6 +269,316 @@ class TrackOrderScreen extends StatelessWidget {
           style: style14N.copyWith(color: textColor ?? darkGreyColor),
         )
       ],
+    );
+  }
+}
+
+///
+///
+///     top section showing status of order
+///
+class _OrderTimeline extends StatelessWidget {
+  const _OrderTimeline({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Order ID : #123456',
+            style: style14N.copyWith(color: darkGreyColor),
+          ),
+
+          // 1. Placed
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'April 15',
+                      style: style12.copyWith(color: darkGreyColor),
+                    ),
+                    Text(
+                      '12:05',
+                      style: style12.copyWith(color: lightGreyColor),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TimelineTile(
+                  alignment: TimelineAlign.manual,
+                  lineXY: 0.10,
+                  isFirst: true,
+                  indicatorStyle: IndicatorStyle(
+                    width: 30,
+                    height: 30,
+                    indicator: Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: whiteColor,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(2),
+                        child: CircleAvatar(
+                          backgroundColor: secondaryColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Icon(
+                              Icons.check,
+                              color: whiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  endChild: _TimelineItem(
+                    title: 'Placed',
+                    //dateTime: '',
+                  ),
+                  beforeLineStyle:
+                      const LineStyle(color: secondaryColor, thickness: 5),
+                ),
+              ),
+            ],
+          ),
+
+          // 2. Picked Up
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'April 15',
+                      style: style12.copyWith(color: darkGreyColor),
+                    ),
+                    Text(
+                      '12:05',
+                      style: style12.copyWith(color: lightGreyColor),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TimelineTile(
+                  alignment: TimelineAlign.manual,
+                  lineXY: 0.10,
+                  indicatorStyle: IndicatorStyle(
+                    width: 30,
+                    height: 30,
+                    indicator: Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: whiteColor,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(2),
+                        child: CircleAvatar(
+                          backgroundColor: secondaryColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Icon(
+                              Icons.check,
+                              color: whiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    color: primaryColor,
+                  ),
+                  endChild: _TimelineItem(
+                    title: 'Picked up',
+                    //dateTime: '',
+                  ),
+                  beforeLineStyle:
+                      const LineStyle(color: secondaryColor, thickness: 5),
+                  afterLineStyle:
+                      const LineStyle(color: secondaryColor, thickness: 5),
+                ),
+              ),
+            ],
+          ),
+
+          // 3. On the way
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'April 15',
+                      style: style12.copyWith(color: darkGreyColor),
+                    ),
+                    Text(
+                      '12:05',
+                      style: style12.copyWith(color: lightGreyColor),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TimelineTile(
+                  alignment: TimelineAlign.manual,
+                  lineXY: 0.10,
+                  indicatorStyle: IndicatorStyle(
+                    width: 30,
+                    height: 30,
+                    indicator: Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: secondaryColor,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(2),
+                        child: CircleAvatar(
+                          backgroundColor: whiteColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: CircleAvatar(
+                              backgroundColor: secondaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    color: whiteColor,
+                  ),
+                  endChild: _TimelineItem(
+                    title: 'On the way',
+                    //dateTime: '',
+                  ),
+                  beforeLineStyle:
+                      const LineStyle(color: secondaryColor, thickness: 5),
+                  afterLineStyle: LineStyle(
+                    color: lightGreyColor.withOpacity(0.4),
+                    thickness: 5,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // 4. Delivered
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'April 15',
+                      style: style12.copyWith(color: darkGreyColor),
+                    ),
+                    Text(
+                      '12:05',
+                      style: style12.copyWith(color: lightGreyColor),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TimelineTile(
+                  alignment: TimelineAlign.manual,
+                  lineXY: 0.10,
+                  isLast: true,
+                  indicatorStyle: IndicatorStyle(
+                    width: 30,
+                    height: 30,
+                    indicator: Container(
+                      height: 25,
+                      width: 25,
+                      decoration: BoxDecoration(
+                        color: whiteColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(5),
+                        child: CircleAvatar(
+                          backgroundColor: lightGreyColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  endChild: _TimelineItem(
+                    title: 'Delivered',
+                    //  dateTime: '',
+                    isCompleted: false,
+                  ),
+                  beforeLineStyle: LineStyle(
+                    color: lightGreyColor.withOpacity(0.4),
+                    thickness: 5,
+                  ),
+                  afterLineStyle: LineStyle(
+                    color: lightGreyColor.withOpacity(0.4),
+                    thickness: 5,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TimelineItem extends StatelessWidget {
+  const _TimelineItem({
+    required this.title,
+    this.dateTime,
+    this.isCompleted = true,
+  });
+
+  final String title;
+  final String? dateTime;
+  final bool isCompleted;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            title,
+            style: style18.copyWith(
+              fontWeight: FontWeight.w500,
+              color: isCompleted ? darkGreyColor : Colors.grey[600],
+            ),
+          ),
+          // 5.verticalSpace,
+          // Text(
+          //   dateTime ?? '',
+          //   style: style12.copyWith(color: Colors.grey),
+          // ),
+        ],
+      ),
     );
   }
 }

@@ -43,6 +43,8 @@ class AppAssets {
   String googleIcon = "$iconsAssets/facebook.png";
   String facebookIcon = "$iconsAssets/google.png";
   String close = "$iconsAssets/close.png";
+  String logoutIcon = "$iconsAssets/logoutIcon.png";
+  String translationIcon = "$iconsAssets/translationIcon.png";
 
   ///
   ///  otp screen
