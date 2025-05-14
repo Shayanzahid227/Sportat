@@ -2,13 +2,12 @@ import 'package:code_structure/core/constants/colors.dart';
 import 'package:code_structure/ui/auth/Interest/interest_screen_view_model.dart';
 import 'package:code_structure/ui/auth/sign_up/sign_up_view_model.dart';
 import 'package:code_structure/ui/booking/booking_view_model.dart';
+import 'package:code_structure/ui/booking/field_details/field_details_screen.dart';
 import 'package:code_structure/ui/root_screen/root_view_model.dart';
-import 'package:code_structure/ui/setting/setting_screen.dart';
+import 'package:code_structure/ui/store/store_screen.dart';
 import 'package:code_structure/ui/subscription/subscription_view_model.dart'
     show SubscriptionViewModel;
 import 'package:code_structure/ui/top_subscription_screen/top_subscription_view_model.dart';
-import 'package:code_structure/ui/user_profile/my_orders/track_order.dart';
-import 'package:code_structure/ui/user_profile/user_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
@@ -16,7 +15,6 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -40,20 +38,21 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return GetMaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'MOR',
-              theme: ThemeData(
-                appBarTheme: AppBarTheme(
-                  backgroundColor: backGroundColor,
-                  surfaceTintColor: backGroundColor,
-                  shadowColor: backGroundColor,
-                  foregroundColor: backGroundColor,
-                ),
-                scaffoldBackgroundColor: backGroundColor,
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-                useMaterial3: true,
+            debugShowCheckedModeBanner: false,
+            title: 'MOR',
+            theme: ThemeData(
+              appBarTheme: AppBarTheme(
+                backgroundColor: backGroundColor,
+                surfaceTintColor: backGroundColor,
+                shadowColor: backGroundColor,
+                foregroundColor: backGroundColor,
               ),
-              home: UserProfileScreen());
+              scaffoldBackgroundColor: backGroundColor,
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+              useMaterial3: true,
+            ),
+            home: StoreScreen(),
+          );
         },
       ),
     );
